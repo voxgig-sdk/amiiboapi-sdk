@@ -1,0 +1,22 @@
+# BasicCharacterFlow
+
+main: kit: flow: BasicCharacterFlow:
+{
+  entity: "character",
+  kind: "basic",
+  name: "BasicCharacterFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "character_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCharacterFlow"
+}

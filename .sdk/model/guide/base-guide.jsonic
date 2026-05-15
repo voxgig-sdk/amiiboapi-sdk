@@ -1,0 +1,39 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 5
+  metrics: count: path: 5
+  metrics: count: method: 5
+
+  entity: amiibo: {
+    path: "/amiibo": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.amiibo`")|top
+    }
+  }
+
+  entity: amiiboseries: {
+    path: "/amiiboseries": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: character: {
+    path: "/character": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: gameseries: {
+    path: "/gameseries": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: type: {
+    path: "/type": {
+      op: list: method: *GET
+    }
+  }
+
+}

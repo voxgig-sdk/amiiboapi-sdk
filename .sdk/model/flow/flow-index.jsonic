@@ -1,0 +1,7 @@
+# Flows
+
+@"BasicAmiiboFlow.jsonic"
+@"BasicAmiiboseriesFlow.jsonic"
+@"BasicCharacterFlow.jsonic"
+@"BasicGameseriesFlow.jsonic"
+@"BasicTypeFlow.jsonic"

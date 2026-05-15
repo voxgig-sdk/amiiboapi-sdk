@@ -1,0 +1,54 @@
+{
+  "existing": {
+    "amiibo": {
+      "AMIIBO00": {
+        "amiibo_series": "s5a",
+        "character": "s5b",
+        "game_series": "s5c",
+        "head": "s5d",
+        "image": "s5e",
+        "name": "s5f",
+        "release": {},
+        "tail": "s61",
+        "type": "s62"
+      },
+      "AMIIBO01": {
+        "amiibo_series": "sb4",
+        "character": "sb5",
+        "game_series": "sb6",
+        "head": "sb7",
+        "image": "sb8",
+        "name": "sb9",
+        "release": {},
+        "tail": "sbb",
+        "type": "sbc"
+      },
+      "AMIIBO02": {
+        "amiibo_series": "s10e",
+        "character": "s10f",
+        "game_series": "s110",
+        "head": "s111",
+        "image": "s112",
+        "name": "s113",
+        "release": {},
+        "tail": "s115",
+        "type": "s116"
+      }
+    }
+  },
+  "new": {
+    "amiibo": {
+      "amiibo_ref01": {
+        "amiibo_series": "s168",
+        "character": "s169",
+        "game_series": "s16a",
+        "head": "s16b",
+        "image": "s16c",
+        "name": "s16d",
+        "release": {},
+        "tail": "s16f",
+        "type": "s170"
+      }
+    }
+  }
+}

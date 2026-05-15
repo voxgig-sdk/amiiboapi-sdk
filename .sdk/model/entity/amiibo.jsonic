@@ -1,0 +1,149 @@
+# Entity: amiibo
+
+main: kit: entity: amiibo: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "amiibo_series"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "character"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "game_series"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "head"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "image"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "release"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "tail"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "amiibo"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "amiibo_series"
+                orig: "amiibo_series"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "character"
+                orig: "character"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "game_series"
+                orig: "game_series"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "head"
+                orig: "head"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "showusage"
+                orig: "showusage"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "tail"
+                orig: "tail"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/amiibo"
+          parts: [
+            "amiibo"
+          ]
+          select: {
+            exist: [
+              "amiibo_series"
+              "character"
+              "game_series"
+              "head"
+              "name"
+              "showusage"
+              "tail"
+              "type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

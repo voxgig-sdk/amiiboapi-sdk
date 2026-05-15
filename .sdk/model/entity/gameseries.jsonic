@@ -1,0 +1,42 @@
+# Entity: gameseries
+
+main: kit: entity: gameseries: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "key"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "gameseries"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/gameseries"
+          parts: [
+            "gameseries"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

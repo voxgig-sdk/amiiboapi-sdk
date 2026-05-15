@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "character": {
+      "CHARACTER00": {
+        "key": "s14",
+        "name": "s15"
+      },
+      "CHARACTER01": {
+        "key": "s28",
+        "name": "s29"
+      },
+      "CHARACTER02": {
+        "key": "s3c",
+        "name": "s3d"
+      }
+    }
+  },
+  "new": {
+    "character": {
+      "character_ref01": {
+        "key": "s50",
+        "name": "s51"
+      }
+    }
+  }
+}

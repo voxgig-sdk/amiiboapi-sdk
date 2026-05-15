@@ -1,0 +1,437 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AmiiboAPI",
+    "description": "A RESTful API for Amiibo providing information on different amiibos, types, game series, characters, and more. It is primarily used for educational purposes and allows reading-only access with no authentication required.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://amiiboapi.com/docs/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.amiiboapi.com/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/amiibo": {
+      "get": {
+        "summary": "Get Amiibo information",
+        "description": "Retrieves information about amiibos. Can be filtered by various parameters to get specific amiibos or lists of amiibos.",
+        "operationId": "getAmiibo",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter by amiibo name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "head",
+            "in": "query",
+            "description": "Filter by amiibo head hex value",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tail",
+            "in": "query",
+            "description": "Filter by amiibo tail hex value",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter by amiibo type (e.g., Figure, Card, Yarn)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "character",
+            "in": "query",
+            "description": "Filter by character name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gameSeries",
+            "in": "query",
+            "description": "Filter by game series",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amiiboSeries",
+            "in": "query",
+            "description": "Filter by amiibo series",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "showusage",
+            "in": "query",
+            "description": "Show game usage information",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "amiibo": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "amiiboSeries": {
+                            "type": "string",
+                            "description": "The amiibo series the amiibo belongs to"
+                          },
+                          "character": {
+                            "type": "string",
+                            "description": "The character of the amiibo"
+                          },
+                          "gameSeries": {
+                            "type": "string",
+                            "description": "The game series the amiibo is from"
+                          },
+                          "head": {
+                            "type": "string",
+                            "description": "The head hex value of the amiibo"
+                          },
+                          "tail": {
+                            "type": "string",
+                            "description": "The tail hex value of the amiibo"
+                          },
+                          "image": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "URL to the amiibo image"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the amiibo"
+                          },
+                          "release": {
+                            "type": "object",
+                            "properties": {
+                              "au": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Release date in Australia"
+                              },
+                              "eu": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Release date in Europe"
+                              },
+                              "jp": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Release date in Japan"
+                              },
+                              "na": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Release date in North America"
+                              }
+                            }
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of amiibo (e.g., Figure, Card)"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No amiibos found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "No amiibos found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amiiboseries": {
+      "get": {
+        "summary": "Get list of amiibo series",
+        "description": "Retrieves a list of all amiibo series",
+        "operationId": "getAmiiboSeries",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "amiibo": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "Unique key for the amiibo series"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the amiibo series"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/character": {
+      "get": {
+        "summary": "Get list of characters",
+        "description": "Retrieves a list of all characters that have amiibos",
+        "operationId": "getCharacters",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "amiibo": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "Unique key for the character"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the character"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gameseries": {
+      "get": {
+        "summary": "Get list of game series",
+        "description": "Retrieves a list of all game series that have amiibos",
+        "operationId": "getGameSeries",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "amiibo": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "Unique key for the game series"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the game series"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/type": {
+      "get": {
+        "summary": "Get list of amiibo types",
+        "description": "Retrieves a list of all amiibo types (e.g., Figure, Card, Yarn)",
+        "operationId": "getTypes",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "amiibo": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string",
+                            "description": "Unique key for the amiibo type"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the amiibo type"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Amiibo": {
+        "type": "object",
+        "properties": {
+          "amiiboSeries": {
+            "type": "string",
+            "description": "The amiibo series the amiibo belongs to"
+          },
+          "character": {
+            "type": "string",
+            "description": "The character of the amiibo"
+          },
+          "gameSeries": {
+            "type": "string",
+            "description": "The game series the amiibo is from"
+          },
+          "head": {
+            "type": "string",
+            "description": "The head hex value of the amiibo"
+          },
+          "tail": {
+            "type": "string",
+            "description": "The tail hex value of the amiibo"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the amiibo image"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the amiibo"
+          },
+          "release": {
+            "type": "object",
+            "properties": {
+              "au": {
+                "type": "string",
+                "format": "date",
+                "nullable": true,
+                "description": "Release date in Australia"
+              },
+              "eu": {
+                "type": "string",
+                "format": "date",
+                "nullable": true,
+                "description": "Release date in Europe"
+              },
+              "jp": {
+                "type": "string",
+                "format": "date",
+                "nullable": true,
+                "description": "Release date in Japan"
+              },
+              "na": {
+                "type": "string",
+                "format": "date",
+                "nullable": true,
+                "description": "Release date in North America"
+              }
+            }
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of amiibo"
+          }
+        }
+      },
+      "KeyValue": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Unique key identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# BasicGameseriesFlow
+
+main: kit: flow: BasicGameseriesFlow:
+{
+  entity: "gameseries",
+  kind: "basic",
+  name: "BasicGameseriesFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "gameseries_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGameseriesFlow"
+}

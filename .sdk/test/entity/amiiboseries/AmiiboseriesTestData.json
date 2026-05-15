@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "amiiboseries": {
+      "AMIIBOSERIES00": {
+        "key": "s14",
+        "name": "s15"
+      },
+      "AMIIBOSERIES01": {
+        "key": "s28",
+        "name": "s29"
+      },
+      "AMIIBOSERIES02": {
+        "key": "s3c",
+        "name": "s3d"
+      }
+    }
+  },
+  "new": {
+    "amiiboseries": {
+      "amiiboseries_ref01": {
+        "key": "s50",
+        "name": "s51"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://amiiboapi.com/docs/"
+      }
+      description: "A RESTful API for Amiibo providing information on different amiibos, types, game series, characters, and more. It is primarily used for educational purposes and allows reading-only access with no authentication required."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.amiiboapi.com/api"
+        }
+      ]
+      title: "AmiiboAPI"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

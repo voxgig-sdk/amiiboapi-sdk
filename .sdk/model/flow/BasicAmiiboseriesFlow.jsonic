@@ -1,0 +1,22 @@
+# BasicAmiiboseriesFlow
+
+main: kit: flow: BasicAmiiboseriesFlow:
+{
+  entity: "amiiboseries",
+  kind: "basic",
+  name: "BasicAmiiboseriesFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "amiiboseries_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAmiiboseriesFlow"
+}

@@ -1,0 +1,42 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "key"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/character"
+          parts: [
+            "character"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "gameseries": {
+      "GAMESERIES00": {
+        "key": "s14",
+        "name": "s15"
+      },
+      "GAMESERIES01": {
+        "key": "s28",
+        "name": "s29"
+      },
+      "GAMESERIES02": {
+        "key": "s3c",
+        "name": "s3d"
+      }
+    }
+  },
+  "new": {
+    "gameseries": {
+      "gameseries_ref01": {
+        "key": "s50",
+        "name": "s51"
+      }
+    }
+  }
+}
