@@ -1,10 +1,10 @@
 package voxgigamiiboapisdk
 
 import (
-	"github.com/voxgig-sdk/amiiboapi-sdk/core"
-	"github.com/voxgig-sdk/amiiboapi-sdk/entity"
-	"github.com/voxgig-sdk/amiiboapi-sdk/feature"
-	_ "github.com/voxgig-sdk/amiiboapi-sdk/utility"
+	"github.com/voxgig-sdk/amiiboapi-sdk/go/core"
+	"github.com/voxgig-sdk/amiiboapi-sdk/go/entity"
+	"github.com/voxgig-sdk/amiiboapi-sdk/go/feature"
+	_ "github.com/voxgig-sdk/amiiboapi-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

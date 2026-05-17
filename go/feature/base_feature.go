@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/amiiboapi-sdk/core"
+	"github.com/voxgig-sdk/amiiboapi-sdk/go/core"
 )
 
 type BaseFeature struct {

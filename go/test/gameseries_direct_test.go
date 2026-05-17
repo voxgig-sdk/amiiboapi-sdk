@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/amiiboapi-sdk"
-	"github.com/voxgig-sdk/amiiboapi-sdk/core"
+	sdk "github.com/voxgig-sdk/amiiboapi-sdk/go"
+	"github.com/voxgig-sdk/amiiboapi-sdk/go/core"
 )
 
 func TestGameseriesDirect(t *testing.T) {
