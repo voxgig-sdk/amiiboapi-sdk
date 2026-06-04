@@ -83,7 +83,6 @@ def amiibo_basic_setup(extra)
     "AMIIBOAPI_TEST_AMIIBO_ENTID" => idmap,
     "AMIIBOAPI_TEST_LIVE" => "FALSE",
     "AMIIBOAPI_TEST_EXPLAIN" => "FALSE",
-    "AMIIBOAPI_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +94,6 @@ def amiibo_basic_setup(extra)
   if env["AMIIBOAPI_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["AMIIBOAPI_APIKEY"],
       },
       extra || {},
     ])

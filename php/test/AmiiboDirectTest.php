@@ -68,14 +68,12 @@ function amiibo_direct_setup($mockres)
     $env = Runner::env_override([
         "AMIIBOAPI_TEST_AMIIBO_ENTID" => [],
         "AMIIBOAPI_TEST_LIVE" => "FALSE",
-        "AMIIBOAPI_APIKEY" => "NONE",
     ]);
 
     $live = $env["AMIIBOAPI_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["AMIIBOAPI_APIKEY"],
         ];
         $client = new AmiiboapiSDK($merged_opts);
         return [

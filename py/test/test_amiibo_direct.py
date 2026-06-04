@@ -61,14 +61,12 @@ def _amiibo_direct_setup(mockres):
     env = runner.env_override({
         "AMIIBOAPI_TEST_AMIIBO_ENTID": {},
         "AMIIBOAPI_TEST_LIVE": "FALSE",
-        "AMIIBOAPI_APIKEY": "NONE",
     })
 
     live = env.get("AMIIBOAPI_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("AMIIBOAPI_APIKEY"),
         }
         client = AmiiboapiSDK(merged_opts)
         return {

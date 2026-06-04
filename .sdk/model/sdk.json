@@ -16,7 +16,21 @@
           }
         ],
         "title": "AmiiboAPI",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Read-only catalogue of every Nintendo Amiibo figure, with characters, game series and types",
+        "homepage": "https://www.amiiboapi.com/",
+        "docs_url": "https://www.amiiboapi.com/docs/",
+        "license_short": "MIT (project code); amiibo data and imagery are community-sourced.",
+        "license_md": "- Project code is released under the MIT licence (see the [N3evin/AmiiboAPI](https://github.com/N3evin/AmiiboAPI) repository).\n- The underlying amiibo data is community-maintained, drawing on a Google Sheets database, amiibo.life and user submissions.\n- No authentication or API key is required; please be considerate with request volume.\n- As of late 2025 the upstream repository is archived (read-only), though the hosted data continues to be updated.",
+        "about_md": "[AmiiboAPI](https://www.amiiboapi.com/) is a free, read-only RESTful API that exposes information about Nintendo's Amiibo figures and cards. It is maintained by [N3evin](https://github.com/N3evin/AmiiboAPI) and is widely used for hobby projects, learning REST, and building Amiibo-related tools.\n\nWhat you can pull from the API:\n\n- The full Amiibo catalogue or a subset filtered by name, identifier (head/tail hex keys), character, game series, Amiibo series or type.\n- Lookup endpoints for the supporting taxonomies: types (`figure`, `card`, `yarn`, `band`), Amiibo series, game series and characters.\n- Per-figure metadata such as the display name, head/tail identifiers, image URL, type, character, game series, Amiibo series, and release dates per region.\n\nThe service uses HTTPS at `https://www.amiiboapi.com/api` and requires no authentication. CORS is enabled in the upstream Flask application, so it can be called directly from browser code. There is no published rate limit, but the API is community-funded and should not be hammered.",
+        "entity_desc": {
+          "amiibo": "An individual Amiibo figure or card, including its name, head/tail identifiers, image, type, character, Amiibo series, game series and per-region release dates. Served from `/api/amiibo` with optional query filters such as `?name=`, `?head=`, `?tail=` or `?id=`.",
+          "amiiboseries": "A collectible Amiibo series grouping (for example, Super Smash Bros. or Animal Crossing). Served from `/api/amiiboseries`.",
+          "character": "A Nintendo character that one or more Amiibo represent (for example, Mario or Link). Served from `/api/character`.",
+          "gameseries": "A Nintendo game series associated with Amiibo figures (for example, The Legend of Zelda). Served from `/api/gameseries`.",
+          "type": "The physical form factor of an Amiibo, such as `figure`, `card`, `yarn` or `band`. Served from `/api/type`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +38,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "amiibo": {

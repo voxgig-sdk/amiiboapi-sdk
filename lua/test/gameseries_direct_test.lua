@@ -63,14 +63,12 @@ function gameseries_direct_setup(mockres)
   local env = runner.env_override({
     ["AMIIBOAPI_TEST_GAMESERIES_ENTID"] = {},
     ["AMIIBOAPI_TEST_LIVE"] = "FALSE",
-    ["AMIIBOAPI_APIKEY"] = "NONE",
   })
 
   local live = env["AMIIBOAPI_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["AMIIBOAPI_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
