@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -124,7 +124,7 @@ local amiibo = client:Amiibo(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Amiibo(nil):list(nil, nil)
+local results, err = client:Amiibo():list()
 ```
 
 ### Common Methods
@@ -177,7 +177,7 @@ local amiiboseries = client:Amiiboseries(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Amiiboseries(nil):list(nil, nil)
+local results, err = client:Amiiboseries():list()
 ```
 
 ### Common Methods
@@ -230,7 +230,7 @@ local character = client:Character(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Character(nil):list(nil, nil)
+local results, err = client:Character():list()
 ```
 
 ### Common Methods
@@ -283,7 +283,7 @@ local gameseries = client:Gameseries(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Gameseries(nil):list(nil, nil)
+local results, err = client:Gameseries():list()
 ```
 
 ### Common Methods
@@ -336,7 +336,7 @@ local type = client:Type(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Type(nil):list(nil, nil)
+local results, err = client:Type():list()
 ```
 
 ### Common Methods

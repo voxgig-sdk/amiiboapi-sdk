@@ -137,7 +137,7 @@ main: kit: entity: amiibo: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.amiibo`"
           }
         }
       ]

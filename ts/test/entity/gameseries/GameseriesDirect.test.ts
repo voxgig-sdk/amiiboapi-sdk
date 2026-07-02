@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'AMIIBOAPI_TEST_GAMESERIES_ENTID': {},
     'AMIIBOAPI_TEST_LIVE': 'FALSE',
+    'AMIIBOAPI_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.AMIIBOAPI_TEST_LIVE
 
   if (live) {
     const client = new AmiiboapiSDK({
+      apikey: env.AMIIBOAPI_APIKEY,
     })
 
     let idmap: any = env['AMIIBOAPI_TEST_GAMESERIES_ENTID']

@@ -92,6 +92,7 @@ def _gameseries_basic_setup(extra):
         "AMIIBOAPI_TEST_GAMESERIES_ENTID": idmap,
         "AMIIBOAPI_TEST_LIVE": "FALSE",
         "AMIIBOAPI_TEST_EXPLAIN": "FALSE",
+        "AMIIBOAPI_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _gameseries_basic_setup(extra):
     if env.get("AMIIBOAPI_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("AMIIBOAPI_APIKEY"),
             },
             extra or {},
         ])

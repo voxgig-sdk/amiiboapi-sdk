@@ -1,20 +1,8 @@
 # Amiiboapi SDK
 
-Read-only catalogue of every Nintendo Amiibo figure, with characters, game series and types
+AmiiboAPI client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About AmiiboAPI
-
-[AmiiboAPI](https://www.amiiboapi.com/) is a free, read-only RESTful API that exposes information about Nintendo's Amiibo figures and cards. It is maintained by [N3evin](https://github.com/N3evin/AmiiboAPI) and is widely used for hobby projects, learning REST, and building Amiibo-related tools.
-
-What you can pull from the API:
-
-- The full Amiibo catalogue or a subset filtered by name, identifier (head/tail hex keys), character, game series, Amiibo series or type.
-- Lookup endpoints for the supporting taxonomies: types (`figure`, `card`, `yarn`, `band`), Amiibo series, game series and characters.
-- Per-figure metadata such as the display name, head/tail identifiers, image URL, type, character, game series, Amiibo series, and release dates per region.
-
-The service uses HTTPS at `https://www.amiiboapi.com/api` and requires no authentication. CORS is enabled in the upstream Flask application, so it can be called directly from browser code. There is no published rate limit, but the API is community-funded and should not be hammered.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install amiiboapi-sdk
 luarocks install amiiboapi-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { AmiiboapiSDK } from 'amiiboapi'
 
-const client = new AmiiboapiSDK({})
+const client = new AmiiboapiSDK({
+  apikey: process.env.AMIIBOAPI_APIKEY,
+})
 
 // List all amiibos
 const amiibos = await client.Amiibo().list()
+console.log(amiibos.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,11 +90,11 @@ The API exposes 5 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Amiibo** | An individual Amiibo figure or card, including its name, head/tail identifiers, image, type, character, Amiibo series, game series and per-region release dates. Served from `/api/amiibo` with optional query filters such as `?name=`, `?head=`, `?tail=` or `?id=`. | `/amiibo` |
-| **Amiiboseries** | A collectible Amiibo series grouping (for example, Super Smash Bros. or Animal Crossing). Served from `/api/amiiboseries`. | `/amiiboseries` |
-| **Character** | A Nintendo character that one or more Amiibo represent (for example, Mario or Link). Served from `/api/character`. | `/character` |
-| **Gameseries** | A Nintendo game series associated with Amiibo figures (for example, The Legend of Zelda). Served from `/api/gameseries`. | `/gameseries` |
-| **Type** | The physical form factor of an Amiibo, such as `figure`, `card`, `yarn` or `band`. Served from `/api/type`. | `/type` |
+| **Amiibo** |  | `/amiibo` |
+| **Amiiboseries** |  | `/amiiboseries` |
+| **Character** |  | `/character` |
+| **Gameseries** |  | `/gameseries` |
+| **Type** |  | `/type` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -114,12 +104,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from amiiboapi_sdk import AmiiboapiSDK
 
-client = AmiiboapiSDK({})
+client = AmiiboapiSDK({
+    "apikey": os.environ.get("AMIIBOAPI_APIKEY"),
+})
 
 # List all amiibos
-amiibos, err = client.Amiibo(None).list(None, None)
+amiibos, err = client.Amiibo().list()
+print(amiibos)
 ```
 
 ### PHP
@@ -128,10 +122,13 @@ amiibos, err = client.Amiibo(None).list(None, None)
 <?php
 require_once 'amiiboapi_sdk.php';
 
-$client = new AmiiboapiSDK([]);
+$client = new AmiiboapiSDK([
+    "apikey" => getenv("AMIIBOAPI_APIKEY"),
+]);
 
 // List all amiibos
-[$amiibos, $err] = $client->Amiibo(null)->list(null, null);
+[$amiibos, $err] = $client->Amiibo()->list();
+print_r($amiibos);
 ```
 
 ### Golang
@@ -139,10 +136,13 @@ $client = new AmiiboapiSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/amiiboapi-sdk/go"
 
-client := sdk.NewAmiiboapiSDK(map[string]any{})
+client := sdk.NewAmiiboapiSDK(map[string]any{
+    "apikey": os.Getenv("AMIIBOAPI_APIKEY"),
+})
 
 // List all amiibos
 amiibos, err := client.Amiibo(nil).List(nil, nil)
+fmt.Println(amiibos)
 ```
 
 ### Ruby
@@ -150,10 +150,13 @@ amiibos, err := client.Amiibo(nil).List(nil, nil)
 ```ruby
 require_relative "Amiiboapi_sdk"
 
-client = AmiiboapiSDK.new({})
+client = AmiiboapiSDK.new({
+  "apikey" => ENV["AMIIBOAPI_APIKEY"],
+})
 
 # List all amiibos
-amiibos, err = client.Amiibo(nil).list(nil, nil)
+amiibos, err = client.Amiibo().list
+puts amiibos
 ```
 
 ### Lua
@@ -161,10 +164,13 @@ amiibos, err = client.Amiibo(nil).list(nil, nil)
 ```lua
 local sdk = require("amiiboapi_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("AMIIBOAPI_APIKEY"),
+})
 
 -- List all amiibos
-local amiibos, err = client:Amiibo(nil):list(nil, nil)
+local amiibos, err = client:Amiibo():list()
+print(amiibos)
 ```
 
 ## Unit testing in offline mode
@@ -183,25 +189,21 @@ const result = await client.Amiibo().load({ id: 'test01' })
 ### Python
 
 ```python
-client = AmiiboapiSDK.test(None, None)
-result, err = client.Amiibo(None).load(
-    {"id": "test01"}, None
-)
+client = AmiiboapiSDK.test()
+result, err = client.Amiibo().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = AmiiboapiSDK::test(null, null);
-[$result, $err] = $client->Amiibo(null)->load(
-    ["id" => "test01"], null
-);
+$client = AmiiboapiSDK::test();
+[$result, $err] = $client->Amiibo()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Amiibo(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -210,19 +212,15 @@ result, err := client.Amiibo(nil).Load(
 ### Ruby
 
 ```ruby
-client = AmiiboapiSDK.test(nil, nil)
-result, err = client.Amiibo(nil).load(
-  { "id" => "test01" }, nil
-)
+client = AmiiboapiSDK.test
+result, err = client.Amiibo().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Amiibo(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Amiibo():load({ id = "test01" })
 ```
 
 ## How it works
@@ -326,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the AmiiboAPI
-
-- Upstream: [https://www.amiiboapi.com/](https://www.amiiboapi.com/)
-- API docs: [https://www.amiiboapi.com/docs/](https://www.amiiboapi.com/docs/)
-
-- Project code is released under the MIT licence (see the [N3evin/AmiiboAPI](https://github.com/N3evin/AmiiboAPI) repository).
-- The underlying amiibo data is community-maintained, drawing on a Google Sheets database, amiibo.life and user submissions.
-- No authentication or API key is required; please be considerate with request volume.
-- As of late 2025 the upstream repository is archived (read-only), though the hosted data continues to be updated.
 
 ---
 

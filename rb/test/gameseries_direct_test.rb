@@ -62,12 +62,14 @@ def gameseries_direct_setup(mockres)
   env = Runner.env_override({
     "AMIIBOAPI_TEST_GAMESERIES_ENTID" => {},
     "AMIIBOAPI_TEST_LIVE" => "FALSE",
+    "AMIIBOAPI_APIKEY" => "NONE",
   })
 
   live = env["AMIIBOAPI_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["AMIIBOAPI_APIKEY"],
     }
     client = AmiiboapiSDK.new(merged_opts)
     return {

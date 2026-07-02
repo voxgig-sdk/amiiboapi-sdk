@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'AMIIBOAPI_TEST_AMIIBO_ENTID': idmap,
     'AMIIBOAPI_TEST_LIVE': 'FALSE',
     'AMIIBOAPI_TEST_EXPLAIN': 'FALSE',
+    'AMIIBOAPI_APIKEY': 'NONE',
   })
 
   idmap = env['AMIIBOAPI_TEST_AMIIBO_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new AmiiboapiSDK(merge([
       {
+        apikey: env.AMIIBOAPI_APIKEY,
       },
       extra
     ]))

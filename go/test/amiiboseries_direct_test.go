@@ -93,12 +93,14 @@ func amiiboseriesDirectSetup(mockres any) *amiiboseriesDirectSetupResult {
 	env := envOverride(map[string]any{
 		"AMIIBOAPI_TEST_AMIIBOSERIES_ENTID": map[string]any{},
 		"AMIIBOAPI_TEST_LIVE":    "FALSE",
+		"AMIIBOAPI_APIKEY":       "NONE",
 	})
 
 	live := env["AMIIBOAPI_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["AMIIBOAPI_APIKEY"],
 		}
 		client := sdk.NewAmiiboapiSDK(mergedOpts)
 

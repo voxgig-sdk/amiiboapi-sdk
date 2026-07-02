@@ -119,6 +119,7 @@ func amiiboBasicSetup(extra map[string]any) *entityTestSetup {
 		"AMIIBOAPI_TEST_AMIIBO_ENTID": idmap,
 		"AMIIBOAPI_TEST_LIVE":      "FALSE",
 		"AMIIBOAPI_TEST_EXPLAIN":   "FALSE",
+		"AMIIBOAPI_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["AMIIBOAPI_TEST_AMIIBO_ENTID"])
@@ -129,6 +130,7 @@ func amiiboBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["AMIIBOAPI_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["AMIIBOAPI_APIKEY"],
 			},
 			extra,
 		})
