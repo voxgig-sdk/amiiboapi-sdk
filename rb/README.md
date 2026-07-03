@@ -10,13 +10,13 @@ The Ruby SDK for the Amiiboapi API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install amiiboapi-sdk
+gem install voxgig-sdk-amiiboapi
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "amiiboapi-sdk"
+gem "voxgig-sdk-amiiboapi"
 ```
 
 Then run:

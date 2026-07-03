@@ -10,7 +10,7 @@ The Lua SDK for the Amiiboapi API — an entity-oriented client using Lua conven
 
 ## Install
 ```bash
-luarocks install amiiboapi-sdk
+luarocks install voxgig-sdk-amiiboapi
 ```
 
 If the module is not yet published, add the source directory to

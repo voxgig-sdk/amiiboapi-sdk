@@ -10,7 +10,7 @@ The TypeScript SDK for the Amiiboapi API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install amiiboapi
+npm install @voxgig-sdk/amiiboapi
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The PHP SDK for the Amiiboapi API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/amiiboapi-sdk
+composer require voxgig-sdk/amiiboapi
 ```
 
 

@@ -10,7 +10,7 @@ The Python SDK for the Amiiboapi API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install amiiboapi-sdk
+pip install voxgig-sdk-amiiboapi
 ```
 
 Or install from source:
