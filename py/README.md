@@ -31,14 +31,16 @@ from amiiboapi_sdk import AmiiboapiSDK
 client = AmiiboapiSDK()
 ```
 
-### 2. List amiibos
+### 2. List amiibo records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.amiibo.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    amiibos = client.Amiibo().list({})
+    for amiibo in amiibos:
+        print(amiibo)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = AmiiboapiSDK.test()
 
-result = client.amiibo.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+amiibo = client.Amiibo().load({"id": "test01"})
+# amiibo contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,8 +166,8 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Amiibo` | `(data) -> AmiiboEntity` | Create a Amiibo entity instance. |
-| `Amiiboseries` | `(data) -> AmiiboseriesEntity` | Create a Amiiboseries entity instance. |
+| `Amiibo` | `(data) -> AmiiboEntity` | Create an Amiibo entity instance. |
+| `Amiiboseries` | `(data) -> AmiiboseriesEntity` | Create an Amiiboseries entity instance. |
 | `Character` | `(data) -> CharacterEntity` | Create a Character entity instance. |
 | `Gameseries` | `(data) -> GameseriesEntity` | Create a Gameseries entity instance. |
 | `Type` | `(data) -> TypeEntity` | Create a Type entity instance. |
@@ -276,7 +279,7 @@ API path: `/type`
 
 ### Amiibo
 
-Create an instance: `const amiibo = client.amiibo`
+Create an instance: `amiibo = client.Amiibo()`
 
 #### Operations
 
@@ -300,14 +303,14 @@ Create an instance: `const amiibo = client.amiibo`
 
 #### Example: List
 
-```ts
-const amiibos = await client.amiibo.list()
+```python
+amiibos = client.Amiibo().list({})
 ```
 
 
 ### Amiiboseries
 
-Create an instance: `const amiiboseries = client.amiiboseries`
+Create an instance: `amiiboseries = client.Amiiboseries()`
 
 #### Operations
 
@@ -324,14 +327,14 @@ Create an instance: `const amiiboseries = client.amiiboseries`
 
 #### Example: List
 
-```ts
-const amiiboseriess = await client.amiiboseries.list()
+```python
+amiiboseriess = client.Amiiboseries().list({})
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `character = client.Character()`
 
 #### Operations
 
@@ -348,14 +351,14 @@ Create an instance: `const character = client.character`
 
 #### Example: List
 
-```ts
-const characters = await client.character.list()
+```python
+characters = client.Character().list({})
 ```
 
 
 ### Gameseries
 
-Create an instance: `const gameseries = client.gameseries`
+Create an instance: `gameseries = client.Gameseries()`
 
 #### Operations
 
@@ -372,14 +375,14 @@ Create an instance: `const gameseries = client.gameseries`
 
 #### Example: List
 
-```ts
-const gameseriess = await client.gameseries.list()
+```python
+gameseriess = client.Gameseries().list({})
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `type = client.Type()`
 
 #### Operations
 
@@ -396,8 +399,8 @@ Create an instance: `const type = client.type`
 
 #### Example: List
 
-```ts
-const types = await client.type.list()
+```python
+types = client.Type().list({})
 ```
 
 
@@ -471,7 +474,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-amiibo = client.amiibo
+amiibo = client.Amiibo()
 amiibo.load({"id": "example_id"})
 
 # amiibo.data_get() now returns the loaded amiibo data

@@ -233,10 +233,10 @@ class AmiiboapiSDK
 
     private $_amiibo = null;
 
-    // Idiomatic facade: $client->amiibo()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Amiibo() (PHP method
-    // names are case-insensitive).
-    public function amiibo($data = null)
+    // Canonical facade: $client->Amiibo()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->amiibo()
+    // resolves here too.
+    public function Amiibo($data = null)
     {
         require_once __DIR__ . '/entity/amiibo_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class AmiiboapiSDK
 
     private $_amiiboseries = null;
 
-    // Idiomatic facade: $client->amiiboseries()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Amiiboseries() (PHP method
-    // names are case-insensitive).
-    public function amiiboseries($data = null)
+    // Canonical facade: $client->Amiiboseries()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->amiiboseries()
+    // resolves here too.
+    public function Amiiboseries($data = null)
     {
         require_once __DIR__ . '/entity/amiiboseries_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class AmiiboapiSDK
 
     private $_character = null;
 
-    // Idiomatic facade: $client->character()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Character() (PHP method
-    // names are case-insensitive).
-    public function character($data = null)
+    // Canonical facade: $client->Character()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->character()
+    // resolves here too.
+    public function Character($data = null)
     {
         require_once __DIR__ . '/entity/character_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class AmiiboapiSDK
 
     private $_gameseries = null;
 
-    // Idiomatic facade: $client->gameseries()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Gameseries() (PHP method
-    // names are case-insensitive).
-    public function gameseries($data = null)
+    // Canonical facade: $client->Gameseries()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->gameseries()
+    // resolves here too.
+    public function Gameseries($data = null)
     {
         require_once __DIR__ . '/entity/gameseries_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class AmiiboapiSDK
 
     private $_type = null;
 
-    // Idiomatic facade: $client->type()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Type() (PHP method
-    // names are case-insensitive).
-    public function type($data = null)
+    // Canonical facade: $client->Type()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->type()
+    // resolves here too.
+    public function Type($data = null)
     {
         require_once __DIR__ . '/entity/type_entity.php';
         if ($data === null) {

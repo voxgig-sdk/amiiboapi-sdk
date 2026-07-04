@@ -29,18 +29,16 @@ require_once 'amiiboapi_sdk.php';
 $client = new AmiiboapiSDK();
 ```
 
-### 2. List amiibos
+### 2. List amiibo records
 
 ```php
 try {
-    $result = $client->amiibo()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Amiibo records — iterate directly.
+    $amiibos = $client->Amiibo()->list();
+    foreach ($amiibos as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = AmiiboapiSDK::test();
+$client = AmiiboapiSDK::test([
+    "entity" => ["amiibo" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->amiibo()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$amiibo = $client->Amiibo()->load(["id" => "test01"]);
+print_r($amiibo);
 ```
 
 ### Use a custom fetch function
@@ -171,8 +173,8 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Amiibo` | `($data): AmiiboEntity` | Create a Amiibo entity instance. |
-| `Amiiboseries` | `($data): AmiiboseriesEntity` | Create a Amiiboseries entity instance. |
+| `Amiibo` | `($data): AmiiboEntity` | Create an Amiibo entity instance. |
+| `Amiiboseries` | `($data): AmiiboseriesEntity` | Create an Amiiboseries entity instance. |
 | `Character` | `($data): CharacterEntity` | Create a Character entity instance. |
 | `Gameseries` | `($data): GameseriesEntity` | Create a Gameseries entity instance. |
 | `Type` | `($data): TypeEntity` | Create a Type entity instance. |
@@ -284,7 +286,7 @@ API path: `/type`
 
 ### Amiibo
 
-Create an instance: `const amiibo = client.amiibo`
+Create an instance: `$amiibo = $client->Amiibo();`
 
 #### Operations
 
@@ -308,14 +310,15 @@ Create an instance: `const amiibo = client.amiibo`
 
 #### Example: List
 
-```ts
-const amiibos = await client.amiibo.list()
+```php
+// list() returns an array of Amiibo records (throws on error).
+$amiibos = $client->Amiibo()->list();
 ```
 
 
 ### Amiiboseries
 
-Create an instance: `const amiiboseries = client.amiiboseries`
+Create an instance: `$amiiboseries = $client->Amiiboseries();`
 
 #### Operations
 
@@ -332,14 +335,15 @@ Create an instance: `const amiiboseries = client.amiiboseries`
 
 #### Example: List
 
-```ts
-const amiiboseriess = await client.amiiboseries.list()
+```php
+// list() returns an array of Amiiboseries records (throws on error).
+$amiiboseriess = $client->Amiiboseries()->list();
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `$character = $client->Character();`
 
 #### Operations
 
@@ -356,14 +360,15 @@ Create an instance: `const character = client.character`
 
 #### Example: List
 
-```ts
-const characters = await client.character.list()
+```php
+// list() returns an array of Character records (throws on error).
+$characters = $client->Character()->list();
 ```
 
 
 ### Gameseries
 
-Create an instance: `const gameseries = client.gameseries`
+Create an instance: `$gameseries = $client->Gameseries();`
 
 #### Operations
 
@@ -380,14 +385,15 @@ Create an instance: `const gameseries = client.gameseries`
 
 #### Example: List
 
-```ts
-const gameseriess = await client.gameseries.list()
+```php
+// list() returns an array of Gameseries records (throws on error).
+$gameseriess = $client->Gameseries()->list();
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `$type = $client->Type();`
 
 #### Operations
 
@@ -404,8 +410,9 @@ Create an instance: `const type = client.type`
 
 #### Example: List
 
-```ts
-const types = await client.type.list()
+```php
+// list() returns an array of Type records (throws on error).
+$types = $client->Type()->list();
 ```
 
 
@@ -480,7 +487,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$amiibo = $client->amiibo();
+$amiibo = $client->Amiibo();
 $amiibo->load(["id" => "example_id"]);
 
 // $amiibo->dataGet() now returns the loaded amiibo data

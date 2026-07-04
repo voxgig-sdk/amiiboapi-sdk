@@ -220,89 +220,39 @@ class AmiiboapiSDK:
         }
 
 
-    @property
-    def amiibo(self):
-        """Idiomatic facade: client.amiibo.list() / client.amiibo.load({"id": ...})."""
-        from entity.amiibo_entity import AmiiboEntity
-        cached = getattr(self, "_amiibo", None)
-        if cached is None:
-            cached = AmiiboEntity(self, None)
-            self._amiibo = cached
-        return cached
-
-    def Amiibo(self, data=None):
-        # Deprecated: use client.amiibo instead.
+    def Amiibo(self, data=None) -> "AmiiboEntity":
+        """Entity factory: client.Amiibo().list({}) / client.Amiibo().load({"id": ...})."""
         from entity.amiibo_entity import AmiiboEntity
         return AmiiboEntity(self, data)
 
 
-    @property
-    def amiiboseries(self):
-        """Idiomatic facade: client.amiiboseries.list() / client.amiiboseries.load({"id": ...})."""
-        from entity.amiiboseries_entity import AmiiboseriesEntity
-        cached = getattr(self, "_amiiboseries", None)
-        if cached is None:
-            cached = AmiiboseriesEntity(self, None)
-            self._amiiboseries = cached
-        return cached
-
-    def Amiiboseries(self, data=None):
-        # Deprecated: use client.amiiboseries instead.
+    def Amiiboseries(self, data=None) -> "AmiiboseriesEntity":
+        """Entity factory: client.Amiiboseries().list({}) / client.Amiiboseries().load({"id": ...})."""
         from entity.amiiboseries_entity import AmiiboseriesEntity
         return AmiiboseriesEntity(self, data)
 
 
-    @property
-    def character(self):
-        """Idiomatic facade: client.character.list() / client.character.load({"id": ...})."""
-        from entity.character_entity import CharacterEntity
-        cached = getattr(self, "_character", None)
-        if cached is None:
-            cached = CharacterEntity(self, None)
-            self._character = cached
-        return cached
-
-    def Character(self, data=None):
-        # Deprecated: use client.character instead.
+    def Character(self, data=None) -> "CharacterEntity":
+        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
-    @property
-    def gameseries(self):
-        """Idiomatic facade: client.gameseries.list() / client.gameseries.load({"id": ...})."""
-        from entity.gameseries_entity import GameseriesEntity
-        cached = getattr(self, "_gameseries", None)
-        if cached is None:
-            cached = GameseriesEntity(self, None)
-            self._gameseries = cached
-        return cached
-
-    def Gameseries(self, data=None):
-        # Deprecated: use client.gameseries instead.
+    def Gameseries(self, data=None) -> "GameseriesEntity":
+        """Entity factory: client.Gameseries().list({}) / client.Gameseries().load({"id": ...})."""
         from entity.gameseries_entity import GameseriesEntity
         return GameseriesEntity(self, data)
 
 
-    @property
-    def type(self):
-        """Idiomatic facade: client.type.list() / client.type.load({"id": ...})."""
-        from entity.type_entity import TypeEntity
-        cached = getattr(self, "_type", None)
-        if cached is None:
-            cached = TypeEntity(self, None)
-            self._type = cached
-        return cached
-
-    def Type(self, data=None):
-        # Deprecated: use client.type instead.
+    def Type(self, data=None) -> "TypeEntity":
+        """Entity factory: client.Type().list({}) / client.Type().load({"id": ...})."""
         from entity.type_entity import TypeEntity
         return TypeEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "AmiiboapiSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -322,3 +272,13 @@ class AmiiboapiSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.amiibo_entity import AmiiboEntity
+    from entity.amiiboseries_entity import AmiiboseriesEntity
+    from entity.character_entity import CharacterEntity
+    from entity.gameseries_entity import GameseriesEntity
+    from entity.type_entity import TypeEntity

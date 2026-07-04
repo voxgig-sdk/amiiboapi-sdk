@@ -96,7 +96,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## AmiiboEntity
 
 ```python
-amiibo = client.amiibo
+amiibo = client.Amiibo()
 ```
 
 ### Fields
@@ -120,7 +120,9 @@ amiibo = client.amiibo
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.amiibo.list({})
+results = client.Amiibo().list({})
+for amiibo in results:
+    print(amiibo)
 ```
 
 ### Common Methods
@@ -155,7 +157,7 @@ Return the entity name.
 ## AmiiboseriesEntity
 
 ```python
-amiiboseries = client.amiiboseries
+amiiboseries = client.Amiiboseries()
 ```
 
 ### Fields
@@ -172,7 +174,9 @@ amiiboseries = client.amiiboseries
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.amiiboseries.list({})
+results = client.Amiiboseries().list({})
+for amiiboseries in results:
+    print(amiiboseries)
 ```
 
 ### Common Methods
@@ -207,7 +211,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```python
-character = client.character
+character = client.Character()
 ```
 
 ### Fields
@@ -224,7 +228,9 @@ character = client.character
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.character.list({})
+results = client.Character().list({})
+for character in results:
+    print(character)
 ```
 
 ### Common Methods
@@ -259,7 +265,7 @@ Return the entity name.
 ## GameseriesEntity
 
 ```python
-gameseries = client.gameseries
+gameseries = client.Gameseries()
 ```
 
 ### Fields
@@ -276,7 +282,9 @@ gameseries = client.gameseries
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.gameseries.list({})
+results = client.Gameseries().list({})
+for gameseries in results:
+    print(gameseries)
 ```
 
 ### Common Methods
@@ -311,7 +319,7 @@ Return the entity name.
 ## TypeEntity
 
 ```python
-type = client.type
+type = client.Type()
 ```
 
 ### Fields
@@ -328,7 +336,9 @@ type = client.type
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.type.list({})
+results = client.Type().list({})
+for type in results:
+    print(type)
 ```
 
 ### Common Methods

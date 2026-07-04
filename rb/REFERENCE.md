@@ -102,7 +102,7 @@ same parameters as `direct()`. Raises on error.
 ## AmiiboEntity
 
 ```ruby
-amiibo = client.amiibo
+amiibo = client.Amiibo
 ```
 
 ### Fields
@@ -126,7 +126,7 @@ amiibo = client.amiibo
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.amiibo.list(nil)
+results = client.Amiibo.list(nil)
 ```
 
 ### Common Methods
@@ -162,7 +162,7 @@ Return the entity name.
 ## AmiiboseriesEntity
 
 ```ruby
-amiiboseries = client.amiiboseries
+amiiboseries = client.Amiiboseries
 ```
 
 ### Fields
@@ -179,7 +179,7 @@ amiiboseries = client.amiiboseries
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.amiiboseries.list(nil)
+results = client.Amiiboseries.list(nil)
 ```
 
 ### Common Methods
@@ -215,7 +215,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```ruby
-character = client.character
+character = client.Character
 ```
 
 ### Fields
@@ -232,7 +232,7 @@ character = client.character
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.character.list(nil)
+results = client.Character.list(nil)
 ```
 
 ### Common Methods
@@ -268,7 +268,7 @@ Return the entity name.
 ## GameseriesEntity
 
 ```ruby
-gameseries = client.gameseries
+gameseries = client.Gameseries
 ```
 
 ### Fields
@@ -285,7 +285,7 @@ gameseries = client.gameseries
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.gameseries.list(nil)
+results = client.Gameseries.list(nil)
 ```
 
 ### Common Methods
@@ -321,7 +321,7 @@ Return the entity name.
 ## TypeEntity
 
 ```ruby
-type = client.type
+type = client.Type
 ```
 
 ### Fields
@@ -338,7 +338,7 @@ type = client.type
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.type.list(nil)
+results = client.Type.list(nil)
 ```
 
 ### Common Methods

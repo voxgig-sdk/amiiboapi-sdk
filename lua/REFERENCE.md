@@ -99,7 +99,7 @@ same parameters as `direct()`.
 ## AmiiboEntity
 
 ```lua
-local amiibo = client:amiibo(nil)
+local amiibo = client:Amiibo(nil)
 ```
 
 ### Fields
@@ -123,7 +123,7 @@ local amiibo = client:amiibo(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:amiibo():list()
+local results, err = client:Amiibo():list()
 ```
 
 ### Common Methods
@@ -159,7 +159,7 @@ Return the entity name.
 ## AmiiboseriesEntity
 
 ```lua
-local amiiboseries = client:amiiboseries(nil)
+local amiiboseries = client:Amiiboseries(nil)
 ```
 
 ### Fields
@@ -176,7 +176,7 @@ local amiiboseries = client:amiiboseries(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:amiiboseries():list()
+local results, err = client:Amiiboseries():list()
 ```
 
 ### Common Methods
@@ -212,7 +212,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```lua
-local character = client:character(nil)
+local character = client:Character(nil)
 ```
 
 ### Fields
@@ -229,7 +229,7 @@ local character = client:character(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:character():list()
+local results, err = client:Character():list()
 ```
 
 ### Common Methods
@@ -265,7 +265,7 @@ Return the entity name.
 ## GameseriesEntity
 
 ```lua
-local gameseries = client:gameseries(nil)
+local gameseries = client:Gameseries(nil)
 ```
 
 ### Fields
@@ -282,7 +282,7 @@ local gameseries = client:gameseries(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:gameseries():list()
+local results, err = client:Gameseries():list()
 ```
 
 ### Common Methods
@@ -318,7 +318,7 @@ Return the entity name.
 ## TypeEntity
 
 ```lua
-local type = client:type(nil)
+local type = client:Type(nil)
 ```
 
 ### Fields
@@ -335,7 +335,7 @@ local type = client:type(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:type():list()
+local results, err = client:Type():list()
 ```
 
 ### Common Methods

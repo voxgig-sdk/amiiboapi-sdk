@@ -157,7 +157,7 @@ Alias for `AmiiboapiSDK.test()`.
 ## AmiiboEntity
 
 ```ts
-const amiibo = client.amiibo
+const amiibo = client.Amiibo()
 ```
 
 ### Fields
@@ -181,7 +181,7 @@ const amiibo = client.amiibo
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.amiibo.list()
+const results = await client.Amiibo().list()
 ```
 
 ### Common Methods
@@ -215,7 +215,7 @@ Return a copy of the entity options.
 ## AmiiboseriesEntity
 
 ```ts
-const amiiboseries = client.amiiboseries
+const amiiboseries = client.Amiiboseries()
 ```
 
 ### Fields
@@ -232,7 +232,7 @@ const amiiboseries = client.amiiboseries
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.amiiboseries.list()
+const results = await client.Amiiboseries().list()
 ```
 
 ### Common Methods
@@ -266,7 +266,7 @@ Return a copy of the entity options.
 ## CharacterEntity
 
 ```ts
-const character = client.character
+const character = client.Character()
 ```
 
 ### Fields
@@ -283,7 +283,7 @@ const character = client.character
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.character.list()
+const results = await client.Character().list()
 ```
 
 ### Common Methods
@@ -317,7 +317,7 @@ Return a copy of the entity options.
 ## GameseriesEntity
 
 ```ts
-const gameseries = client.gameseries
+const gameseries = client.Gameseries()
 ```
 
 ### Fields
@@ -334,7 +334,7 @@ const gameseries = client.gameseries
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.gameseries.list()
+const results = await client.Gameseries().list()
 ```
 
 ### Common Methods
@@ -368,7 +368,7 @@ Return a copy of the entity options.
 ## TypeEntity
 
 ```ts
-const type = client.type
+const type = client.Type()
 ```
 
 ### Fields
@@ -385,7 +385,7 @@ const type = client.type
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.type.list()
+const results = await client.Type().list()
 ```
 
 ### Common Methods

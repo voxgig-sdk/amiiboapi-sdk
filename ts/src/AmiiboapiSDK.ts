@@ -208,70 +208,35 @@ class AmiiboapiSDK {
 
 
 
-  _amiibo?: AmiiboEntity
-
-  // Idiomatic facade: `client.amiibo.list()` / `client.amiibo.load({ id })`.
-  get amiibo(): AmiiboEntity {
-    return (this._amiibo ??= new AmiiboEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.amiibo` instead. */
+  // Entity access: `client.Amiibo().list()` / `client.Amiibo().load({ id })`.
   Amiibo(data?: any) {
     const self = this
     return new AmiiboEntity(self,data)
   }
 
 
-  _amiiboseries?: AmiiboseriesEntity
-
-  // Idiomatic facade: `client.amiiboseries.list()` / `client.amiiboseries.load({ id })`.
-  get amiiboseries(): AmiiboseriesEntity {
-    return (this._amiiboseries ??= new AmiiboseriesEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.amiiboseries` instead. */
+  // Entity access: `client.Amiiboseries().list()` / `client.Amiiboseries().load({ id })`.
   Amiiboseries(data?: any) {
     const self = this
     return new AmiiboseriesEntity(self,data)
   }
 
 
-  _character?: CharacterEntity
-
-  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
-  get character(): CharacterEntity {
-    return (this._character ??= new CharacterEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.character` instead. */
+  // Entity access: `client.Character().list()` / `client.Character().load({ id })`.
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
-  _gameseries?: GameseriesEntity
-
-  // Idiomatic facade: `client.gameseries.list()` / `client.gameseries.load({ id })`.
-  get gameseries(): GameseriesEntity {
-    return (this._gameseries ??= new GameseriesEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.gameseries` instead. */
+  // Entity access: `client.Gameseries().list()` / `client.Gameseries().load({ id })`.
   Gameseries(data?: any) {
     const self = this
     return new GameseriesEntity(self,data)
   }
 
 
-  _type?: TypeEntity
-
-  // Idiomatic facade: `client.type.list()` / `client.type.load({ id })`.
-  get type(): TypeEntity {
-    return (this._type ??= new TypeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.type` instead. */
+  // Entity access: `client.Type().list()` / `client.Type().load({ id })`.
   Type(data?: any) {
     const self = this
     return new TypeEntity(self,data)

@@ -26,9 +26,11 @@ import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi'
 
 const client = new AmiiboapiSDK()
 
-// List all amiibos
-const amiibos = await client.amiibo.list()
-console.log(amiibos.data)
+// List all amiibos (returns Amiibo[])
+const amiibos = await client.Amiibo().list()
+for (const amiibo of amiibos) {
+  console.log(amiibo)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -87,9 +89,10 @@ from amiiboapi_sdk import AmiiboapiSDK
 
 client = AmiiboapiSDK()
 
-# List all amiibos
-amiibos = client.amiibo.list()
-print(amiibos)
+# List all amiibos (returns a list, raises on error)
+amiibos = client.Amiibo().list({})
+for amiibo in amiibos:
+    print(amiibo)
 ```
 
 ### PHP
@@ -100,8 +103,8 @@ require_once 'amiiboapi_sdk.php';
 
 $client = new AmiiboapiSDK();
 
-// List all amiibos (throws on error)
-$amiibos = $client->amiibo()->list();
+// List all amiibos (returns an array; throws on error)
+$amiibos = $client->Amiibo()->list();
 print_r($amiibos);
 ```
 
@@ -124,8 +127,8 @@ require_relative "Amiiboapi_sdk"
 
 client = AmiiboapiSDK.new
 
-# List all amiibos
-amiibos = client.amiibo.list
+# List all amiibos (returns an Array; raises on error)
+amiibos = client.Amiibo.list
 puts amiibos
 ```
 
@@ -137,7 +140,7 @@ local sdk = require("amiiboapi_sdk")
 local client = sdk.new()
 
 -- List all amiibos
-local amiibos, err = client:amiibo():list()
+local amiibos, err = client:Amiibo():list()
 print(amiibos)
 ```
 
@@ -150,22 +153,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = AmiiboapiSDK.test()
-const result = await client.amiibo.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const amiibo = await client.Amiibo().load({ id: 'test01' })
+// amiibo is a bare Amiibo populated with mock data
+console.log(amiibo)
 ```
 
 ### Python
 
 ```python
 client = AmiiboapiSDK.test()
-result = client.amiibo.load({"id": "test01"})
+amiibo = client.Amiibo().load({"id": "test01"})
+print(amiibo)
 ```
 
 ### PHP
 
 ```php
-$client = AmiiboapiSDK::test();
-$result = $client->amiibo()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = AmiiboapiSDK::test([
+    "entity" => ["amiibo" => ["test01" => ["id" => "test01"]]],
+]);
+$amiibo = $client->Amiibo()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +188,18 @@ result, err := client.Amiibo(nil).Load(
 ### Ruby
 
 ```ruby
-client = AmiiboapiSDK.test
-result = client.amiibo.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = AmiiboapiSDK.test({
+  "entity" => { "amiibo" => { "test01" => { "id" => "test01" } } },
+})
+amiibo = client.Amiibo.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:amiibo():load({ id = "test01" })
+local result, err = client:Amiibo():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +247,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

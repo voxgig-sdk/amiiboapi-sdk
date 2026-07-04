@@ -101,7 +101,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## AmiiboEntity
 
 ```php
-$amiibo = $client->amiibo();
+$amiibo = $client->Amiibo();
 ```
 
 ### Fields
@@ -125,7 +125,7 @@ $amiibo = $client->amiibo();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->amiibo()->list([]);
+$results = $client->Amiibo()->list([]);
 ```
 
 ### Common Methods
@@ -161,7 +161,7 @@ Return the entity name.
 ## AmiiboseriesEntity
 
 ```php
-$amiiboseries = $client->amiiboseries();
+$amiiboseries = $client->Amiiboseries();
 ```
 
 ### Fields
@@ -178,7 +178,7 @@ $amiiboseries = $client->amiiboseries();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->amiiboseries()->list([]);
+$results = $client->Amiiboseries()->list([]);
 ```
 
 ### Common Methods
@@ -214,7 +214,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```php
-$character = $client->character();
+$character = $client->Character();
 ```
 
 ### Fields
@@ -231,7 +231,7 @@ $character = $client->character();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->character()->list([]);
+$results = $client->Character()->list([]);
 ```
 
 ### Common Methods
@@ -267,7 +267,7 @@ Return the entity name.
 ## GameseriesEntity
 
 ```php
-$gameseries = $client->gameseries();
+$gameseries = $client->Gameseries();
 ```
 
 ### Fields
@@ -284,7 +284,7 @@ $gameseries = $client->gameseries();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->gameseries()->list([]);
+$results = $client->Gameseries()->list([]);
 ```
 
 ### Common Methods
@@ -320,7 +320,7 @@ Return the entity name.
 ## TypeEntity
 
 ```php
-$type = $client->type();
+$type = $client->Type();
 ```
 
 ### Fields
@@ -337,7 +337,7 @@ $type = $client->type();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->type()->list([]);
+$results = $client->Type()->list([]);
 ```
 
 ### Common Methods

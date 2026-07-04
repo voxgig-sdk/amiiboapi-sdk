@@ -208,65 +208,35 @@ class AmiiboapiSDK
   end
 
 
-  # Idiomatic facade: client.amiibo.list / client.amiibo.load({ "id" => ... })
-  def amiibo
-    require_relative 'entity/amiibo_entity'
-    @amiibo ||= AmiiboEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.amiibo instead.
+  # Canonical facade: client.Amiibo.list / client.Amiibo.load({ "id" => ... })
   def Amiibo(data = nil)
     require_relative 'entity/amiibo_entity'
     AmiiboEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.amiiboseries.list / client.amiiboseries.load({ "id" => ... })
-  def amiiboseries
-    require_relative 'entity/amiiboseries_entity'
-    @amiiboseries ||= AmiiboseriesEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.amiiboseries instead.
+  # Canonical facade: client.Amiiboseries.list / client.Amiiboseries.load({ "id" => ... })
   def Amiiboseries(data = nil)
     require_relative 'entity/amiiboseries_entity'
     AmiiboseriesEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.character.list / client.character.load({ "id" => ... })
-  def character
-    require_relative 'entity/character_entity'
-    @character ||= CharacterEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.character instead.
+  # Canonical facade: client.Character.list / client.Character.load({ "id" => ... })
   def Character(data = nil)
     require_relative 'entity/character_entity'
     CharacterEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.gameseries.list / client.gameseries.load({ "id" => ... })
-  def gameseries
-    require_relative 'entity/gameseries_entity'
-    @gameseries ||= GameseriesEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.gameseries instead.
+  # Canonical facade: client.Gameseries.list / client.Gameseries.load({ "id" => ... })
   def Gameseries(data = nil)
     require_relative 'entity/gameseries_entity'
     GameseriesEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.type.list / client.type.load({ "id" => ... })
-  def type
-    require_relative 'entity/type_entity'
-    @type ||= TypeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.type instead.
+  # Canonical facade: client.Type.list / client.Type.load({ "id" => ... })
   def Type(data = nil)
     require_relative 'entity/type_entity'
     TypeEntity.new(self, data)

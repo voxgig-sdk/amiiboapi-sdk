@@ -28,16 +28,14 @@ require_relative "Amiiboapi_sdk"
 client = AmiiboapiSDK.new
 ```
 
-### 2. List amiibos
+### 2. List amiibo records
 
 ```ruby
 begin
-  result = client.amiibo.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Amiibo records — iterate directly.
+  amiibos = client.Amiibo.list
+  amiibos.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = AmiiboapiSDK.test
+client = AmiiboapiSDK.test({
+  "entity" => { "amiibo" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.amiibo.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+amiibo = client.Amiibo.load({ "id" => "test01" })
+puts amiibo
 ```
 
 ### Use a custom fetch function
@@ -167,8 +169,8 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Amiibo` | `(data) -> AmiiboEntity` | Create a Amiibo entity instance. |
-| `Amiiboseries` | `(data) -> AmiiboseriesEntity` | Create a Amiiboseries entity instance. |
+| `Amiibo` | `(data) -> AmiiboEntity` | Create an Amiibo entity instance. |
+| `Amiiboseries` | `(data) -> AmiiboseriesEntity` | Create an Amiiboseries entity instance. |
 | `Character` | `(data) -> CharacterEntity` | Create a Character entity instance. |
 | `Gameseries` | `(data) -> GameseriesEntity` | Create a Gameseries entity instance. |
 | `Type` | `(data) -> TypeEntity` | Create a Type entity instance. |
@@ -279,7 +281,7 @@ API path: `/type`
 
 ### Amiibo
 
-Create an instance: `const amiibo = client.amiibo`
+Create an instance: `amiibo = client.Amiibo`
 
 #### Operations
 
@@ -303,14 +305,15 @@ Create an instance: `const amiibo = client.amiibo`
 
 #### Example: List
 
-```ts
-const amiibos = await client.amiibo.list()
+```ruby
+# list returns an Array of Amiibo records (raises on error).
+amiibos = client.Amiibo.list
 ```
 
 
 ### Amiiboseries
 
-Create an instance: `const amiiboseries = client.amiiboseries`
+Create an instance: `amiiboseries = client.Amiiboseries`
 
 #### Operations
 
@@ -327,14 +330,15 @@ Create an instance: `const amiiboseries = client.amiiboseries`
 
 #### Example: List
 
-```ts
-const amiiboseriess = await client.amiiboseries.list()
+```ruby
+# list returns an Array of Amiiboseries records (raises on error).
+amiiboseriess = client.Amiiboseries.list
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `character = client.Character`
 
 #### Operations
 
@@ -351,14 +355,15 @@ Create an instance: `const character = client.character`
 
 #### Example: List
 
-```ts
-const characters = await client.character.list()
+```ruby
+# list returns an Array of Character records (raises on error).
+characters = client.Character.list
 ```
 
 
 ### Gameseries
 
-Create an instance: `const gameseries = client.gameseries`
+Create an instance: `gameseries = client.Gameseries`
 
 #### Operations
 
@@ -375,14 +380,15 @@ Create an instance: `const gameseries = client.gameseries`
 
 #### Example: List
 
-```ts
-const gameseriess = await client.gameseries.list()
+```ruby
+# list returns an Array of Gameseries records (raises on error).
+gameseriess = client.Gameseries.list
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `type = client.Type`
 
 #### Operations
 
@@ -399,8 +405,9 @@ Create an instance: `const type = client.type`
 
 #### Example: List
 
-```ts
-const types = await client.type.list()
+```ruby
+# list returns an Array of Type records (raises on error).
+types = client.Type.list
 ```
 
 
@@ -475,7 +482,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-amiibo = client.amiibo
+amiibo = client.Amiibo
 amiibo.load({ "id" => "example_id" })
 
 # amiibo.data_get now returns the loaded amiibo data
