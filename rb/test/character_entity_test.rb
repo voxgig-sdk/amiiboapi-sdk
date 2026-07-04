@@ -43,8 +43,7 @@ class CharacterEntityTest < Minitest::Test
     character_ref01_ent = client.Character(nil)
     character_ref01_match = {}
 
-    character_ref01_list_result, err = character_ref01_ent.list(character_ref01_match, nil)
-    assert_nil err
+    character_ref01_list_result = character_ref01_ent.list(character_ref01_match, nil)
     assert character_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def character_basic_setup(extra)
     "AMIIBOAPI_TEST_CHARACTER_ENTID" => idmap,
     "AMIIBOAPI_TEST_LIVE" => "FALSE",
     "AMIIBOAPI_TEST_EXPLAIN" => "FALSE",
-    "AMIIBOAPI_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def character_basic_setup(extra)
   if env["AMIIBOAPI_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["AMIIBOAPI_APIKEY"],
       },
       extra || {},
     ])

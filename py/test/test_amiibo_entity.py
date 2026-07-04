@@ -50,8 +50,7 @@ class TestAmiiboEntity:
         amiibo_ref01_ent = client.Amiibo(None)
         amiibo_ref01_match = {}
 
-        amiibo_ref01_list_result, err = amiibo_ref01_ent.list(amiibo_ref01_match, None)
-        assert err is None
+        amiibo_ref01_list_result = amiibo_ref01_ent.list(amiibo_ref01_match, None)
         assert isinstance(amiibo_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _amiibo_basic_setup(extra):
         "AMIIBOAPI_TEST_AMIIBO_ENTID": idmap,
         "AMIIBOAPI_TEST_LIVE": "FALSE",
         "AMIIBOAPI_TEST_EXPLAIN": "FALSE",
-        "AMIIBOAPI_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _amiibo_basic_setup(extra):
     if env.get("AMIIBOAPI_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("AMIIBOAPI_APIKEY"),
             },
             extra or {},
         ])

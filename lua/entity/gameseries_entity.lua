@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch GameseriesListMatch
+---@param ctrl? table
+---@return Gameseries[]
+---@return string? err
 function GameseriesEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

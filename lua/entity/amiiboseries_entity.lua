@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch AmiiboseriesListMatch
+---@param ctrl? table
+---@return Amiiboseries[]
+---@return string? err
 function AmiiboseriesEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

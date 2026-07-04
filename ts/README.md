@@ -9,9 +9,12 @@ The TypeScript SDK for the Amiiboapi API — a type-safe, entity-oriented client
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/amiiboapi
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/amiiboapi-sdk/releases](https://github.com/voxgig-sdk/amiiboapi-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { AmiiboapiSDK } from 'amiiboapi'
+import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi'
 
-const client = new AmiiboapiSDK({
-  apikey: process.env.AMIIBOAPI_APIKEY,
-})
+const client = new AmiiboapiSDK()
 ```
 
 ### 2. List amiibos
 
 ```ts
-const result = await client.Amiibo().list()
+const result = await client.amiibo.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = AmiiboapiSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.amiibo.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new AmiiboapiSDK({ apikey: '...' })
+const client = new AmiiboapiSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.amiibo
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new AmiiboapiSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 AMIIBOAPI_TEST_LIVE=TRUE
-AMIIBOAPI_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new AmiiboapiSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new AmiiboapiSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -324,7 +321,7 @@ API path: `/type`
 
 ### Amiibo
 
-Create an instance: `const amiibo = client.Amiibo()`
+Create an instance: `const amiibo = client.amiibo`
 
 #### Operations
 
@@ -349,13 +346,13 @@ Create an instance: `const amiibo = client.Amiibo()`
 #### Example: List
 
 ```ts
-const amiibos = await client.Amiibo().list()
+const amiibos = await client.amiibo.list()
 ```
 
 
 ### Amiiboseries
 
-Create an instance: `const amiiboseries = client.Amiiboseries()`
+Create an instance: `const amiiboseries = client.amiiboseries`
 
 #### Operations
 
@@ -373,13 +370,13 @@ Create an instance: `const amiiboseries = client.Amiiboseries()`
 #### Example: List
 
 ```ts
-const amiiboseriess = await client.Amiiboseries().list()
+const amiiboseriess = await client.amiiboseries.list()
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.Character()`
+Create an instance: `const character = client.character`
 
 #### Operations
 
@@ -397,13 +394,13 @@ Create an instance: `const character = client.Character()`
 #### Example: List
 
 ```ts
-const characters = await client.Character().list()
+const characters = await client.character.list()
 ```
 
 
 ### Gameseries
 
-Create an instance: `const gameseries = client.Gameseries()`
+Create an instance: `const gameseries = client.gameseries`
 
 #### Operations
 
@@ -421,13 +418,13 @@ Create an instance: `const gameseries = client.Gameseries()`
 #### Example: List
 
 ```ts
-const gameseriess = await client.Gameseries().list()
+const gameseriess = await client.gameseries.list()
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.Type()`
+Create an instance: `const type = client.type`
 
 #### Operations
 
@@ -445,7 +442,7 @@ Create an instance: `const type = client.Type()`
 #### Example: List
 
 ```ts
-const types = await client.Type().list()
+const types = await client.type.list()
 ```
 
 
@@ -506,7 +503,7 @@ amiiboapi/
 Import the SDK from the package root:
 
 ```ts
-import { AmiiboapiSDK } from 'amiiboapi'
+import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi'
 ```
 
 ### Entity state
@@ -516,11 +513,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const amiibo = client.amiibo
+await amiibo.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// amiibo.data() now returns the loaded amiibo data
+// amiibo.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

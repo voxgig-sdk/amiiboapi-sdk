@@ -45,6 +45,7 @@ class GameseriesEntity
     end
   end
 
+  # @return [Gameseries, Hash] the current Gameseries data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class GameseriesEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Gameseries fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class GameseriesEntity
   
 
   
+  # List Gameseries items matching the given filter.
+  #
+  # @param reqmatch [GameseriesListMatch, Hash, nil] match filter (any subset of Gameseries fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Gameseries>, Array] the matching Gameseries items; raises AmiiboapiError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -244,30 +244,95 @@ end
 
 
 
+-- Idiomatic facade: client:amiibo():list() / client:amiibo():load({ id = ... })
+function AmiiboapiSDK:amiibo(data)
+  local EntityMod = require("entity.amiibo_entity")
+  if data == nil then
+    if self._amiibo == nil then
+      self._amiibo = EntityMod.new(self, nil)
+    end
+    return self._amiibo
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:amiibo() instead.
 function AmiiboapiSDK:Amiibo(data)
   local EntityMod = require("entity.amiibo_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:amiiboseries():list() / client:amiiboseries():load({ id = ... })
+function AmiiboapiSDK:amiiboseries(data)
+  local EntityMod = require("entity.amiiboseries_entity")
+  if data == nil then
+    if self._amiiboseries == nil then
+      self._amiiboseries = EntityMod.new(self, nil)
+    end
+    return self._amiiboseries
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:amiiboseries() instead.
 function AmiiboapiSDK:Amiiboseries(data)
   local EntityMod = require("entity.amiiboseries_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
+function AmiiboapiSDK:character(data)
+  local EntityMod = require("entity.character_entity")
+  if data == nil then
+    if self._character == nil then
+      self._character = EntityMod.new(self, nil)
+    end
+    return self._character
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:character() instead.
 function AmiiboapiSDK:Character(data)
   local EntityMod = require("entity.character_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:gameseries():list() / client:gameseries():load({ id = ... })
+function AmiiboapiSDK:gameseries(data)
+  local EntityMod = require("entity.gameseries_entity")
+  if data == nil then
+    if self._gameseries == nil then
+      self._gameseries = EntityMod.new(self, nil)
+    end
+    return self._gameseries
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:gameseries() instead.
 function AmiiboapiSDK:Gameseries(data)
   local EntityMod = require("entity.gameseries_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:type():list() / client:type():load({ id = ... })
+function AmiiboapiSDK:type(data)
+  local EntityMod = require("entity.type_entity")
+  if data == nil then
+    if self._type == nil then
+      self._type = EntityMod.new(self, nil)
+    end
+    return self._type
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:type() instead.
 function AmiiboapiSDK:Type(data)
   local EntityMod = require("entity.type_entity")
   return EntityMod.new(self, data)

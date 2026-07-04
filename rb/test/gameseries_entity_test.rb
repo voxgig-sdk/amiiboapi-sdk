@@ -43,8 +43,7 @@ class GameseriesEntityTest < Minitest::Test
     gameseries_ref01_ent = client.Gameseries(nil)
     gameseries_ref01_match = {}
 
-    gameseries_ref01_list_result, err = gameseries_ref01_ent.list(gameseries_ref01_match, nil)
-    assert_nil err
+    gameseries_ref01_list_result = gameseries_ref01_ent.list(gameseries_ref01_match, nil)
     assert gameseries_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def gameseries_basic_setup(extra)
     "AMIIBOAPI_TEST_GAMESERIES_ENTID" => idmap,
     "AMIIBOAPI_TEST_LIVE" => "FALSE",
     "AMIIBOAPI_TEST_EXPLAIN" => "FALSE",
-    "AMIIBOAPI_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def gameseries_basic_setup(extra)
   if env["AMIIBOAPI_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["AMIIBOAPI_APIKEY"],
       },
       extra || {},
     ])

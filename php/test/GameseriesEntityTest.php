@@ -50,8 +50,7 @@ class GameseriesEntityTest extends TestCase
         $gameseries_ref01_ent = $client->Gameseries(null);
         $gameseries_ref01_match = [];
 
-        [$gameseries_ref01_list_result, $err] = $gameseries_ref01_ent->list($gameseries_ref01_match, null);
-        $this->assertNull($err);
+        $gameseries_ref01_list_result = $gameseries_ref01_ent->list($gameseries_ref01_match, null);
         $this->assertIsArray($gameseries_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function gameseries_basic_setup($extra)
         "AMIIBOAPI_TEST_GAMESERIES_ENTID" => $idmap,
         "AMIIBOAPI_TEST_LIVE" => "FALSE",
         "AMIIBOAPI_TEST_EXPLAIN" => "FALSE",
-        "AMIIBOAPI_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function gameseries_basic_setup($extra)
     if ($env["AMIIBOAPI_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["AMIIBOAPI_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -92,7 +92,6 @@ function character_basic_setup(extra)
     ["AMIIBOAPI_TEST_CHARACTER_ENTID"] = idmap,
     ["AMIIBOAPI_TEST_LIVE"] = "FALSE",
     ["AMIIBOAPI_TEST_EXPLAIN"] = "FALSE",
-    ["AMIIBOAPI_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function character_basic_setup(extra)
   if env["AMIIBOAPI_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["AMIIBOAPI_APIKEY"],
       },
       extra or {},
     })

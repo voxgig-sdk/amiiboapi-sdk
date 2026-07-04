@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'Amiiboapi_types'
+
 
 class AmiiboapiSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class AmiiboapiSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class AmiiboapiSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue AmiiboapiError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = AmiiboapiHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class AmiiboapiSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,40 +198,75 @@ class AmiiboapiSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.amiibo.list / client.amiibo.load({ "id" => ... })
+  def amiibo
+    require_relative 'entity/amiibo_entity'
+    @amiibo ||= AmiiboEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.amiibo instead.
   def Amiibo(data = nil)
     require_relative 'entity/amiibo_entity'
     AmiiboEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.amiiboseries.list / client.amiiboseries.load({ "id" => ... })
+  def amiiboseries
+    require_relative 'entity/amiiboseries_entity'
+    @amiiboseries ||= AmiiboseriesEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.amiiboseries instead.
   def Amiiboseries(data = nil)
     require_relative 'entity/amiiboseries_entity'
     AmiiboseriesEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.character.list / client.character.load({ "id" => ... })
+  def character
+    require_relative 'entity/character_entity'
+    @character ||= CharacterEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.character instead.
   def Character(data = nil)
     require_relative 'entity/character_entity'
     CharacterEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.gameseries.list / client.gameseries.load({ "id" => ... })
+  def gameseries
+    require_relative 'entity/gameseries_entity'
+    @gameseries ||= GameseriesEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.gameseries instead.
   def Gameseries(data = nil)
     require_relative 'entity/gameseries_entity'
     GameseriesEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.type.list / client.type.load({ "id" => ... })
+  def type
+    require_relative 'entity/type_entity'
+    @type ||= TypeEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.type instead.
   def Type(data = nil)
     require_relative 'entity/type_entity'
     TypeEntity.new(self, data)

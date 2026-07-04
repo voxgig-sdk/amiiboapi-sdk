@@ -245,26 +245,41 @@ func (sdk *AmiiboapiSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// Amiibo returns a Amiibo entity bound to this client.
+// Idiomatic usage: client.Amiibo(nil).List(nil, nil) or
+// client.Amiibo(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AmiiboapiSDK) Amiibo(data map[string]any) AmiiboapiEntity {
 	return NewAmiiboEntityFunc(sdk, data)
 }
 
 
+// Amiiboseries returns a Amiiboseries entity bound to this client.
+// Idiomatic usage: client.Amiiboseries(nil).List(nil, nil) or
+// client.Amiiboseries(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AmiiboapiSDK) Amiiboseries(data map[string]any) AmiiboapiEntity {
 	return NewAmiiboseriesEntityFunc(sdk, data)
 }
 
 
+// Character returns a Character entity bound to this client.
+// Idiomatic usage: client.Character(nil).List(nil, nil) or
+// client.Character(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AmiiboapiSDK) Character(data map[string]any) AmiiboapiEntity {
 	return NewCharacterEntityFunc(sdk, data)
 }
 
 
+// Gameseries returns a Gameseries entity bound to this client.
+// Idiomatic usage: client.Gameseries(nil).List(nil, nil) or
+// client.Gameseries(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AmiiboapiSDK) Gameseries(data map[string]any) AmiiboapiEntity {
 	return NewGameseriesEntityFunc(sdk, data)
 }
 
 
+// Type returns a Type entity bound to this client.
+// Idiomatic usage: client.Type(nil).List(nil, nil) or
+// client.Type(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *AmiiboapiSDK) Type(data map[string]any) AmiiboapiEntity {
 	return NewTypeEntityFunc(sdk, data)
 }

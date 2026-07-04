@@ -50,8 +50,7 @@ class TestCharacterEntity:
         character_ref01_ent = client.Character(None)
         character_ref01_match = {}
 
-        character_ref01_list_result, err = character_ref01_ent.list(character_ref01_match, None)
-        assert err is None
+        character_ref01_list_result = character_ref01_ent.list(character_ref01_match, None)
         assert isinstance(character_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _character_basic_setup(extra):
         "AMIIBOAPI_TEST_CHARACTER_ENTID": idmap,
         "AMIIBOAPI_TEST_LIVE": "FALSE",
         "AMIIBOAPI_TEST_EXPLAIN": "FALSE",
-        "AMIIBOAPI_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _character_basic_setup(extra):
     if env.get("AMIIBOAPI_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("AMIIBOAPI_APIKEY"),
             },
             extra or {},
         ])

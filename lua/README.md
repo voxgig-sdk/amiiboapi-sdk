@@ -9,12 +9,9 @@ The Lua SDK for the Amiiboapi API — an entity-oriented client using Lua conven
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-amiiboapi
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/amiiboapi-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("amiiboapi_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("AMIIBOAPI_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List amiibos
 
 ```lua
-local result, err = client:Amiibo():list()
+local result, err = client:amiibo():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Amiiboapi():load({ id = "test01" })
+local result, err = client:amiibo():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 AMIIBOAPI_TEST_LIVE=TRUE
-AMIIBOAPI_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -283,7 +276,7 @@ API path: `/type`
 
 ### Amiibo
 
-Create an instance: `const amiibo = client.Amiibo()`
+Create an instance: `const amiibo = client.amiibo`
 
 #### Operations
 
@@ -308,13 +301,13 @@ Create an instance: `const amiibo = client.Amiibo()`
 #### Example: List
 
 ```ts
-const amiibos = await client.Amiibo().list()
+const amiibos = await client.amiibo.list()
 ```
 
 
 ### Amiiboseries
 
-Create an instance: `const amiiboseries = client.Amiiboseries()`
+Create an instance: `const amiiboseries = client.amiiboseries`
 
 #### Operations
 
@@ -332,13 +325,13 @@ Create an instance: `const amiiboseries = client.Amiiboseries()`
 #### Example: List
 
 ```ts
-const amiiboseriess = await client.Amiiboseries().list()
+const amiiboseriess = await client.amiiboseries.list()
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.Character()`
+Create an instance: `const character = client.character`
 
 #### Operations
 
@@ -356,13 +349,13 @@ Create an instance: `const character = client.Character()`
 #### Example: List
 
 ```ts
-const characters = await client.Character().list()
+const characters = await client.character.list()
 ```
 
 
 ### Gameseries
 
-Create an instance: `const gameseries = client.Gameseries()`
+Create an instance: `const gameseries = client.gameseries`
 
 #### Operations
 
@@ -380,13 +373,13 @@ Create an instance: `const gameseries = client.Gameseries()`
 #### Example: List
 
 ```ts
-const gameseriess = await client.Gameseries().list()
+const gameseriess = await client.gameseries.list()
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.Type()`
+Create an instance: `const type = client.type`
 
 #### Operations
 
@@ -404,7 +397,7 @@ Create an instance: `const type = client.Type()`
 #### Example: List
 
 ```ts
-const types = await client.Type().list()
+const types = await client.type.list()
 ```
 
 
@@ -479,11 +472,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local amiibo = client:amiibo()
+amiibo:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- amiibo:data_get() now returns the loaded amiibo data
+-- amiibo:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

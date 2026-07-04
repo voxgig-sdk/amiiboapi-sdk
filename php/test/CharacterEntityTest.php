@@ -50,8 +50,7 @@ class CharacterEntityTest extends TestCase
         $character_ref01_ent = $client->Character(null);
         $character_ref01_match = [];
 
-        [$character_ref01_list_result, $err] = $character_ref01_ent->list($character_ref01_match, null);
-        $this->assertNull($err);
+        $character_ref01_list_result = $character_ref01_ent->list($character_ref01_match, null);
         $this->assertIsArray($character_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function character_basic_setup($extra)
         "AMIIBOAPI_TEST_CHARACTER_ENTID" => $idmap,
         "AMIIBOAPI_TEST_LIVE" => "FALSE",
         "AMIIBOAPI_TEST_EXPLAIN" => "FALSE",
-        "AMIIBOAPI_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function character_basic_setup($extra)
     if ($env["AMIIBOAPI_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["AMIIBOAPI_APIKEY"],
             ],
             $extra ?? [],
         ]);

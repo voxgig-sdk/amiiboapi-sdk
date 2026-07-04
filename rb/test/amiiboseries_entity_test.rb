@@ -43,8 +43,7 @@ class AmiiboseriesEntityTest < Minitest::Test
     amiiboseries_ref01_ent = client.Amiiboseries(nil)
     amiiboseries_ref01_match = {}
 
-    amiiboseries_ref01_list_result, err = amiiboseries_ref01_ent.list(amiiboseries_ref01_match, nil)
-    assert_nil err
+    amiiboseries_ref01_list_result = amiiboseries_ref01_ent.list(amiiboseries_ref01_match, nil)
     assert amiiboseries_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def amiiboseries_basic_setup(extra)
     "AMIIBOAPI_TEST_AMIIBOSERIES_ENTID" => idmap,
     "AMIIBOAPI_TEST_LIVE" => "FALSE",
     "AMIIBOAPI_TEST_EXPLAIN" => "FALSE",
-    "AMIIBOAPI_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def amiiboseries_basic_setup(extra)
   if env["AMIIBOAPI_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["AMIIBOAPI_APIKEY"],
       },
       extra || {},
     ])

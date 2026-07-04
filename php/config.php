@@ -20,9 +20,6 @@ class AmiiboapiConfig
             ],
             "options" => [
                 "base" => "https://www.amiiboapi.com/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

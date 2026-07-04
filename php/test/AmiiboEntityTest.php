@@ -50,8 +50,7 @@ class AmiiboEntityTest extends TestCase
         $amiibo_ref01_ent = $client->Amiibo(null);
         $amiibo_ref01_match = [];
 
-        [$amiibo_ref01_list_result, $err] = $amiibo_ref01_ent->list($amiibo_ref01_match, null);
-        $this->assertNull($err);
+        $amiibo_ref01_list_result = $amiibo_ref01_ent->list($amiibo_ref01_match, null);
         $this->assertIsArray($amiibo_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function amiibo_basic_setup($extra)
         "AMIIBOAPI_TEST_AMIIBO_ENTID" => $idmap,
         "AMIIBOAPI_TEST_LIVE" => "FALSE",
         "AMIIBOAPI_TEST_EXPLAIN" => "FALSE",
-        "AMIIBOAPI_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function amiibo_basic_setup($extra)
     if ($env["AMIIBOAPI_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["AMIIBOAPI_APIKEY"],
             ],
             $extra ?? [],
         ]);

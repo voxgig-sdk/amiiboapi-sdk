@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -100,7 +99,7 @@ same parameters as `direct()`.
 ## AmiiboEntity
 
 ```lua
-local amiibo = client:Amiibo(nil)
+local amiibo = client:amiibo(nil)
 ```
 
 ### Fields
@@ -124,7 +123,7 @@ local amiibo = client:Amiibo(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Amiibo():list()
+local results, err = client:amiibo():list()
 ```
 
 ### Common Methods
@@ -160,7 +159,7 @@ Return the entity name.
 ## AmiiboseriesEntity
 
 ```lua
-local amiiboseries = client:Amiiboseries(nil)
+local amiiboseries = client:amiiboseries(nil)
 ```
 
 ### Fields
@@ -177,7 +176,7 @@ local amiiboseries = client:Amiiboseries(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Amiiboseries():list()
+local results, err = client:amiiboseries():list()
 ```
 
 ### Common Methods
@@ -213,7 +212,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```lua
-local character = client:Character(nil)
+local character = client:character(nil)
 ```
 
 ### Fields
@@ -230,7 +229,7 @@ local character = client:Character(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Character():list()
+local results, err = client:character():list()
 ```
 
 ### Common Methods
@@ -266,7 +265,7 @@ Return the entity name.
 ## GameseriesEntity
 
 ```lua
-local gameseries = client:Gameseries(nil)
+local gameseries = client:gameseries(nil)
 ```
 
 ### Fields
@@ -283,7 +282,7 @@ local gameseries = client:Gameseries(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Gameseries():list()
+local results, err = client:gameseries():list()
 ```
 
 ### Common Methods
@@ -319,7 +318,7 @@ Return the entity name.
 ## TypeEntity
 
 ```lua
-local type = client:Type(nil)
+local type = client:type(nil)
 ```
 
 ### Fields
@@ -336,7 +335,7 @@ local type = client:Type(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Type():list()
+local results, err = client:type():list()
 ```
 
 ### Common Methods

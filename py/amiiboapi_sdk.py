@@ -144,16 +144,23 @@ class AmiiboapiSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class AmiiboapiSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,35 +212,90 @@ class AmiiboapiSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def amiibo(self):
+        """Idiomatic facade: client.amiibo.list() / client.amiibo.load({"id": ...})."""
+        from entity.amiibo_entity import AmiiboEntity
+        cached = getattr(self, "_amiibo", None)
+        if cached is None:
+            cached = AmiiboEntity(self, None)
+            self._amiibo = cached
+        return cached
 
     def Amiibo(self, data=None):
+        # Deprecated: use client.amiibo instead.
         from entity.amiibo_entity import AmiiboEntity
         return AmiiboEntity(self, data)
 
 
+    @property
+    def amiiboseries(self):
+        """Idiomatic facade: client.amiiboseries.list() / client.amiiboseries.load({"id": ...})."""
+        from entity.amiiboseries_entity import AmiiboseriesEntity
+        cached = getattr(self, "_amiiboseries", None)
+        if cached is None:
+            cached = AmiiboseriesEntity(self, None)
+            self._amiiboseries = cached
+        return cached
+
     def Amiiboseries(self, data=None):
+        # Deprecated: use client.amiiboseries instead.
         from entity.amiiboseries_entity import AmiiboseriesEntity
         return AmiiboseriesEntity(self, data)
 
 
+    @property
+    def character(self):
+        """Idiomatic facade: client.character.list() / client.character.load({"id": ...})."""
+        from entity.character_entity import CharacterEntity
+        cached = getattr(self, "_character", None)
+        if cached is None:
+            cached = CharacterEntity(self, None)
+            self._character = cached
+        return cached
+
     def Character(self, data=None):
+        # Deprecated: use client.character instead.
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
+    @property
+    def gameseries(self):
+        """Idiomatic facade: client.gameseries.list() / client.gameseries.load({"id": ...})."""
+        from entity.gameseries_entity import GameseriesEntity
+        cached = getattr(self, "_gameseries", None)
+        if cached is None:
+            cached = GameseriesEntity(self, None)
+            self._gameseries = cached
+        return cached
+
     def Gameseries(self, data=None):
+        # Deprecated: use client.gameseries instead.
         from entity.gameseries_entity import GameseriesEntity
         return GameseriesEntity(self, data)
 
 
+    @property
+    def type(self):
+        """Idiomatic facade: client.type.list() / client.type.load({"id": ...})."""
+        from entity.type_entity import TypeEntity
+        cached = getattr(self, "_type", None)
+        if cached is None:
+            cached = TypeEntity(self, None)
+            self._type = cached
+        return cached
+
     def Type(self, data=None):
+        # Deprecated: use client.type instead.
         from entity.type_entity import TypeEntity
         return TypeEntity(self, data)
 
