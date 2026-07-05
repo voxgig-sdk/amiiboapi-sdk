@@ -8,7 +8,7 @@ Complete API reference for the Amiiboapi Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'amiiboapi_sdk'
+require_relative 'Amiiboapi_sdk'
 
 client = AmiiboapiSDK.new(options)
 ```
@@ -109,24 +109,24 @@ amiibo = client.Amiibo
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiibo_series` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `game_series` | ``$STRING`` | No |  |
-| `head` | ``$STRING`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `release` | ``$OBJECT`` | No |  |
-| `tail` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `amiibo_series` | `String` | No |  |
+| `character` | `String` | No |  |
+| `game_series` | `String` | No |  |
+| `head` | `String` | No |  |
+| `image` | `String` | No |  |
+| `name` | `String` | No |  |
+| `release` | `Hash` | No |  |
+| `tail` | `String` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Amiibo.list(nil)
+results = client.Amiibo.list
 ```
 
 ### Common Methods
@@ -169,17 +169,17 @@ amiiboseries = client.Amiiboseries
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `String` | No |  |
+| `name` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Amiiboseries.list(nil)
+results = client.Amiiboseries.list
 ```
 
 ### Common Methods
@@ -222,17 +222,17 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `String` | No |  |
+| `name` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Character.list(nil)
+results = client.Character.list
 ```
 
 ### Common Methods
@@ -275,17 +275,17 @@ gameseries = client.Gameseries
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `String` | No |  |
+| `name` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Gameseries.list(nil)
+results = client.Gameseries.list
 ```
 
 ### Common Methods
@@ -328,17 +328,17 @@ type = client.Type
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `String` | No |  |
+| `name` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Type.list(nil)
+results = client.Type.list
 ```
 
 ### Common Methods

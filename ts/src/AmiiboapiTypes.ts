@@ -17,33 +17,55 @@ export interface Amiibo {
   type?: string
 }
 
-export type AmiiboListMatch = Partial<Amiibo>
+export interface AmiiboListMatch {
+  amiibo_series?: string
+  character?: string
+  game_series?: string
+  head?: string
+  image?: string
+  name?: string
+  release?: Record<string, any>
+  tail?: string
+  type?: string
+}
 
 export interface Amiiboseries {
   key?: string
   name?: string
 }
 
-export type AmiiboseriesListMatch = Partial<Amiiboseries>
+export interface AmiiboseriesListMatch {
+  key?: string
+  name?: string
+}
 
 export interface Character {
   key?: string
   name?: string
 }
 
-export type CharacterListMatch = Partial<Character>
+export interface CharacterListMatch {
+  key?: string
+  name?: string
+}
 
 export interface Gameseries {
   key?: string
   name?: string
 }
 
-export type GameseriesListMatch = Partial<Gameseries>
+export interface GameseriesListMatch {
+  key?: string
+  name?: string
+}
 
 export interface Type {
   key?: string
   name?: string
 }
 
-export type TypeListMatch = Partial<Type>
+export interface TypeListMatch {
+  key?: string
+  name?: string
+}
 

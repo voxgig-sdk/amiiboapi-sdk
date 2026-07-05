@@ -113,15 +113,15 @@ amiibo := client.Amiibo(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiibo_series` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `game_series` | ``$STRING`` | No |  |
-| `head` | ``$STRING`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `release` | ``$OBJECT`` | No |  |
-| `tail` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `amiibo_series` | `string` | No |  |
+| `character` | `string` | No |  |
+| `game_series` | `string` | No |  |
+| `head` | `string` | No |  |
+| `image` | `string` | No |  |
+| `name` | `string` | No |  |
+| `release` | `map[string]any` | No |  |
+| `tail` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -167,8 +167,8 @@ amiiboseries := client.Amiiboseries(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -214,8 +214,8 @@ character := client.Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -261,8 +261,8 @@ gameseries := client.Gameseries(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -308,8 +308,8 @@ type := client.Type(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 

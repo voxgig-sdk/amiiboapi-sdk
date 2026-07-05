@@ -61,11 +61,11 @@ Create a new `GameseriesEntity` instance. Pass `null` for no initial data.
 
 Create a new `TypeEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): AmiiboapiUtility`
 
 Return a copy of the SDK utility object.
 
@@ -108,41 +108,41 @@ $amiibo = $client->Amiibo();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiibo_series` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `game_series` | ``$STRING`` | No |  |
-| `head` | ``$STRING`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `release` | ``$OBJECT`` | No |  |
-| `tail` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `amiibo_series` | `string` | No |  |
+| `character` | `string` | No |  |
+| `game_series` | `string` | No |  |
+| `head` | `string` | No |  |
+| `image` | `string` | No |  |
+| `name` | `string` | No |  |
+| `release` | `array` | No |  |
+| `tail` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Amiibo()->list([]);
+$results = $client->Amiibo()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -151,7 +151,7 @@ Set the entity match criteria.
 Create a new `AmiiboEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -168,34 +168,34 @@ $amiiboseries = $client->Amiiboseries();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Amiiboseries()->list([]);
+$results = $client->Amiiboseries()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -204,7 +204,7 @@ Set the entity match criteria.
 Create a new `AmiiboseriesEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -221,34 +221,34 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Character()->list([]);
+$results = $client->Character()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -257,7 +257,7 @@ Set the entity match criteria.
 Create a new `CharacterEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -274,34 +274,34 @@ $gameseries = $client->Gameseries();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Gameseries()->list([]);
+$results = $client->Gameseries()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -310,7 +310,7 @@ Set the entity match criteria.
 Create a new `GameseriesEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -327,34 +327,34 @@ $type = $client->Type();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Type()->list([]);
+$results = $client->Type()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -363,7 +363,7 @@ Set the entity match criteria.
 Create a new `TypeEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

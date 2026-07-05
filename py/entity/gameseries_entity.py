@@ -66,8 +66,12 @@ class GameseriesEntity:
     
 
     
-    def list(self, reqmatch: GameseriesListMatch, ctrl=None) -> list[Gameseries]:
+    def list(self, reqmatch=None, ctrl=None) -> list[Gameseries]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.Gameseries().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

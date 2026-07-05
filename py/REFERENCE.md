@@ -103,24 +103,24 @@ amiibo = client.Amiibo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiibo_series` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `game_series` | ``$STRING`` | No |  |
-| `head` | ``$STRING`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `release` | ``$OBJECT`` | No |  |
-| `tail` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `amiibo_series` | `str` | No |  |
+| `character` | `str` | No |  |
+| `game_series` | `str` | No |  |
+| `head` | `str` | No |  |
+| `image` | `str` | No |  |
+| `name` | `str` | No |  |
+| `release` | `dict` | No |  |
+| `tail` | `str` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Amiibo().list({})
+results = client.Amiibo().list()
 for amiibo in results:
     print(amiibo)
 ```
@@ -164,17 +164,17 @@ amiiboseries = client.Amiiboseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `str` | No |  |
+| `name` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Amiiboseries().list({})
+results = client.Amiiboseries().list()
 for amiiboseries in results:
     print(amiiboseries)
 ```
@@ -218,17 +218,17 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `str` | No |  |
+| `name` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Character().list({})
+results = client.Character().list()
 for character in results:
     print(character)
 ```
@@ -272,17 +272,17 @@ gameseries = client.Gameseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `str` | No |  |
+| `name` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Gameseries().list({})
+results = client.Gameseries().list()
 for gameseries in results:
     print(gameseries)
 ```
@@ -326,17 +326,17 @@ type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `str` | No |  |
+| `name` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Type().list({})
+results = client.Type().list()
 for type in results:
     print(type)
 ```

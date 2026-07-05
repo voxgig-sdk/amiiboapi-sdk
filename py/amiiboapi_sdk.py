@@ -221,31 +221,31 @@ class AmiiboapiSDK:
 
 
     def Amiibo(self, data=None) -> "AmiiboEntity":
-        """Entity factory: client.Amiibo().list({}) / client.Amiibo().load({"id": ...})."""
+        """Entity factory: client.Amiibo().list() / client.Amiibo().load({"id": ...})."""
         from entity.amiibo_entity import AmiiboEntity
         return AmiiboEntity(self, data)
 
 
     def Amiiboseries(self, data=None) -> "AmiiboseriesEntity":
-        """Entity factory: client.Amiiboseries().list({}) / client.Amiiboseries().load({"id": ...})."""
+        """Entity factory: client.Amiiboseries().list() / client.Amiiboseries().load({"id": ...})."""
         from entity.amiiboseries_entity import AmiiboseriesEntity
         return AmiiboseriesEntity(self, data)
 
 
     def Character(self, data=None) -> "CharacterEntity":
-        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
+        """Entity factory: client.Character().list() / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
     def Gameseries(self, data=None) -> "GameseriesEntity":
-        """Entity factory: client.Gameseries().list({}) / client.Gameseries().load({"id": ...})."""
+        """Entity factory: client.Gameseries().list() / client.Gameseries().load({"id": ...})."""
         from entity.gameseries_entity import GameseriesEntity
         return GameseriesEntity(self, data)
 
 
     def Type(self, data=None) -> "TypeEntity":
-        """Entity factory: client.Type().list({}) / client.Type().load({"id": ...})."""
+        """Entity factory: client.Type().list() / client.Type().load({"id": ...})."""
         from entity.type_entity import TypeEntity
         return TypeEntity(self, data)
 

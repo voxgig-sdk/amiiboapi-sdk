@@ -18,30 +18,47 @@
 ---@field type? string
 
 ---@class AmiiboListMatch
+---@field amiibo_series? string
+---@field character? string
+---@field game_series? string
+---@field head? string
+---@field image? string
+---@field name? string
+---@field release? table
+---@field tail? string
+---@field type? string
 
 ---@class Amiiboseries
 ---@field key? string
 ---@field name? string
 
 ---@class AmiiboseriesListMatch
+---@field key? string
+---@field name? string
 
 ---@class Character
 ---@field key? string
 ---@field name? string
 
 ---@class CharacterListMatch
+---@field key? string
+---@field name? string
 
 ---@class Gameseries
 ---@field key? string
 ---@field name? string
 
 ---@class GameseriesListMatch
+---@field key? string
+---@field name? string
 
 ---@class Type
 ---@field key? string
 ---@field name? string
 
 ---@class TypeListMatch
+---@field key? string
+---@field name? string
 
 local M = {}
 

@@ -26,7 +26,7 @@ class Amiibo
     public ?string $type = null;
 }
 
-/** Match filter for Amiibo#list (any subset of Amiibo fields). */
+/** Request payload for Amiibo#list. */
 class AmiiboListMatch
 {
     public ?string $amiibo_series = null;
@@ -47,7 +47,7 @@ class Amiiboseries
     public ?string $name = null;
 }
 
-/** Match filter for Amiiboseries#list (any subset of Amiiboseries fields). */
+/** Request payload for Amiiboseries#list. */
 class AmiiboseriesListMatch
 {
     public ?string $key = null;
@@ -61,7 +61,7 @@ class Character
     public ?string $name = null;
 }
 
-/** Match filter for Character#list (any subset of Character fields). */
+/** Request payload for Character#list. */
 class CharacterListMatch
 {
     public ?string $key = null;
@@ -75,7 +75,7 @@ class Gameseries
     public ?string $name = null;
 }
 
-/** Match filter for Gameseries#list (any subset of Gameseries fields). */
+/** Request payload for Gameseries#list. */
 class GameseriesListMatch
 {
     public ?string $key = null;
@@ -89,7 +89,7 @@ class Type
     public ?string $name = null;
 }
 
-/** Match filter for Type#list (any subset of Type fields). */
+/** Request payload for Type#list. */
 class TypeListMatch
 {
     public ?string $key = null;

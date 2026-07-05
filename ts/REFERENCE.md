@@ -164,15 +164,15 @@ const amiibo = client.Amiibo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiibo_series` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `game_series` | ``$STRING`` | No |  |
-| `head` | ``$STRING`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `release` | ``$OBJECT`` | No |  |
-| `tail` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `amiibo_series` | `string` | No |  |
+| `character` | `string` | No |  |
+| `game_series` | `string` | No |  |
+| `head` | `string` | No |  |
+| `image` | `string` | No |  |
+| `name` | `string` | No |  |
+| `release` | `Record<string, any>` | No |  |
+| `tail` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -222,8 +222,8 @@ const amiiboseries = client.Amiiboseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -273,8 +273,8 @@ const character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -324,8 +324,8 @@ const gameseries = client.Gameseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -375,8 +375,8 @@ const type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `key` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 

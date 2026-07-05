@@ -21,8 +21,7 @@ type Amiibo struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// AmiiboListMatch mirrors the amiibo fields as an all-optional match
-// filter (Go analog of Partial<Amiibo>).
+// AmiiboListMatch is the typed request payload for Amiibo.ListTyped.
 type AmiiboListMatch struct {
 	AmiiboSeries *string `json:"amiibo_series,omitempty"`
 	Character *string `json:"character,omitempty"`
@@ -41,8 +40,7 @@ type Amiiboseries struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// AmiiboseriesListMatch mirrors the amiiboseries fields as an all-optional match
-// filter (Go analog of Partial<Amiiboseries>).
+// AmiiboseriesListMatch is the typed request payload for Amiiboseries.ListTyped.
 type AmiiboseriesListMatch struct {
 	Key *string `json:"key,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -54,8 +52,7 @@ type Character struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// CharacterListMatch mirrors the character fields as an all-optional match
-// filter (Go analog of Partial<Character>).
+// CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
 	Key *string `json:"key,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -67,8 +64,7 @@ type Gameseries struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// GameseriesListMatch mirrors the gameseries fields as an all-optional match
-// filter (Go analog of Partial<Gameseries>).
+// GameseriesListMatch is the typed request payload for Gameseries.ListTyped.
 type GameseriesListMatch struct {
 	Key *string `json:"key,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -80,8 +76,7 @@ type Type struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// TypeListMatch mirrors the type fields as an all-optional match
-// filter (Go analog of Partial<Type>).
+// TypeListMatch is the typed request payload for Type.ListTyped.
 type TypeListMatch struct {
 	Key *string `json:"key,omitempty"`
 	Name *string `json:"name,omitempty"`

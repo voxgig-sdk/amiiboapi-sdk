@@ -49,7 +49,7 @@ Amiibo = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Amiibo#list (any subset of Amiibo fields).
+# Request payload for Amiibo#list.
 #
 # @!attribute [rw] amiibo_series
 #   @return [String, nil]
@@ -103,7 +103,7 @@ Amiiboseries = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Amiiboseries#list (any subset of Amiiboseries fields).
+# Request payload for Amiiboseries#list.
 #
 # @!attribute [rw] key
 #   @return [String, nil]
@@ -129,7 +129,7 @@ Character = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Character#list (any subset of Character fields).
+# Request payload for Character#list.
 #
 # @!attribute [rw] key
 #   @return [String, nil]
@@ -155,7 +155,7 @@ Gameseries = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Gameseries#list (any subset of Gameseries fields).
+# Request payload for Gameseries#list.
 #
 # @!attribute [rw] key
 #   @return [String, nil]
@@ -181,7 +181,7 @@ Type = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Type#list (any subset of Type fields).
+# Request payload for Type#list.
 #
 # @!attribute [rw] key
 #   @return [String, nil]
