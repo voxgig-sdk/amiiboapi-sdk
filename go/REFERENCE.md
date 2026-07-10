@@ -107,6 +107,7 @@ same parameters as `Direct()`.
 
 ```go
 amiibo := client.Amiibo(nil)
+fmt.Println(amiibo.GetName()) // "amiibo"
 ```
 
 ### Fields
@@ -131,6 +132,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Amiibo(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -161,6 +166,7 @@ Return the entity name.
 
 ```go
 amiiboseries := client.Amiiboseries(nil)
+fmt.Println(amiiboseries.GetName()) // "amiiboseries"
 ```
 
 ### Fields
@@ -178,6 +184,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Amiiboseries(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -208,6 +218,7 @@ Return the entity name.
 
 ```go
 character := client.Character(nil)
+fmt.Println(character.GetName()) // "character"
 ```
 
 ### Fields
@@ -225,6 +236,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Character(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -255,6 +270,7 @@ Return the entity name.
 
 ```go
 gameseries := client.Gameseries(nil)
+fmt.Println(gameseries.GetName()) // "gameseries"
 ```
 
 ### Fields
@@ -272,6 +288,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Gameseries(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -301,7 +321,8 @@ Return the entity name.
 ## TypeEntity
 
 ```go
-type := client.Type(nil)
+type_ := client.Type(nil)
+fmt.Println(type_.GetName()) // "type"
 ```
 
 ### Fields
@@ -319,6 +340,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Type(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

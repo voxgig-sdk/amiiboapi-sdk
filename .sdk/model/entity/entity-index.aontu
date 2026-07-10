@@ -1,0 +1,7 @@
+# Entity Models
+
+@"amiibo.aontu"
+@"amiiboseries.aontu"
+@"character.aontu"
+@"gameseries.aontu"
+@"type.aontu"

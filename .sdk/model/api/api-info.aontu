@@ -15,9 +15,9 @@ main: {
           url: "https://www.amiiboapi.com/api"
         }
       ]
+      summary: "A RESTful API for Amiibo providing information on different amiibos, types, game series, characters, and more."
       title: "AmiiboAPI"
       version: "1.0.0"
+      website: "https://amiiboapi.com"
     }
   }
-}
-
