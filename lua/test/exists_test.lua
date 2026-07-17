@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Amiiboapi SDK exists test
 
 local sdk = require("amiiboapi_sdk")
 
