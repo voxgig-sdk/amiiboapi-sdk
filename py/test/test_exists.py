@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Amiiboapi SDK exists test
 
 import pytest
 from amiiboapi_sdk import AmiiboapiSDK

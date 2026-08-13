@@ -6,9 +6,9 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Amiibo {
-  amiibo_series?: string
+  amiiboSeries?: string
   character?: string
-  game_series?: string
+  gameSeries?: string
   head?: string
   image?: string
   name?: string
@@ -18,9 +18,9 @@ export interface Amiibo {
 }
 
 export interface AmiiboListMatch {
-  amiibo_series?: string
+  amiiboSeries?: string
   character?: string
-  game_series?: string
+  gameSeries?: string
   head?: string
   image?: string
   name?: string

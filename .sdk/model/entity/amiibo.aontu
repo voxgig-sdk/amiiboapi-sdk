@@ -6,7 +6,7 @@ main: kit: entity: amiibo: {
 
   fields: [
     {
-      name: "amiibo_series"
+      name: "amiiboSeries"
       req: false
       type: "`$STRING`"
     }
@@ -16,7 +16,7 @@ main: kit: entity: amiibo: {
       type: "`$STRING`"
     }
     {
-      name: "game_series"
+      name: "gameSeries"
       req: false
       type: "`$STRING`"
     }

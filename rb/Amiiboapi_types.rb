@@ -10,13 +10,13 @@
 
 # Amiibo entity data model.
 #
-# @!attribute [rw] amiibo_series
+# @!attribute [rw] amiiboSeries
 #   @return [String, nil]
 #
 # @!attribute [rw] character
 #   @return [String, nil]
 #
-# @!attribute [rw] game_series
+# @!attribute [rw] gameSeries
 #   @return [String, nil]
 #
 # @!attribute [rw] head
@@ -37,9 +37,9 @@
 # @!attribute [rw] type
 #   @return [String, nil]
 Amiibo = Struct.new(
-  :amiibo_series,
+  :amiiboSeries,
   :character,
-  :game_series,
+  :gameSeries,
   :head,
   :image,
   :name,
@@ -51,13 +51,13 @@ Amiibo = Struct.new(
 
 # Request payload for Amiibo#list.
 #
-# @!attribute [rw] amiibo_series
+# @!attribute [rw] amiiboSeries
 #   @return [String, nil]
 #
 # @!attribute [rw] character
 #   @return [String, nil]
 #
-# @!attribute [rw] game_series
+# @!attribute [rw] gameSeries
 #   @return [String, nil]
 #
 # @!attribute [rw] head
@@ -78,9 +78,9 @@ Amiibo = Struct.new(
 # @!attribute [rw] type
 #   @return [String, nil]
 AmiiboListMatch = Struct.new(
-  :amiibo_series,
+  :amiiboSeries,
   :character,
-  :game_series,
+  :gameSeries,
   :head,
   :image,
   :name,

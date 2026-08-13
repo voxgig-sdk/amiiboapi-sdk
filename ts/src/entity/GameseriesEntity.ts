@@ -37,7 +37,7 @@ class GameseriesEntity extends AmiiboapiEntityBase<Gameseries> {
 
 
 
-  async list(this: any, reqmatch?: GameseriesListMatch, ctrl?: Control): Promise<Gameseries[]> {
+  async list(this: any, reqmatch?: GameseriesListMatch, ctrl?: Control): Promise<GameseriesEntity[]> {
 
     const utility = this._utility
 

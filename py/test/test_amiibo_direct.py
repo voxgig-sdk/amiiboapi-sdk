@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from amiiboapi_sdk.utility.voxgig_struct import voxgig_struct as vs
 from amiiboapi_sdk import AmiiboapiSDK
-from core import helpers
+from amiiboapi_sdk.core import helpers
 from test import runner
 
 

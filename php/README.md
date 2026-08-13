@@ -38,7 +38,7 @@ try {
     // list() returns an array of Amiibo records — iterate directly.
     $amiibos = $client->Amiibo()->list();
     foreach ($amiibos as $item) {
-        echo $item["amiibo_series"] . "\n";
+        echo $item["amiiboSeries"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $amiibos = $client->Amiibo()->list();
+    $characters = $client->Character()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,9 +125,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = AmiiboapiSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$amiibo = $client->Amiibo()->list();
-print_r($amiibo);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$character = $client->Character()->list();
+print_r($character);
 ```
 
 ### Use a custom fetch function
@@ -228,7 +229,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -250,9 +251,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `amiibo_series` |  |
+| `amiiboSeries` |  |
 | `character` |  |
-| `game_series` |  |
+| `gameSeries` |  |
 | `head` |  |
 | `image` |  |
 | `name` |  |
@@ -327,9 +328,9 @@ Create an instance: `$amiibo = $client->Amiibo();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiibo_series` | `string` |  |
+| `amiiboSeries` | `string` |  |
 | `character` | `string` |  |
-| `game_series` | `string` |  |
+| `gameSeries` | `string` |  |
 | `head` | `string` |  |
 | `image` | `string` |  |
 | `name` | `string` |  |
@@ -521,11 +522,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$amiibo = $client->Amiibo();
-$amiibo->list();
+$character = $client->Character();
+$character->list();
 
-// $amiibo->data_get() now returns the amiibo data from the last list
-// $amiibo->match_get() returns the last match criteria
+// $character->data_get() now returns the character data from the last list
+// $character->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -16,11 +16,11 @@
 import pytest
 
 from amiiboapi_sdk import AmiiboapiSDK
-from core.error import AmiiboapiError
-from core.result import AmiiboapiResult
-from core.response import AmiiboapiResponse
-from core.spec import AmiiboapiSpec
-from feature.base_feature import AmiiboapiBaseFeature
+from amiiboapi_sdk.core.error import AmiiboapiError
+from amiiboapi_sdk.core.result import AmiiboapiResult
+from amiiboapi_sdk.core.response import AmiiboapiResponse
+from amiiboapi_sdk.core.spec import AmiiboapiSpec
+from amiiboapi_sdk.feature.base_feature import AmiiboapiBaseFeature
 
 
 def _client():

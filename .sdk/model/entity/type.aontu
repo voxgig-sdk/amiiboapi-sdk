@@ -30,7 +30,7 @@ main: kit: entity: type: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.amiibo`"
           }
         }
       ]

@@ -37,7 +37,7 @@ class CharacterEntity extends AmiiboapiEntityBase<Character> {
 
 
 
-  async list(this: any, reqmatch?: CharacterListMatch, ctrl?: Control): Promise<Character[]> {
+  async list(this: any, reqmatch?: CharacterListMatch, ctrl?: Control): Promise<CharacterEntity[]> {
 
     const utility = this._utility
 

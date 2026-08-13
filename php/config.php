@@ -36,7 +36,7 @@ class AmiiboapiConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'amiibo_series',
+              'name' => 'amiiboSeries',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 0,
@@ -50,7 +50,7 @@ class AmiiboapiConfig
             ],
             [
               'active' => true,
-              'name' => 'game_series',
+              'name' => 'gameSeries',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 2,
@@ -174,6 +174,7 @@ class AmiiboapiConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/amiibo',
                   'parts' => [
@@ -231,6 +232,7 @@ class AmiiboapiConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/amiiboseries',
                   'parts' => [
@@ -239,7 +241,7 @@ class AmiiboapiConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.amiibo`',
                   ],
                   'index$' => 0,
                 ],
@@ -277,6 +279,7 @@ class AmiiboapiConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character',
                   'parts' => [
@@ -285,7 +288,7 @@ class AmiiboapiConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.amiibo`',
                   ],
                   'index$' => 0,
                 ],
@@ -323,6 +326,7 @@ class AmiiboapiConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/gameseries',
                   'parts' => [
@@ -331,7 +335,7 @@ class AmiiboapiConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.amiibo`',
                   ],
                   'index$' => 0,
                 ],
@@ -369,6 +373,7 @@ class AmiiboapiConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/type',
                   'parts' => [
@@ -377,7 +382,7 @@ class AmiiboapiConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.amiibo`',
                   ],
                   'index$' => 0,
                 ],

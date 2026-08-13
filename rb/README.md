@@ -37,7 +37,7 @@ begin
   # list returns an Array of Amiibo records — iterate directly.
   amiibos = client.Amiibo.list
   amiibos.each do |item|
-    puts "#{item["amiibo_series"]}"
+    puts "#{item["amiiboSeries"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -51,7 +51,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  amiibos = client.Amiibo.list()
+  characters = client.Character.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -119,9 +119,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = AmiiboapiSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-amiibo = client.Amiibo.list()
-puts amiibo
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+character = client.Character.list()
+puts character
 ```
 
 ### Use a custom fetch function
@@ -240,9 +241,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `amiibo_series` |  |
+| `amiiboSeries` |  |
 | `character` |  |
-| `game_series` |  |
+| `gameSeries` |  |
 | `head` |  |
 | `image` |  |
 | `name` |  |
@@ -317,9 +318,9 @@ Create an instance: `amiibo = client.Amiibo`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiibo_series` | `String` |  |
+| `amiiboSeries` | `String` |  |
 | `character` | `String` |  |
-| `game_series` | `String` |  |
+| `gameSeries` | `String` |  |
 | `head` | `String` |  |
 | `image` | `String` |  |
 | `name` | `String` |  |
@@ -511,11 +512,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-amiibo = client.Amiibo
-amiibo.list()
+character = client.Character
+character.list()
 
-# amiibo.data_get now returns the amiibo data from the last list
-# amiibo.match_get returns the last match criteria
+# character.data_get now returns the character data from the last list
+# character.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

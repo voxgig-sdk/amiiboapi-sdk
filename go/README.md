@@ -68,12 +68,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-amiibos, err := client.Amiibo(nil).List(nil, nil)
+characters, err := client.Character(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = amiibos
+_ = characters
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-amiibo, err := client.Amiibo(nil).List(
+character, err := client.Character(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(amiibo) // the returned mock data
+fmt.Println(character) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -264,9 +264,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"amiibo_series"` |  |
+| `"amiiboSeries"` |  |
 | `"character"` |  |
-| `"game_series"` |  |
+| `"gameSeries"` |  |
 | `"head"` |  |
 | `"image"` |  |
 | `"name"` |  |
@@ -341,9 +341,9 @@ Create an instance: `amiibo := client.Amiibo(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiibo_series` | `string` |  |
+| `amiiboSeries` | `string` |  |
 | `character` | `string` |  |
-| `game_series` | `string` |  |
+| `gameSeries` | `string` |  |
 | `head` | `string` |  |
 | `image` | `string` |  |
 | `name` | `string` |  |
@@ -547,11 +547,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-amiibo := client.Amiibo(nil)
-amiibo.List(nil, nil)
+character := client.Character(nil)
+character.List(nil, nil)
 
-// amiibo.Data() now returns the amiibo data from the last list
-// amiibo.Match() returns the last match criteria
+// character.Data() now returns the character data from the last list
+// character.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

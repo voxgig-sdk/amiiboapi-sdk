@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import AmiiboapiControl
-from core.error import AmiiboapiError
-from core.result import AmiiboapiResult
-from core.spec import AmiiboapiSpec
+from amiiboapi_sdk.config import make_config
+from amiiboapi_sdk.features import _make_feature
+from amiiboapi_sdk.core.control import AmiiboapiControl
+from amiiboapi_sdk.core.error import AmiiboapiError
+from amiiboapi_sdk.core.result import AmiiboapiResult
+from amiiboapi_sdk.core.spec import AmiiboapiSpec
 
 
 # True when this SDK was generated with the named feature.

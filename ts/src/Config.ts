@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Amiiboapi',
   }
 
 
@@ -68,7 +68,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "amiibo_series",
+          "name": "amiiboSeries",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -82,7 +82,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "game_series",
+          "name": "gameSeries",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -206,6 +206,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/amiibo",
               "parts": [
@@ -263,6 +264,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/amiiboseries",
               "parts": [
@@ -271,7 +273,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.amiibo`"
               },
               "index$": 0
             }
@@ -309,6 +311,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/character",
               "parts": [
@@ -317,7 +320,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.amiibo`"
               },
               "index$": 0
             }
@@ -355,6 +358,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/gameseries",
               "parts": [
@@ -363,7 +367,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.amiibo`"
               },
               "index$": 0
             }
@@ -401,6 +405,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/type",
               "parts": [
@@ -409,7 +414,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.amiibo`"
               },
               "index$": 0
             }

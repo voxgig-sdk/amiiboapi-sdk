@@ -109,9 +109,9 @@ amiibo = client.Amiibo
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiibo_series` | `String` | No |  |
+| `amiiboSeries` | `String` | No |  |
 | `character` | `String` | No |  |
-| `game_series` | `String` | No |  |
+| `gameSeries` | `String` | No |  |
 | `head` | `String` | No |  |
 | `image` | `String` | No |  |
 | `name` | `String` | No |  |

@@ -15,9 +15,9 @@ declare(strict_types=1);
 /** Amiibo entity data model. */
 class Amiibo
 {
-    public ?string $amiibo_series = null;
+    public ?string $amiiboSeries = null;
     public ?string $character = null;
-    public ?string $game_series = null;
+    public ?string $gameSeries = null;
     public ?string $head = null;
     public ?string $image = null;
     public ?string $name = null;
@@ -29,9 +29,9 @@ class Amiibo
 /** Request payload for Amiibo#list. */
 class AmiiboListMatch
 {
-    public ?string $amiibo_series = null;
+    public ?string $amiiboSeries = null;
     public ?string $character = null;
-    public ?string $game_series = null;
+    public ?string $gameSeries = null;
     public ?string $head = null;
     public ?string $image = null;
     public ?string $name = null;

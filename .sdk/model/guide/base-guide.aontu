@@ -15,24 +15,28 @@ guide: {
   entity: amiiboseries: {
     path: "/amiiboseries": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.amiibo`")|top
     }
   }
 
   entity: character: {
     path: "/character": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.amiibo`")|top
     }
   }
 
   entity: gameseries: {
     path: "/gameseries": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.amiibo`")|top
     }
   }
 
   entity: type: {
     path: "/type": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.amiibo`")|top
     }
   }
 

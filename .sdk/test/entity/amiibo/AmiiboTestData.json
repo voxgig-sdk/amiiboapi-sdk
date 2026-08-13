@@ -2,9 +2,9 @@
   "existing": {
     "amiibo": {
       "AMIIBO00": {
-        "amiibo_series": "s5a",
+        "amiiboSeries": "s5a",
         "character": "s5b",
-        "game_series": "s5c",
+        "gameSeries": "s5c",
         "head": "s5d",
         "image": "s5e",
         "name": "s5f",
@@ -13,9 +13,9 @@
         "type": "s62"
       },
       "AMIIBO01": {
-        "amiibo_series": "sb4",
+        "amiiboSeries": "sb4",
         "character": "sb5",
-        "game_series": "sb6",
+        "gameSeries": "sb6",
         "head": "sb7",
         "image": "sb8",
         "name": "sb9",
@@ -24,9 +24,9 @@
         "type": "sbc"
       },
       "AMIIBO02": {
-        "amiibo_series": "s10e",
+        "amiiboSeries": "s10e",
         "character": "s10f",
-        "game_series": "s110",
+        "gameSeries": "s110",
         "head": "s111",
         "image": "s112",
         "name": "s113",
@@ -39,9 +39,9 @@
   "new": {
     "amiibo": {
       "amiibo_ref01": {
-        "amiibo_series": "s168",
+        "amiiboSeries": "s168",
         "character": "s169",
-        "game_series": "s16a",
+        "gameSeries": "s16a",
         "head": "s16b",
         "image": "s16c",
         "name": "s16d",

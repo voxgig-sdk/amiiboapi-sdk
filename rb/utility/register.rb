@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ AmiiboapiUtility.registrar = ->(u) {
   u.prepare_params = AmiiboapiUtilities::PrepareParams
   u.prepare_path = AmiiboapiUtilities::PreparePath
   u.prepare_query = AmiiboapiUtilities::PrepareQuery
+  u.graphql_body = AmiiboapiUtilities::GraphqlBody
+  u.graphql_errors = AmiiboapiUtilities::GraphqlErrors
   u.result_basic = AmiiboapiUtilities::ResultBasic
   u.result_body = AmiiboapiUtilities::ResultBody
   u.result_headers = AmiiboapiUtilities::ResultHeaders

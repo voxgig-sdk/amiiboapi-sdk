@@ -63,7 +63,7 @@ describe('TypeEntity', async () => {
     const type_ref01_ent = client.Type()
     const type_ref01_match: any = {}
 
-    const type_ref01_list = await type_ref01_ent.list(type_ref01_match)
+    const type_ref01_list = (await type_ref01_ent.list(type_ref01_match)).map((e: any) => e.data())
 
 
   })

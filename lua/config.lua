@@ -30,7 +30,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "amiibo_series",
+            ["name"] = "amiiboSeries",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
@@ -44,7 +44,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "game_series",
+            ["name"] = "gameSeries",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -168,6 +168,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/amiibo",
                 ["parts"] = {
@@ -225,6 +226,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/amiiboseries",
                 ["parts"] = {
@@ -233,7 +235,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.amiibo`",
                 },
                 ["index$"] = 0,
               },
@@ -271,6 +273,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/character",
                 ["parts"] = {
@@ -279,7 +282,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.amiibo`",
                 },
                 ["index$"] = 0,
               },
@@ -317,6 +320,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/gameseries",
                 ["parts"] = {
@@ -325,7 +329,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.amiibo`",
                 },
                 ["index$"] = 0,
               },
@@ -363,6 +367,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/type",
                 ["parts"] = {
@@ -371,7 +376,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.amiibo`",
                 },
                 ["index$"] = 0,
               },

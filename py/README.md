@@ -57,8 +57,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    amiibos = client.Amiibo().list()
-    print(amiibos)
+    characters = client.Character().list()
+    print(characters)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -124,9 +124,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = AmiiboapiSDK.test()
 
-# Entity ops return the bare record and raise on error.
-amiibo = client.Amiibo().list()
-# amiibo contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+character = client.Character().list()
+# character contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -246,9 +247,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `amiibo_series` |  |
+| `amiiboSeries` |  |
 | `character` |  |
-| `game_series` |  |
+| `gameSeries` |  |
 | `head` |  |
 | `image` |  |
 | `name` |  |
@@ -323,9 +324,9 @@ Create an instance: `amiibo = client.Amiibo()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiibo_series` | `str` |  |
+| `amiiboSeries` | `str` |  |
 | `character` | `str` |  |
-| `game_series` | `str` |  |
+| `gameSeries` | `str` |  |
 | `head` | `str` |  |
 | `image` | `str` |  |
 | `name` | `str` |  |
@@ -511,11 +512,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-amiibo = client.Amiibo()
-amiibo.list()
+character = client.Character()
+character.list()
 
-# amiibo.data_get() now returns the amiibo data from the last list
-# amiibo.match_get() returns the last match criteria
+# character.data_get() now returns the character data from the last list
+# character.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

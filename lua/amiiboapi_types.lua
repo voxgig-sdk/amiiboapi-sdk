@@ -7,9 +7,9 @@
 -- edit by hand.
 
 ---@class Amiibo
----@field amiibo_series? string
+---@field amiiboSeries? string
 ---@field character? string
----@field game_series? string
+---@field gameSeries? string
 ---@field head? string
 ---@field image? string
 ---@field name? string
@@ -18,9 +18,9 @@
 ---@field type? string
 
 ---@class AmiiboListMatch
----@field amiibo_series? string
+---@field amiiboSeries? string
 ---@field character? string
----@field game_series? string
+---@field gameSeries? string
 ---@field head? string
 ---@field image? string
 ---@field name? string

@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = AmiiboapiSDK.test()
-const amiibos = await client.Amiibo().list()
-// amiibos is an array of bare Amiibo records populated with mock data
-console.log(amiibos)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = AmiiboapiSDK.test({
+  entity: {
+    character: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const characters = await client.Character().list()
+// characters is an array of Character entities, populated with mock data
+// — call characters[0].data() for the record itself
+console.log(characters)
 ```
 
 ### Python
 
 ```python
 client = AmiiboapiSDK.test()
-amiibos = client.Amiibo().list()
-print(amiibos)
+characters = client.Character().list()
+print(characters)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(amiibos)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = AmiiboapiSDK::test([
-    "entity" => ["amiibo" => ["test01" => []]],
+    "entity" => ["character" => ["test01" => []]],
 ]);
-$amiibos = $client->Amiibo()->list();
+$characters = $client->Character()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Amiibo(nil).List(
+result, err := client.Character(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Amiibo(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = AmiiboapiSDK.test({
-  "entity" => { "amiibo" => { "test01" => {} } },
+  "entity" => { "character" => { "test01" => {} } },
 })
-amiibos = client.Amiibo.list()
+characters = client.Character.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Amiibo():list()
+local results, err = client:Character():list()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi'
 
 const client = new AmiiboapiSDK()
 
-// List all amiibos (returns Amiibo[])
+// List all amiibos (returns AmiiboEntity[] — .data() for the record)
 const amiibos = await client.Amiibo().list()
 for (const amiibo of amiibos) {
   console.log(amiibo)
@@ -347,6 +356,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://amiiboapi.com/docs/](https://amiiboapi.com/docs/)
 

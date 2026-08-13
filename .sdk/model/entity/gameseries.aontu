@@ -30,7 +30,7 @@ main: kit: entity: gameseries: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.amiibo`"
           }
         }
       ]

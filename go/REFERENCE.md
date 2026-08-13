@@ -114,9 +114,9 @@ fmt.Println(amiibo.GetName()) // "amiibo"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiibo_series` | `string` | No |  |
+| `amiiboSeries` | `string` | No |  |
 | `character` | `string` | No |  |
-| `game_series` | `string` | No |  |
+| `gameSeries` | `string` | No |  |
 | `head` | `string` | No |  |
 | `image` | `string` | No |  |
 | `name` | `string` | No |  |

@@ -37,7 +37,7 @@ class AmiiboEntity extends AmiiboapiEntityBase<Amiibo> {
 
 
 
-  async list(this: any, reqmatch?: AmiiboListMatch, ctrl?: Control): Promise<Amiibo[]> {
+  async list(this: any, reqmatch?: AmiiboListMatch, ctrl?: Control): Promise<AmiiboEntity[]> {
 
     const utility = this._utility
 

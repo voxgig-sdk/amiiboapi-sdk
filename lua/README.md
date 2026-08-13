@@ -43,7 +43,7 @@ local amiibos, err = client:Amiibo():list()
 if err then error(err) end
 
 for _, item in ipairs(amiibos) do
-  print(item["amiibo_series"])
+  print(item["amiiboSeries"])
 end
 ```
 
@@ -54,7 +54,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local amiibos, err = client:Amiibo():list()
+local characters, err = client:Character():list()
 if err then error(err) end
 ```
 
@@ -112,7 +112,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Amiibo():list()
+local result, err = client:Character():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -222,9 +222,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local amiibo, err = client:Amiibo():load()
+    local amiibo, err = client:Amiibo():list()
     if err then error(err) end
-    -- amiibo is the loaded record
+    -- amiibo is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -235,9 +235,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `amiibo_series` |  |
+| `amiiboSeries` |  |
 | `character` |  |
-| `game_series` |  |
+| `gameSeries` |  |
 | `head` |  |
 | `image` |  |
 | `name` |  |
@@ -312,9 +312,9 @@ Create an instance: `local amiibo = client:Amiibo(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiibo_series` | `string` |  |
+| `amiiboSeries` | `string` |  |
 | `character` | `string` |  |
-| `game_series` | `string` |  |
+| `gameSeries` | `string` |  |
 | `head` | `string` |  |
 | `image` | `string` |  |
 | `name` | `string` |  |
@@ -501,11 +501,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local amiibo = client:Amiibo()
-amiibo:list()
+local character = client:Character()
+character:list()
 
--- amiibo:data_get() now returns the amiibo data from the last list
--- amiibo:match_get() returns the last match criteria
+-- character:data_get() now returns the character data from the last list
+-- character:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

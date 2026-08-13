@@ -63,7 +63,7 @@ describe('AmiiboEntity', async () => {
     const amiibo_ref01_ent = client.Amiibo()
     const amiibo_ref01_match: any = {}
 
-    const amiibo_ref01_list = await amiibo_ref01_ent.list(amiibo_ref01_match)
+    const amiibo_ref01_list = (await amiibo_ref01_ent.list(amiibo_ref01_match)).map((e: any) => e.data())
 
 
   })
