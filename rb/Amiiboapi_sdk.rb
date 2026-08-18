@@ -28,7 +28,7 @@ class AmiiboapiSDK
     utility = AmiiboapiUtility.new
     @_utility = utility
 
-    config = AmiiboapiConfig.make_config
+    config = AmiiboapiConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

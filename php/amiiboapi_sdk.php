@@ -40,7 +40,7 @@ class AmiiboapiSDK
         $utility = new AmiiboapiUtility();
         $this->_utility = $utility;
 
-        $config = AmiiboapiConfig::make_config();
+        $config = AmiiboapiConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
