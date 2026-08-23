@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -291,15 +291,15 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `amiiboSeries` |  |
-| `character` |  |
-| `gameSeries` |  |
-| `head` |  |
-| `image` |  |
-| `name` |  |
+| `amiiboSeries` | The amiibo series the amiibo belongs to |
+| `character` | The character of the amiibo |
+| `gameSeries` | The game series the amiibo is from |
+| `head` | The head hex value of the amiibo |
+| `image` | URL to the amiibo image |
+| `name` | The name of the amiibo |
 | `release` |  |
-| `tail` |  |
-| `type` |  |
+| `tail` | The tail hex value of the amiibo |
+| `type` | The type of amiibo (e.g., Figure, Card) |
 
 Operations: list.
 
@@ -309,8 +309,8 @@ API path: `/amiibo`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the amiibo series |
+| `name` | Name of the amiibo series |
 
 Operations: list.
 
@@ -320,8 +320,8 @@ API path: `/amiiboseries`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the character |
+| `name` | Name of the character |
 
 Operations: list.
 
@@ -331,8 +331,8 @@ API path: `/character`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the game series |
+| `name` | Name of the game series |
 
 Operations: list.
 
@@ -342,8 +342,8 @@ API path: `/gameseries`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the amiibo type |
+| `name` | Name of the amiibo type |
 
 Operations: list.
 
@@ -368,15 +368,15 @@ Create an instance: `const amiibo = client.Amiibo()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiiboSeries` | `string` |  |
-| `character` | `string` |  |
-| `gameSeries` | `string` |  |
-| `head` | `string` |  |
-| `image` | `string` |  |
-| `name` | `string` |  |
+| `amiiboSeries` | `string` | The amiibo series the amiibo belongs to |
+| `character` | `string` | The character of the amiibo |
+| `gameSeries` | `string` | The game series the amiibo is from |
+| `head` | `string` | The head hex value of the amiibo |
+| `image` | `string` | URL to the amiibo image |
+| `name` | `string` | The name of the amiibo |
 | `release` | `Record<string, any>` |  |
-| `tail` | `string` |  |
-| `type` | `string` |  |
+| `tail` | `string` | The tail hex value of the amiibo |
+| `type` | `string` | The type of amiibo (e.g., Figure, Card) |
 
 #### Example: List
 
@@ -399,8 +399,8 @@ Create an instance: `const amiiboseries = client.Amiiboseries()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the amiibo series |
+| `name` | `string` | Name of the amiibo series |
 
 #### Example: List
 
@@ -423,8 +423,8 @@ Create an instance: `const character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the character |
+| `name` | `string` | Name of the character |
 
 #### Example: List
 
@@ -447,8 +447,8 @@ Create an instance: `const gameseries = client.Gameseries()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the game series |
+| `name` | `string` | Name of the game series |
 
 #### Example: List
 
@@ -471,8 +471,8 @@ Create an instance: `const type = client.Type()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the amiibo type |
+| `name` | `string` | Name of the amiibo type |
 
 #### Example: List
 

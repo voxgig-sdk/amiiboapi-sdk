@@ -1,0 +1,44 @@
+# Entity: gameseries
+
+main: kit: entity: gameseries: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "key"
+      req: false
+      short: "Unique key for the game series"
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      short: "Name of the game series"
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "gameseries"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/gameseries"
+          parts: [
+            "gameseries"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body.amiibo`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

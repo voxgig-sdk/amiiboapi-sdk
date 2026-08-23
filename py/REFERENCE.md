@@ -103,15 +103,15 @@ amiibo = client.Amiibo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiiboSeries` | `str` | No |  |
-| `character` | `str` | No |  |
-| `gameSeries` | `str` | No |  |
-| `head` | `str` | No |  |
-| `image` | `str` | No |  |
-| `name` | `str` | No |  |
+| `amiiboSeries` | `str` | No | The amiibo series the amiibo belongs to |
+| `character` | `str` | No | The character of the amiibo |
+| `gameSeries` | `str` | No | The game series the amiibo is from |
+| `head` | `str` | No | The head hex value of the amiibo |
+| `image` | `str` | No | URL to the amiibo image |
+| `name` | `str` | No | The name of the amiibo |
 | `release` | `dict` | No |  |
-| `tail` | `str` | No |  |
-| `type` | `str` | No |  |
+| `tail` | `str` | No | The tail hex value of the amiibo |
+| `type` | `str` | No | The type of amiibo (e.g., Figure, Card) |
 
 ### Operations
 
@@ -164,8 +164,8 @@ amiiboseries = client.Amiiboseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `str` | No |  |
-| `name` | `str` | No |  |
+| `key` | `str` | No | Unique key for the amiibo series |
+| `name` | `str` | No | Name of the amiibo series |
 
 ### Operations
 
@@ -218,8 +218,8 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `str` | No |  |
-| `name` | `str` | No |  |
+| `key` | `str` | No | Unique key for the character |
+| `name` | `str` | No | Name of the character |
 
 ### Operations
 
@@ -272,8 +272,8 @@ gameseries = client.Gameseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `str` | No |  |
-| `name` | `str` | No |  |
+| `key` | `str` | No | Unique key for the game series |
+| `name` | `str` | No | Name of the game series |
 
 ### Operations
 
@@ -326,8 +326,8 @@ type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `str` | No |  |
-| `name` | `str` | No |  |
+| `key` | `str` | No | Unique key for the amiibo type |
+| `name` | `str` | No | Name of the amiibo type |
 
 ### Operations
 

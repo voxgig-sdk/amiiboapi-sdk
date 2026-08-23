@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Amiiboapi",
+      slug = "amiiboapi",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -33,26 +36,32 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "amiiboSeries",
+            ["short"] = "The amiibo series the amiibo belongs to",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "character",
+            ["short"] = "The character of the amiibo",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "gameSeries",
+            ["short"] = "The game series the amiibo is from",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "head",
+            ["short"] = "The head hex value of the amiibo",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "image",
+            ["short"] = "URL to the amiibo image",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["short"] = "The name of the amiibo",
             ["type"] = "`$STRING`",
           },
           {
@@ -61,10 +70,12 @@ local function make_config()
           },
           {
             ["name"] = "tail",
+            ["short"] = "The tail hex value of the amiibo",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
+            ["short"] = "The type of amiibo (e.g., Figure, Card)",
             ["type"] = "`$STRING`",
           },
         },
@@ -161,10 +172,12 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "key",
+            ["short"] = "Unique key for the amiibo series",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["short"] = "Name of the amiibo series",
             ["type"] = "`$STRING`",
           },
         },
@@ -199,10 +212,12 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "key",
+            ["short"] = "Unique key for the character",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["short"] = "Name of the character",
             ["type"] = "`$STRING`",
           },
         },
@@ -237,10 +252,12 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "key",
+            ["short"] = "Unique key for the game series",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["short"] = "Name of the game series",
             ["type"] = "`$STRING`",
           },
         },
@@ -275,10 +292,12 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "key",
+            ["short"] = "Unique key for the amiibo type",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "name",
+            ["short"] = "Name of the amiibo type",
             ["type"] = "`$STRING`",
           },
         },

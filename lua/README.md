@@ -235,15 +235,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `amiiboSeries` |  |
-| `character` |  |
-| `gameSeries` |  |
-| `head` |  |
-| `image` |  |
-| `name` |  |
+| `amiiboSeries` | The amiibo series the amiibo belongs to |
+| `character` | The character of the amiibo |
+| `gameSeries` | The game series the amiibo is from |
+| `head` | The head hex value of the amiibo |
+| `image` | URL to the amiibo image |
+| `name` | The name of the amiibo |
 | `release` |  |
-| `tail` |  |
-| `type` |  |
+| `tail` | The tail hex value of the amiibo |
+| `type` | The type of amiibo (e.g., Figure, Card) |
 
 Operations: List.
 
@@ -253,8 +253,8 @@ API path: `/amiibo`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the amiibo series |
+| `name` | Name of the amiibo series |
 
 Operations: List.
 
@@ -264,8 +264,8 @@ API path: `/amiiboseries`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the character |
+| `name` | Name of the character |
 
 Operations: List.
 
@@ -275,8 +275,8 @@ API path: `/character`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the game series |
+| `name` | Name of the game series |
 
 Operations: List.
 
@@ -286,8 +286,8 @@ API path: `/gameseries`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the amiibo type |
+| `name` | Name of the amiibo type |
 
 Operations: List.
 
@@ -312,15 +312,15 @@ Create an instance: `local amiibo = client:Amiibo(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiiboSeries` | `string` |  |
-| `character` | `string` |  |
-| `gameSeries` | `string` |  |
-| `head` | `string` |  |
-| `image` | `string` |  |
-| `name` | `string` |  |
+| `amiiboSeries` | `string` | The amiibo series the amiibo belongs to |
+| `character` | `string` | The character of the amiibo |
+| `gameSeries` | `string` | The game series the amiibo is from |
+| `head` | `string` | The head hex value of the amiibo |
+| `image` | `string` | URL to the amiibo image |
+| `name` | `string` | The name of the amiibo |
 | `release` | `table` |  |
-| `tail` | `string` |  |
-| `type` | `string` |  |
+| `tail` | `string` | The tail hex value of the amiibo |
+| `type` | `string` | The type of amiibo (e.g., Figure, Card) |
 
 #### Example: List
 
@@ -343,8 +343,8 @@ Create an instance: `local amiiboseries = client:Amiiboseries(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the amiibo series |
+| `name` | `string` | Name of the amiibo series |
 
 #### Example: List
 
@@ -367,8 +367,8 @@ Create an instance: `local character = client:Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the character |
+| `name` | `string` | Name of the character |
 
 #### Example: List
 
@@ -391,8 +391,8 @@ Create an instance: `local gameseries = client:Gameseries(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the game series |
+| `name` | `string` | Name of the game series |
 
 #### Example: List
 
@@ -415,8 +415,8 @@ Create an instance: `local type = client:Type(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `string` |  |
-| `name` | `string` |  |
+| `key` | `string` | Unique key for the amiibo type |
+| `name` | `string` | Name of the amiibo type |
 
 #### Example: List
 

@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Amiiboapi",
+			"slug": "amiiboapi",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -37,26 +40,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "amiiboSeries",
+						"short": "The amiibo series the amiibo belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "character",
+						"short": "The character of the amiibo",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "gameSeries",
+						"short": "The game series the amiibo is from",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "head",
+						"short": "The head hex value of the amiibo",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "image",
+						"short": "URL to the amiibo image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of the amiibo",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -65,10 +74,12 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "tail",
+						"short": "The tail hex value of the amiibo",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "The type of amiibo (e.g., Figure, Card)",
 						"type": "`$STRING`",
 					},
 				},
@@ -165,10 +176,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
+						"short": "Unique key for the amiibo series",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the amiibo series",
 						"type": "`$STRING`",
 					},
 				},
@@ -203,10 +216,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
+						"short": "Unique key for the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the character",
 						"type": "`$STRING`",
 					},
 				},
@@ -241,10 +256,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
+						"short": "Unique key for the game series",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the game series",
 						"type": "`$STRING`",
 					},
 				},
@@ -279,10 +296,12 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
+						"short": "Unique key for the amiibo type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the amiibo type",
 						"type": "`$STRING`",
 					},
 				},

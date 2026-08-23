@@ -1,0 +1,44 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "key"
+      req: false
+      short: "Unique key for the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      short: "Name of the character"
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/character"
+          parts: [
+            "character"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body.amiibo`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

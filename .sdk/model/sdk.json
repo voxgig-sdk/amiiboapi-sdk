@@ -36,36 +36,42 @@
               "active": true,
               "name": "amiiboSeries",
               "req": false,
+              "short": "The amiibo series the amiibo belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "character",
               "req": false,
+              "short": "The character of the amiibo",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gameSeries",
               "req": false,
+              "short": "The game series the amiibo is from",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "head",
               "req": false,
+              "short": "The head hex value of the amiibo",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "image",
               "req": false,
+              "short": "URL to the amiibo image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of the amiibo",
               "type": "`$STRING`"
             },
             {
@@ -78,12 +84,14 @@
               "active": true,
               "name": "tail",
               "req": false,
+              "short": "The tail hex value of the amiibo",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "The type of amiibo (e.g., Figure, Card)",
               "type": "`$STRING`"
             }
           ],
@@ -203,12 +211,14 @@
               "active": true,
               "name": "key",
               "req": false,
+              "short": "Unique key for the amiibo series",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the amiibo series",
               "type": "`$STRING`"
             }
           ],
@@ -250,12 +260,14 @@
               "active": true,
               "name": "key",
               "req": false,
+              "short": "Unique key for the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the character",
               "type": "`$STRING`"
             }
           ],
@@ -297,12 +309,14 @@
               "active": true,
               "name": "key",
               "req": false,
+              "short": "Unique key for the game series",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the game series",
               "type": "`$STRING`"
             }
           ],
@@ -344,12 +358,14 @@
               "active": true,
               "name": "key",
               "req": false,
+              "short": "Unique key for the amiibo type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the amiibo type",
               "type": "`$STRING`"
             }
           ],

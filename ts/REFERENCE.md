@@ -164,15 +164,15 @@ const amiibo = client.Amiibo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `amiiboSeries` | `string` | No |  |
-| `character` | `string` | No |  |
-| `gameSeries` | `string` | No |  |
-| `head` | `string` | No |  |
-| `image` | `string` | No |  |
-| `name` | `string` | No |  |
+| `amiiboSeries` | `string` | No | The amiibo series the amiibo belongs to |
+| `character` | `string` | No | The character of the amiibo |
+| `gameSeries` | `string` | No | The game series the amiibo is from |
+| `head` | `string` | No | The head hex value of the amiibo |
+| `image` | `string` | No | URL to the amiibo image |
+| `name` | `string` | No | The name of the amiibo |
 | `release` | `Record<string, any>` | No |  |
-| `tail` | `string` | No |  |
-| `type` | `string` | No |  |
+| `tail` | `string` | No | The tail hex value of the amiibo |
+| `type` | `string` | No | The type of amiibo (e.g., Figure, Card) |
 
 ### Operations
 
@@ -222,8 +222,8 @@ const amiiboseries = client.Amiiboseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `string` | No |  |
-| `name` | `string` | No |  |
+| `key` | `string` | No | Unique key for the amiibo series |
+| `name` | `string` | No | Name of the amiibo series |
 
 ### Operations
 
@@ -273,8 +273,8 @@ const character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `string` | No |  |
-| `name` | `string` | No |  |
+| `key` | `string` | No | Unique key for the character |
+| `name` | `string` | No | Name of the character |
 
 ### Operations
 
@@ -324,8 +324,8 @@ const gameseries = client.Gameseries()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `string` | No |  |
-| `name` | `string` | No |  |
+| `key` | `string` | No | Unique key for the game series |
+| `name` | `string` | No | Name of the game series |
 
 ### Operations
 
@@ -375,8 +375,8 @@ const type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `key` | `string` | No |  |
-| `name` | `string` | No |  |
+| `key` | `string` | No | Unique key for the amiibo type |
+| `name` | `string` | No | Name of the amiibo type |
 
 ### Operations
 

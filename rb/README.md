@@ -241,15 +241,15 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `amiiboSeries` |  |
-| `character` |  |
-| `gameSeries` |  |
-| `head` |  |
-| `image` |  |
-| `name` |  |
+| `amiiboSeries` | The amiibo series the amiibo belongs to |
+| `character` | The character of the amiibo |
+| `gameSeries` | The game series the amiibo is from |
+| `head` | The head hex value of the amiibo |
+| `image` | URL to the amiibo image |
+| `name` | The name of the amiibo |
 | `release` |  |
-| `tail` |  |
-| `type` |  |
+| `tail` | The tail hex value of the amiibo |
+| `type` | The type of amiibo (e.g., Figure, Card) |
 
 Operations: List.
 
@@ -259,8 +259,8 @@ API path: `/amiibo`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the amiibo series |
+| `name` | Name of the amiibo series |
 
 Operations: List.
 
@@ -270,8 +270,8 @@ API path: `/amiiboseries`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the character |
+| `name` | Name of the character |
 
 Operations: List.
 
@@ -281,8 +281,8 @@ API path: `/character`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the game series |
+| `name` | Name of the game series |
 
 Operations: List.
 
@@ -292,8 +292,8 @@ API path: `/gameseries`
 
 | Field | Description |
 | --- | --- |
-| `key` |  |
-| `name` |  |
+| `key` | Unique key for the amiibo type |
+| `name` | Name of the amiibo type |
 
 Operations: List.
 
@@ -318,15 +318,15 @@ Create an instance: `amiibo = client.Amiibo`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amiiboSeries` | `String` |  |
-| `character` | `String` |  |
-| `gameSeries` | `String` |  |
-| `head` | `String` |  |
-| `image` | `String` |  |
-| `name` | `String` |  |
+| `amiiboSeries` | `String` | The amiibo series the amiibo belongs to |
+| `character` | `String` | The character of the amiibo |
+| `gameSeries` | `String` | The game series the amiibo is from |
+| `head` | `String` | The head hex value of the amiibo |
+| `image` | `String` | URL to the amiibo image |
+| `name` | `String` | The name of the amiibo |
 | `release` | `Hash` |  |
-| `tail` | `String` |  |
-| `type` | `String` |  |
+| `tail` | `String` | The tail hex value of the amiibo |
+| `type` | `String` | The type of amiibo (e.g., Figure, Card) |
 
 #### Example: List
 
@@ -350,8 +350,8 @@ Create an instance: `amiiboseries = client.Amiiboseries`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `String` |  |
-| `name` | `String` |  |
+| `key` | `String` | Unique key for the amiibo series |
+| `name` | `String` | Name of the amiibo series |
 
 #### Example: List
 
@@ -375,8 +375,8 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `String` |  |
-| `name` | `String` |  |
+| `key` | `String` | Unique key for the character |
+| `name` | `String` | Name of the character |
 
 #### Example: List
 
@@ -400,8 +400,8 @@ Create an instance: `gameseries = client.Gameseries`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `String` |  |
-| `name` | `String` |  |
+| `key` | `String` | Unique key for the game series |
+| `name` | `String` | Name of the game series |
 
 #### Example: List
 
@@ -425,8 +425,8 @@ Create an instance: `type = client.Type`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `key` | `String` |  |
-| `name` | `String` |  |
+| `key` | `String` | Unique key for the amiibo type |
+| `name` | `String` | Name of the amiibo type |
 
 #### Example: List
 
