@@ -28,6 +28,7 @@ module AmiiboapiConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
