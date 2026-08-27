@@ -29,13 +29,12 @@ class Amiibo(TypedDict, total=False):
 
 
 class AmiiboListMatch(TypedDict, total=False):
-    amiiboSeries: str
+    amiibo_series: str
     character: str
-    gameSeries: str
+    game_series: str
     head: str
-    image: str
     name: str
-    release: dict
+    showusage: bool
     tail: str
     type: str
 

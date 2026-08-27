@@ -18,13 +18,12 @@ export interface Amiibo {
 }
 
 export interface AmiiboListMatch {
-  amiiboSeries?: string
+  amiibo_series?: string
   character?: string
-  gameSeries?: string
+  game_series?: string
   head?: string
-  image?: string
   name?: string
-  release?: Record<string, any>
+  showusage?: boolean
   tail?: string
   type?: string
 }

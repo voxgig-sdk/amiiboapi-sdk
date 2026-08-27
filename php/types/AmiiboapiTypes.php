@@ -29,13 +29,12 @@ class Amiibo
 /** Request payload for Amiibo#list. */
 class AmiiboListMatch
 {
-    public ?string $amiiboSeries = null;
+    public ?string $amiibo_series = null;
     public ?string $character = null;
-    public ?string $gameSeries = null;
+    public ?string $game_series = null;
     public ?string $head = null;
-    public ?string $image = null;
     public ?string $name = null;
-    public ?array $release = null;
+    public ?bool $showusage = null;
     public ?string $tail = null;
     public ?string $type = null;
 }

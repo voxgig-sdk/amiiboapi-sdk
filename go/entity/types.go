@@ -27,13 +27,12 @@ type Amiibo struct {
 
 // AmiiboListMatch is the typed request payload for Amiibo.ListTyped.
 type AmiiboListMatch struct {
-	AmiiboSeries *string `json:"amiiboSeries,omitempty"`
+	AmiiboSeries *string `json:"amiibo_series,omitempty"`
 	Character *string `json:"character,omitempty"`
-	GameSeries *string `json:"gameSeries,omitempty"`
+	GameSeries *string `json:"game_series,omitempty"`
 	Head *string `json:"head,omitempty"`
-	Image *string `json:"image,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Release *map[string]any `json:"release,omitempty"`
+	Showusage *bool `json:"showusage,omitempty"`
 	Tail *string `json:"tail,omitempty"`
 	Type *string `json:"type,omitempty"`
 }

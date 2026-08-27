@@ -18,13 +18,12 @@
 ---@field type? string
 
 ---@class AmiiboListMatch
----@field amiiboSeries? string
+---@field amiibo_series? string
 ---@field character? string
----@field gameSeries? string
+---@field game_series? string
 ---@field head? string
----@field image? string
 ---@field name? string
----@field release? table
+---@field showusage? boolean
 ---@field tail? string
 ---@field type? string
 

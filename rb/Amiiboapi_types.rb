@@ -51,26 +51,23 @@ Amiibo = Struct.new(
 
 # Request payload for Amiibo#list.
 #
-# @!attribute [rw] amiiboSeries
+# @!attribute [rw] amiibo_series
 #   @return [String, nil]
 #
 # @!attribute [rw] character
 #   @return [String, nil]
 #
-# @!attribute [rw] gameSeries
+# @!attribute [rw] game_series
 #   @return [String, nil]
 #
 # @!attribute [rw] head
 #   @return [String, nil]
 #
-# @!attribute [rw] image
-#   @return [String, nil]
-#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] release
-#   @return [Hash, nil]
+# @!attribute [rw] showusage
+#   @return [Boolean, nil]
 #
 # @!attribute [rw] tail
 #   @return [String, nil]
@@ -78,13 +75,12 @@ Amiibo = Struct.new(
 # @!attribute [rw] type
 #   @return [String, nil]
 AmiiboListMatch = Struct.new(
-  :amiiboSeries,
+  :amiibo_series,
   :character,
-  :gameSeries,
+  :game_series,
   :head,
-  :image,
   :name,
-  :release,
+  :showusage,
   :tail,
   :type,
   keyword_init: true
