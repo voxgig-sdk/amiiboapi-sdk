@@ -56,6 +56,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "image",
             ["short"] = "URL to the amiibo image",
             ["type"] = "`$STRING`",
@@ -142,8 +143,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/amiibo",
-                ["parts"] = {
-                  "amiibo",
+                ["segments"] = {
+                  {
+                    ["lit"] = "amiibo",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -160,6 +163,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.amiibo`",
+                },
+                ["parts"] = {
+                  "amiibo",
                 },
               },
             },
@@ -193,13 +199,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/amiiboseries",
-                ["parts"] = {
-                  "amiiboseries",
+                ["segments"] = {
+                  {
+                    ["lit"] = "amiiboseries",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.amiibo`",
+                },
+                ["parts"] = {
+                  "amiiboseries",
                 },
               },
             },
@@ -233,13 +244,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/character",
-                ["parts"] = {
-                  "character",
+                ["segments"] = {
+                  {
+                    ["lit"] = "character",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.amiibo`",
+                },
+                ["parts"] = {
+                  "character",
                 },
               },
             },
@@ -273,13 +289,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/gameseries",
-                ["parts"] = {
-                  "gameseries",
+                ["segments"] = {
+                  {
+                    ["lit"] = "gameseries",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.amiibo`",
+                },
+                ["parts"] = {
+                  "gameseries",
                 },
               },
             },
@@ -313,13 +334,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/type",
-                ["parts"] = {
-                  "type",
+                ["segments"] = {
+                  {
+                    ["lit"] = "type",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.amiibo`",
+                },
+                ["parts"] = {
+                  "type",
                 },
               },
             },

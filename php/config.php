@@ -82,6 +82,7 @@ class AmiiboapiConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'image',
               'short' => 'URL to the amiibo image',
               'type' => '`$STRING`',
@@ -168,8 +169,10 @@ class AmiiboapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/amiibo',
-                  'parts' => [
-                    'amiibo',
+                  'segments' => [
+                    [
+                      'lit' => 'amiibo',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -186,6 +189,9 @@ class AmiiboapiConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.amiibo`',
+                  ],
+                  'parts' => [
+                    'amiibo',
                   ],
                 ],
               ],
@@ -219,13 +225,18 @@ class AmiiboapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/amiiboseries',
-                  'parts' => [
-                    'amiiboseries',
+                  'segments' => [
+                    [
+                      'lit' => 'amiiboseries',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.amiibo`',
+                  ],
+                  'parts' => [
+                    'amiiboseries',
                   ],
                 ],
               ],
@@ -259,13 +270,18 @@ class AmiiboapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character',
-                  'parts' => [
-                    'character',
+                  'segments' => [
+                    [
+                      'lit' => 'character',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.amiibo`',
+                  ],
+                  'parts' => [
+                    'character',
                   ],
                 ],
               ],
@@ -299,13 +315,18 @@ class AmiiboapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/gameseries',
-                  'parts' => [
-                    'gameseries',
+                  'segments' => [
+                    [
+                      'lit' => 'gameseries',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.amiibo`',
+                  ],
+                  'parts' => [
+                    'gameseries',
                   ],
                 ],
               ],
@@ -339,13 +360,18 @@ class AmiiboapiConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/type',
-                  'parts' => [
-                    'type',
+                  'segments' => [
+                    [
+                      'lit' => 'type',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.amiibo`',
+                  ],
+                  'parts' => [
+                    'type',
                   ],
                 ],
               ],

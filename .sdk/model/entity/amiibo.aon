@@ -30,6 +30,7 @@ main: kit: entity: amiibo: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "image"
       req: false
       short: "URL to the amiibo image"
@@ -128,8 +129,10 @@ main: kit: entity: amiibo: {
           }
           method: "GET"
           orig: "/amiibo"
-          parts: [
-            "amiibo"
+          segments: [
+            {
+              lit: "amiibo"
+            }
           ]
           select: {
             exist: [

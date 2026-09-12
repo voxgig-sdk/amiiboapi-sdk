@@ -1,6 +1,14 @@
 # Amiiboapi SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -77,6 +85,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "image",
             "short": "URL to the amiibo image",
             "type": "`$STRING`",
@@ -163,8 +172,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/amiibo",
-                "parts": [
-                  "amiibo",
+                "segments": [
+                  {
+                    "lit": "amiibo",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -182,6 +193,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.amiibo`",
                 },
+                "parts": [
+                  "amiibo",
+                ],
               },
             ],
           },
@@ -214,14 +228,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/amiiboseries",
-                "parts": [
-                  "amiiboseries",
+                "segments": [
+                  {
+                    "lit": "amiiboseries",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.amiibo`",
                 },
+                "parts": [
+                  "amiiboseries",
+                ],
               },
             ],
           },
@@ -254,14 +273,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/character",
-                "parts": [
-                  "character",
+                "segments": [
+                  {
+                    "lit": "character",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.amiibo`",
                 },
+                "parts": [
+                  "character",
+                ],
               },
             ],
           },
@@ -294,14 +318,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/gameseries",
-                "parts": [
-                  "gameseries",
+                "segments": [
+                  {
+                    "lit": "gameseries",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.amiibo`",
                 },
+                "parts": [
+                  "gameseries",
+                ],
               },
             ],
           },
@@ -334,14 +363,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/type",
-                "parts": [
-                  "type",
+                "segments": [
+                  {
+                    "lit": "type",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.amiibo`",
                 },
+                "parts": [
+                  "type",
+                ],
               },
             ],
           },
