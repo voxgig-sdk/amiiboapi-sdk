@@ -105,7 +105,7 @@ local results, err = client:Character():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
+| TypeScript | `@voxgig-sdk/amiiboapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
 | Python | `voxgig-sdk-amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
 | PHP | `voxgig-sdk/amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/amiiboapi-sdk/go` | `go get github.com/voxgig-sdk/amiiboapi-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Character():list()
 ### TypeScript
 
 ```ts
-import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi'
+import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi-sdk'
 
 const client = new AmiiboapiSDK()
 

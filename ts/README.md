@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi'
+import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi-sdk'
 
 const client = new AmiiboapiSDK()
 ```
@@ -563,7 +563,7 @@ amiiboapi/
 Import the SDK from the package root:
 
 ```ts
-import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi'
+import { AmiiboapiSDK } from '@voxgig-sdk/amiiboapi-sdk'
 ```
 
 ### Entity state
