@@ -22,5 +22,46 @@
         "name": "s51"
       }
     }
+  },
+  "requests": {
+    "GET /character": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCharacters",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "amiibo": {
+                      "items": {
+                        "properties": {
+                          "key": {
+                            "description": "Unique key for the character",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the character",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

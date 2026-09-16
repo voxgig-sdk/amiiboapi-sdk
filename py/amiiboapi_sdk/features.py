@@ -1,12 +1,18 @@
 # Amiiboapi SDK feature factory
 
 from amiiboapi_sdk.feature.base_feature import AmiiboapiBaseFeature
+from amiiboapi_sdk.feature.ratelimit_feature import AmiiboapiRatelimitFeature
+from amiiboapi_sdk.feature.retry_feature import AmiiboapiRetryFeature
 from amiiboapi_sdk.feature.test_feature import AmiiboapiTestFeature
+from amiiboapi_sdk.feature.timeout_feature import AmiiboapiTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: AmiiboapiBaseFeature(),
+    "ratelimit": lambda: AmiiboapiRatelimitFeature(),
+    "retry": lambda: AmiiboapiRetryFeature(),
     "test": lambda: AmiiboapiTestFeature(),
+    "timeout": lambda: AmiiboapiTimeoutFeature(),
 }
 
 

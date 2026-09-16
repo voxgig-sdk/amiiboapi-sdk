@@ -25,6 +25,12 @@ main: kit: entity: type: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /type"
+            json: "{\"operationId\":\"getTypes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"key\":{\"description\":\"Unique key for the amiibo type\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the amiibo type\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/type"
           segments: [

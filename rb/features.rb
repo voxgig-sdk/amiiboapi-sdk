@@ -1,7 +1,10 @@
 # Amiiboapi SDK feature factory
 
 require_relative 'feature/base_feature'
+require_relative 'feature/ratelimit_feature'
+require_relative 'feature/retry_feature'
 require_relative 'feature/test_feature'
+require_relative 'feature/timeout_feature'
 
 
 module AmiiboapiFeatures
@@ -9,8 +12,14 @@ module AmiiboapiFeatures
     case name
     when "base"
       AmiiboapiBaseFeature.new
+    when "ratelimit"
+      AmiiboapiRatelimitFeature.new
+    when "retry"
+      AmiiboapiRetryFeature.new
     when "test"
       AmiiboapiTestFeature.new
+    when "timeout"
+      AmiiboapiTimeoutFeature.new
     else
       AmiiboapiBaseFeature.new
     end

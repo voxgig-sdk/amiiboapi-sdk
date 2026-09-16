@@ -25,6 +25,12 @@ main: kit: entity: amiiboseries: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /amiiboseries"
+            json: "{\"operationId\":\"getAmiiboSeries\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"key\":{\"description\":\"Unique key for the amiibo series\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the amiibo series\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/amiiboseries"
           segments: [

@@ -22,5 +22,46 @@
         "name": "s51"
       }
     }
+  },
+  "requests": {
+    "GET /amiiboseries": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAmiiboSeries",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "amiibo": {
+                      "items": {
+                        "properties": {
+                          "key": {
+                            "description": "Unique key for the amiibo series",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the amiibo series",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

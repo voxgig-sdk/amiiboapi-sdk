@@ -22,5 +22,46 @@
         "name": "s51"
       }
     }
+  },
+  "requests": {
+    "GET /gameseries": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getGameSeries",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "amiibo": {
+                      "items": {
+                        "properties": {
+                          "key": {
+                            "description": "Unique key for the game series",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the game series",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
