@@ -127,21 +127,21 @@ class Config {
 
     entity: {
       
-      amiibo: {
-      },
-
-      amiiboseries: {
-      },
-
-      character: {
-      },
-
-      gameseries: {
-      },
-
-      type: {
-      },
-
+        amiibo: {
+        },
+  
+        amiiboseries: {
+        },
+  
+        character: {
+        },
+  
+        gameseries: {
+        },
+  
+        type: {
+        },
+  
     }
   }
 

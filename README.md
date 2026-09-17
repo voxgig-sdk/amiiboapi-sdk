@@ -105,12 +105,12 @@ local results, err = client:Character():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/amiiboapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
-| Python | `voxgig-sdk-amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
-| PHP | `voxgig-sdk/amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
+| TypeScript | `@voxgig-sdk/amiiboapi-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/tags) |
+| Python | `voxgig-sdk-amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/tags) |
+| PHP | `voxgig-sdk/amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/amiiboapi-sdk/go` | `go get github.com/voxgig-sdk/amiiboapi-sdk/go@latest` |
-| Ruby | `voxgig-sdk-amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
-| Lua | `voxgig-sdk-amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/releases) |
+| Ruby | `voxgig-sdk-amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/tags) |
+| Lua | `voxgig-sdk-amiiboapi` | publish pending — [install from git tag](https://github.com/voxgig-sdk/amiiboapi-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/amiiboapi-sdk/go-cli` | `go install github.com/voxgig-sdk/amiiboapi-sdk/go-cli/cmd/amiiboapi@latest` |
 | Go MCP server | `github.com/voxgig-sdk/amiiboapi-sdk/go-mcp` | `go get github.com/voxgig-sdk/amiiboapi-sdk/go-mcp@latest` |
 

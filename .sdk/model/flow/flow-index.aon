@@ -1,7 +1,7 @@
 # Flows
 
-@"BasicAmiiboFlow.aon"
-@"BasicAmiiboseriesFlow.aon"
-@"BasicCharacterFlow.aon"
-@"BasicGameseriesFlow.aon"
-@"BasicTypeFlow.aon"
+@"./BasicAmiiboFlow.aon"
+@"./BasicAmiiboseriesFlow.aon"
+@"./BasicCharacterFlow.aon"
+@"./BasicGameseriesFlow.aon"
+@"./BasicTypeFlow.aon"
