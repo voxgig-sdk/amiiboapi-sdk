@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TypeEntity = void 0;
 const AmiiboapiEntityBase_1 = require("../AmiiboapiEntityBase");
-// TODO: needs Entity superclass
 class TypeEntity extends AmiiboapiEntityBase_1.AmiiboapiEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

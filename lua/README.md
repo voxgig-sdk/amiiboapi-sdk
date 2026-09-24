@@ -43,7 +43,7 @@ local amiibos, err = client:Amiibo():list()
 if err then error(err) end
 
 for _, item in ipairs(amiibos) do
-  print(item["amiiboSeries"])
+  print(item)
 end
 ```
 

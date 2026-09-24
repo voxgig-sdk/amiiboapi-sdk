@@ -103,48 +103,57 @@ module AmiiboapiConfig
           "fields" => [
             {
               "name" => "amiiboSeries",
-              "short" => "The amiibo series the amiibo belongs to",
+              "title" => "Amiibo Series",
               "type" => "`$STRING`",
+              "short" => "The amiibo series the amiibo belongs to",
             },
             {
               "name" => "character",
-              "short" => "The character of the amiibo",
+              "title" => "Character",
               "type" => "`$STRING`",
+              "short" => "The character of the amiibo",
             },
             {
               "name" => "gameSeries",
-              "short" => "The game series the amiibo is from",
+              "title" => "Game Series",
               "type" => "`$STRING`",
+              "short" => "The game series the amiibo is from",
             },
             {
               "name" => "head",
-              "short" => "The head hex value of the amiibo",
+              "title" => "Head",
               "type" => "`$STRING`",
+              "short" => "The head hex value of the amiibo",
             },
             {
-              "format" => "uri",
               "name" => "image",
-              "short" => "URL to the amiibo image",
+              "title" => "Image",
               "type" => "`$STRING`",
+              "short" => "URL to the amiibo image",
+              "format" => "uri",
             },
             {
               "name" => "name",
-              "short" => "The name of the amiibo",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "The name of the amiibo",
             },
             {
               "name" => "release",
+              "title" => "Release",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "tail",
-              "short" => "The tail hex value of the amiibo",
+              "title" => "Tail",
               "type" => "`$STRING`",
+              "short" => "The tail hex value of the amiibo",
             },
             {
               "name" => "type",
-              "short" => "The type of amiibo (e.g., Figure, Card)",
+              "title" => "Type",
               "type" => "`$STRING`",
+              "short" => "The type of amiibo (e.g., Figure, Card)",
             },
           ],
           "name" => "amiibo",
@@ -154,58 +163,6 @@ module AmiiboapiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "amiibo_series",
-                        "orig" => "amiibo_series",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "character",
-                        "orig" => "character",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "game_series",
-                        "orig" => "game_series",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "head",
-                        "orig" => "head",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "name",
-                        "orig" => "name",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "showusage",
-                        "orig" => "showusage",
-                        "type" => "`$BOOLEAN`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "tail",
-                        "orig" => "tail",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "kind" => "query",
-                        "name" => "type",
-                        "orig" => "type",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/amiibo",
@@ -214,6 +171,66 @@ module AmiiboapiConfig
                       "lit" => "amiibo",
                     },
                   ],
+                  "parts" => [
+                    "amiibo",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.amiibo`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "amiibo_series",
+                        "orig" => "amiibo_series",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "character",
+                        "orig" => "character",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "game_series",
+                        "orig" => "game_series",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "head",
+                        "orig" => "head",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "name",
+                        "orig" => "name",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "showusage",
+                        "orig" => "showusage",
+                        "type" => "`$BOOLEAN`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "tail",
+                        "orig" => "tail",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "type",
+                        "orig" => "type",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "amiibo_series",
@@ -226,13 +243,6 @@ module AmiiboapiConfig
                       "type",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.amiibo`",
-                  },
-                  "parts" => [
-                    "amiibo",
-                  ],
                 },
               ],
             },
@@ -245,13 +255,15 @@ module AmiiboapiConfig
           "fields" => [
             {
               "name" => "key",
-              "short" => "Unique key for the amiibo series",
+              "title" => "Key",
               "type" => "`$STRING`",
+              "short" => "Unique key for the amiibo series",
             },
             {
               "name" => "name",
-              "short" => "Name of the amiibo series",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Name of the amiibo series",
             },
           ],
           "name" => "amiiboseries",
@@ -261,7 +273,6 @@ module AmiiboapiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/amiiboseries",
@@ -270,14 +281,16 @@ module AmiiboapiConfig
                       "lit" => "amiiboseries",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "amiiboseries",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.amiibo`",
                   },
-                  "parts" => [
-                    "amiiboseries",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -290,13 +303,15 @@ module AmiiboapiConfig
           "fields" => [
             {
               "name" => "key",
-              "short" => "Unique key for the character",
+              "title" => "Key",
               "type" => "`$STRING`",
+              "short" => "Unique key for the character",
             },
             {
               "name" => "name",
-              "short" => "Name of the character",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Name of the character",
             },
           ],
           "name" => "character",
@@ -306,7 +321,6 @@ module AmiiboapiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/character",
@@ -315,14 +329,16 @@ module AmiiboapiConfig
                       "lit" => "character",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "character",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.amiibo`",
                   },
-                  "parts" => [
-                    "character",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -335,13 +351,15 @@ module AmiiboapiConfig
           "fields" => [
             {
               "name" => "key",
-              "short" => "Unique key for the game series",
+              "title" => "Key",
               "type" => "`$STRING`",
+              "short" => "Unique key for the game series",
             },
             {
               "name" => "name",
-              "short" => "Name of the game series",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Name of the game series",
             },
           ],
           "name" => "gameseries",
@@ -351,7 +369,6 @@ module AmiiboapiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/gameseries",
@@ -360,14 +377,16 @@ module AmiiboapiConfig
                       "lit" => "gameseries",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "gameseries",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.amiibo`",
                   },
-                  "parts" => [
-                    "gameseries",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -380,13 +399,15 @@ module AmiiboapiConfig
           "fields" => [
             {
               "name" => "key",
-              "short" => "Unique key for the amiibo type",
+              "title" => "Key",
               "type" => "`$STRING`",
+              "short" => "Unique key for the amiibo type",
             },
             {
               "name" => "name",
-              "short" => "Name of the amiibo type",
+              "title" => "Name",
               "type" => "`$STRING`",
+              "short" => "Name of the amiibo type",
             },
           ],
           "name" => "type",
@@ -396,7 +417,6 @@ module AmiiboapiConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/type",
@@ -405,14 +425,16 @@ module AmiiboapiConfig
                       "lit" => "type",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "type",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.amiibo`",
                   },
-                  "parts" => [
-                    "type",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },

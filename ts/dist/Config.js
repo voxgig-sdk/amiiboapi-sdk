@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -118,48 +111,57 @@ class Config {
             "fields": [
                 {
                     "name": "amiiboSeries",
-                    "short": "The amiibo series the amiibo belongs to",
-                    "type": "`$STRING`"
+                    "title": "Amiibo Series",
+                    "type": "`$STRING`",
+                    "short": "The amiibo series the amiibo belongs to"
                 },
                 {
                     "name": "character",
-                    "short": "The character of the amiibo",
-                    "type": "`$STRING`"
+                    "title": "Character",
+                    "type": "`$STRING`",
+                    "short": "The character of the amiibo"
                 },
                 {
                     "name": "gameSeries",
-                    "short": "The game series the amiibo is from",
-                    "type": "`$STRING`"
+                    "title": "Game Series",
+                    "type": "`$STRING`",
+                    "short": "The game series the amiibo is from"
                 },
                 {
                     "name": "head",
-                    "short": "The head hex value of the amiibo",
-                    "type": "`$STRING`"
+                    "title": "Head",
+                    "type": "`$STRING`",
+                    "short": "The head hex value of the amiibo"
                 },
                 {
-                    "format": "uri",
                     "name": "image",
+                    "title": "Image",
+                    "type": "`$STRING`",
                     "short": "URL to the amiibo image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "name",
-                    "short": "The name of the amiibo",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "The name of the amiibo"
                 },
                 {
                     "name": "release",
+                    "title": "Release",
                     "type": "`$OBJECT`"
                 },
                 {
                     "name": "tail",
-                    "short": "The tail hex value of the amiibo",
-                    "type": "`$STRING`"
+                    "title": "Tail",
+                    "type": "`$STRING`",
+                    "short": "The tail hex value of the amiibo"
                 },
                 {
                     "name": "type",
-                    "short": "The type of amiibo (e.g., Figure, Card)",
-                    "type": "`$STRING`"
+                    "title": "Type",
+                    "type": "`$STRING`",
+                    "short": "The type of amiibo (e.g., Figure, Card)"
                 }
             ],
             "name": "amiibo",
@@ -169,58 +171,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "amiibo_series",
-                                        "orig": "amiibo_series",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "character",
-                                        "orig": "character",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "game_series",
-                                        "orig": "game_series",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "head",
-                                        "orig": "head",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "name",
-                                        "orig": "name",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "showusage",
-                                        "orig": "showusage",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "tail",
-                                        "orig": "tail",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "type",
-                                        "orig": "type",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/amiibo",
@@ -229,6 +179,66 @@ class Config {
                                     "lit": "amiibo"
                                 }
                             ],
+                            "parts": [
+                                "amiibo"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.amiibo`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "amiibo_series",
+                                        "orig": "amiibo_series",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "character",
+                                        "orig": "character",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "game_series",
+                                        "orig": "game_series",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "head",
+                                        "orig": "head",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "orig": "name",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "showusage",
+                                        "orig": "showusage",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "tail",
+                                        "orig": "tail",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "orig": "type",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "amiibo_series",
@@ -240,14 +250,7 @@ class Config {
                                     "tail",
                                     "type"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.amiibo`"
-                            },
-                            "parts": [
-                                "amiibo"
-                            ]
+                            }
                         }
                     ]
                 }
@@ -260,13 +263,15 @@ class Config {
             "fields": [
                 {
                     "name": "key",
-                    "short": "Unique key for the amiibo series",
-                    "type": "`$STRING`"
+                    "title": "Key",
+                    "type": "`$STRING`",
+                    "short": "Unique key for the amiibo series"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the amiibo series",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the amiibo series"
                 }
             ],
             "name": "amiiboseries",
@@ -276,7 +281,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/amiiboseries",
@@ -285,14 +289,16 @@ class Config {
                                     "lit": "amiiboseries"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "amiiboseries"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.amiibo`"
                             },
-                            "parts": [
-                                "amiiboseries"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -305,13 +311,15 @@ class Config {
             "fields": [
                 {
                     "name": "key",
-                    "short": "Unique key for the character",
-                    "type": "`$STRING`"
+                    "title": "Key",
+                    "type": "`$STRING`",
+                    "short": "Unique key for the character"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the character",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the character"
                 }
             ],
             "name": "character",
@@ -321,7 +329,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/character",
@@ -330,14 +337,16 @@ class Config {
                                     "lit": "character"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "character"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.amiibo`"
                             },
-                            "parts": [
-                                "character"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -350,13 +359,15 @@ class Config {
             "fields": [
                 {
                     "name": "key",
-                    "short": "Unique key for the game series",
-                    "type": "`$STRING`"
+                    "title": "Key",
+                    "type": "`$STRING`",
+                    "short": "Unique key for the game series"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the game series",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the game series"
                 }
             ],
             "name": "gameseries",
@@ -366,7 +377,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/gameseries",
@@ -375,14 +385,16 @@ class Config {
                                     "lit": "gameseries"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "gameseries"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.amiibo`"
                             },
-                            "parts": [
-                                "gameseries"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -395,13 +407,15 @@ class Config {
             "fields": [
                 {
                     "name": "key",
-                    "short": "Unique key for the amiibo type",
-                    "type": "`$STRING`"
+                    "title": "Key",
+                    "type": "`$STRING`",
+                    "short": "Unique key for the amiibo type"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the amiibo type",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the amiibo type"
                 }
             ],
             "name": "type",
@@ -411,7 +425,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/type",
@@ -420,14 +433,16 @@ class Config {
                                     "lit": "type"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "type"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.amiibo`"
                             },
-                            "parts": [
-                                "type"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }

@@ -1,0 +1,53 @@
+# Entity: amiiboseries
+
+main: kit: entity: amiiboseries: {
+
+  alias: field: {}
+
+  fields: {
+    key: {
+      h: "Key"
+      n: "key"
+      r: false
+      sh: "Unique key for the amiibo series"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the amiibo series"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "amiiboseries"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /amiiboseries"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/amiiboseries"
+          s: [
+            {
+              lit: "amiiboseries"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.amiibo`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

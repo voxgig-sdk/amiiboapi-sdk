@@ -1,7 +1,0 @@
-# Entity Models
-
-@"./amiibo.aon"
-@"./amiiboseries.aon"
-@"./character.aon"
-@"./gameseries.aon"
-@"./type.aon"

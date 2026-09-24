@@ -19,7 +19,6 @@ import type {
   GameseriesListMatch,
 } from '../AmiiboapiTypes'
 
-// TODO: needs Entity superclass
 class GameseriesEntity extends AmiiboapiEntityBase<Gameseries> {
 
   constructor(client: AmiiboapiSDK, entopts: any) {

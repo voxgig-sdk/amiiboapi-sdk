@@ -95,48 +95,57 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "amiiboSeries",
-						"short": "The amiibo series the amiibo belongs to",
+						"title": "Amiibo Series",
 						"type": "`$STRING`",
+						"short": "The amiibo series the amiibo belongs to",
 					},
 					map[string]any{
 						"name": "character",
-						"short": "The character of the amiibo",
+						"title": "Character",
 						"type": "`$STRING`",
+						"short": "The character of the amiibo",
 					},
 					map[string]any{
 						"name": "gameSeries",
-						"short": "The game series the amiibo is from",
+						"title": "Game Series",
 						"type": "`$STRING`",
+						"short": "The game series the amiibo is from",
 					},
 					map[string]any{
 						"name": "head",
-						"short": "The head hex value of the amiibo",
+						"title": "Head",
 						"type": "`$STRING`",
+						"short": "The head hex value of the amiibo",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "image",
-						"short": "URL to the amiibo image",
+						"title": "Image",
 						"type": "`$STRING`",
+						"short": "URL to the amiibo image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "The name of the amiibo",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "The name of the amiibo",
 					},
 					map[string]any{
 						"name": "release",
+						"title": "Release",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "tail",
-						"short": "The tail hex value of the amiibo",
+						"title": "Tail",
 						"type": "`$STRING`",
+						"short": "The tail hex value of the amiibo",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "The type of amiibo (e.g., Figure, Card)",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "The type of amiibo (e.g., Figure, Card)",
 					},
 				},
 				"name": "amiibo",
@@ -146,64 +155,72 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "amiibo_series",
-											"orig": "amiibo_series",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "character",
-											"orig": "character",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "game_series",
-											"orig": "game_series",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "head",
-											"orig": "head",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "name",
-											"orig": "name",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "showusage",
-											"orig": "showusage",
-											"type": "`$BOOLEAN`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "tail",
-											"orig": "tail",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "type",
-											"orig": "type",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/amiibo",
 								"segments": []any{
 									map[string]any{
 										"lit": "amiibo",
+									},
+								},
+								"parts": []any{
+									"amiibo",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.amiibo`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "amiibo_series",
+											"orig": "amiibo_series",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "character",
+											"orig": "character",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "game_series",
+											"orig": "game_series",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "head",
+											"orig": "head",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "name",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "showusage",
+											"orig": "showusage",
+											"type": "`$BOOLEAN`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "tail",
+											"orig": "tail",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -218,13 +235,6 @@ func MakeConfig() map[string]any {
 										"type",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.amiibo`",
-								},
-								"parts": []any{
-									"amiibo",
-								},
 							},
 						},
 					},
@@ -237,13 +247,15 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
-						"short": "Unique key for the amiibo series",
+						"title": "Key",
 						"type": "`$STRING`",
+						"short": "Unique key for the amiibo series",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the amiibo series",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the amiibo series",
 					},
 				},
 				"name": "amiiboseries",
@@ -253,7 +265,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/amiiboseries",
@@ -262,14 +273,16 @@ func MakeConfig() map[string]any {
 										"lit": "amiiboseries",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"amiiboseries",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.amiibo`",
 								},
-								"parts": []any{
-									"amiiboseries",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -282,13 +295,15 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
-						"short": "Unique key for the character",
+						"title": "Key",
 						"type": "`$STRING`",
+						"short": "Unique key for the character",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the character",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the character",
 					},
 				},
 				"name": "character",
@@ -298,7 +313,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/character",
@@ -307,14 +321,16 @@ func MakeConfig() map[string]any {
 										"lit": "character",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"character",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.amiibo`",
 								},
-								"parts": []any{
-									"character",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -327,13 +343,15 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
-						"short": "Unique key for the game series",
+						"title": "Key",
 						"type": "`$STRING`",
+						"short": "Unique key for the game series",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the game series",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the game series",
 					},
 				},
 				"name": "gameseries",
@@ -343,7 +361,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/gameseries",
@@ -352,14 +369,16 @@ func MakeConfig() map[string]any {
 										"lit": "gameseries",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"gameseries",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.amiibo`",
 								},
-								"parts": []any{
-									"gameseries",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -372,13 +391,15 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "key",
-						"short": "Unique key for the amiibo type",
+						"title": "Key",
 						"type": "`$STRING`",
+						"short": "Unique key for the amiibo type",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the amiibo type",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the amiibo type",
 					},
 				},
 				"name": "type",
@@ -388,7 +409,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/type",
@@ -397,14 +417,16 @@ func MakeConfig() map[string]any {
 										"lit": "type",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"type",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.amiibo`",
 								},
-								"parts": []any{
-									"type",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

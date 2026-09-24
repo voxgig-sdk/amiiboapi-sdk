@@ -1,0 +1,174 @@
+# Entity: amiibo
+
+main: kit: entity: amiibo: {
+
+  alias: field: {}
+
+  fields: {
+    amiiboSeries: {
+      h: "Amiibo Series"
+      n: "amiiboSeries"
+      r: false
+      sh: "The amiibo series the amiibo belongs to"
+      t: "`$STRING`"
+    }
+    character: {
+      h: "Character"
+      n: "character"
+      r: false
+      sh: "The character of the amiibo"
+      t: "`$STRING`"
+    }
+    gameSeries: {
+      h: "Game Series"
+      n: "gameSeries"
+      r: false
+      sh: "The game series the amiibo is from"
+      t: "`$STRING`"
+    }
+    head: {
+      h: "Head"
+      n: "head"
+      r: false
+      sh: "The head hex value of the amiibo"
+      t: "`$STRING`"
+    }
+    image: {
+      fo: "uri"
+      h: "Image"
+      n: "image"
+      r: false
+      sh: "URL to the amiibo image"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the amiibo"
+      t: "`$STRING`"
+    }
+    release: {
+      h: "Release"
+      n: "release"
+      r: false
+      t: "`$OBJECT`"
+    }
+    tail: {
+      h: "Tail"
+      n: "tail"
+      r: false
+      sh: "The tail hex value of the amiibo"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The type of amiibo (e.g., Figure, Card)"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "amiibo"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /amiibo"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "amiibo_series"
+                or: "amiibo_series"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "character"
+                or: "character"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "game_series"
+                or: "game_series"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "head"
+                or: "head"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "showusage"
+                or: "showusage"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                k: "query"
+                n: "tail"
+                or: "tail"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/amiibo"
+          q: {
+            exist: [
+              "amiibo_series"
+              "character"
+              "game_series"
+              "head"
+              "name"
+              "showusage"
+              "tail"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "amiibo"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.amiibo`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

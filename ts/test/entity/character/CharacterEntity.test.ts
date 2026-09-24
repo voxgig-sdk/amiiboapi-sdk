@@ -25,10 +25,6 @@ import {
 } from '../../utility'
 
 
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 loadEnvLocal(__dirname + '/../../../.env.local')
 
 
@@ -55,7 +51,7 @@ describe('CharacterEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"key","req":false,"short":"Unique key for the character","type":"`$STRING`","index$":0},{"active":true,"name":"name","req":false,"short":"Name of the character","type":"`$STRING`","index$":1}],"name":"character","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{},"contract":{"id":"GET /character","json":"{\"operationId\":\"getCharacters\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"key\":{\"description\":\"Unique key for the character\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/character","segments":[{"lit":"character"}],"select":{},"transform":{"req":"`reqdata`","res":"`body.amiibo`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"character","name__orig":"character","Name":"Character","name_":"character","name-":"character","NAME":"CHARACTER","index$":2}, {"active":true,"entity":"character","key$":"BasicCharacterFlow","kind":"basic","name":"BasicCharacterFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"character_ref01"}}],"index$":0}]}, 'Character')
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"key":{"a":true,"h":"Key","n":"key","r":false,"sh":"Unique key for the character","t":"`$STRING`","key$":"key","index$":0},"name":{"a":true,"h":"Name","n":"name","r":false,"sh":"Name of the character","t":"`$STRING`","key$":"name","index$":1}},"name":"character","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /character","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/character","q":{},"r":{},"s":[{"lit":"character"}],"t":{"req":"`reqdata`","res":"`body.amiibo`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"character","name__orig":"character","Name":"Character","name_":"character","name-":"character","NAME":"CHARACTER","index$":2}, {"active":true,"entity":"character","key$":"BasicCharacterFlow","kind":"basic","name":"BasicCharacterFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"character_ref01"}}],"index$":0}]}, 'Character', {"GET /character":{"protocol":"http","operationId":"getCharacters","responses":{"200":{"description":"Successful response","content":{"application/json":{"schema":{"type":"object","properties":{"amiibo":{"items":{"properties":{"key":{"description":"Unique key for the character","type":"string","key$":"key"},"name":{"description":"Name of the character","type":"string","key$":"name"}},"type":"object","index$":0},"key$":"amiibo","type":"array"}}}}}}},"parameters":[],"securitySource":"unspecified"}})
     }
     const client = setup.client
     const struct = setup.struct

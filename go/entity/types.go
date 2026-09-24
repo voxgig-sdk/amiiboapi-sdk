@@ -1,7 +1,7 @@
 // Typed models for the Amiiboapi SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,15 +14,6 @@ import (
 
 // Amiibo is the typed data model for the amiibo entity.
 type Amiibo struct {
-	AmiiboSeries *string `json:"amiiboSeries,omitempty"`
-	Character *string `json:"character,omitempty"`
-	GameSeries *string `json:"gameSeries,omitempty"`
-	Head *string `json:"head,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Release *map[string]any `json:"release,omitempty"`
-	Tail *string `json:"tail,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // AmiiboListMatch is the typed request payload for Amiibo.ListTyped.
@@ -39,8 +30,6 @@ type AmiiboListMatch struct {
 
 // Amiiboseries is the typed data model for the amiiboseries entity.
 type Amiiboseries struct {
-	Key *string `json:"key,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // AmiiboseriesListMatch is the typed request payload for Amiiboseries.ListTyped.
@@ -51,8 +40,6 @@ type AmiiboseriesListMatch struct {
 
 // Character is the typed data model for the character entity.
 type Character struct {
-	Key *string `json:"key,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // CharacterListMatch is the typed request payload for Character.ListTyped.
@@ -63,8 +50,6 @@ type CharacterListMatch struct {
 
 // Gameseries is the typed data model for the gameseries entity.
 type Gameseries struct {
-	Key *string `json:"key,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // GameseriesListMatch is the typed request payload for Gameseries.ListTyped.
@@ -75,8 +60,6 @@ type GameseriesListMatch struct {
 
 // Type is the typed data model for the type entity.
 type Type struct {
-	Key *string `json:"key,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // TypeListMatch is the typed request payload for Type.ListTyped.

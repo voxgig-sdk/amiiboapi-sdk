@@ -24,77 +24,152 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "amiibo": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "amiiboSeries",
-              "req": false,
-              "short": "The amiibo series the amiibo belongs to",
-              "type": "`$STRING`"
+          "fields": {
+            "amiiboSeries": {
+              "a": true,
+              "h": "Amiibo Series",
+              "n": "amiiboSeries",
+              "r": false,
+              "sh": "The amiibo series the amiibo belongs to",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "character",
-              "req": false,
-              "short": "The character of the amiibo",
-              "type": "`$STRING`"
+            "character": {
+              "a": true,
+              "h": "Character",
+              "n": "character",
+              "r": false,
+              "sh": "The character of the amiibo",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "gameSeries",
-              "req": false,
-              "short": "The game series the amiibo is from",
-              "type": "`$STRING`"
+            "gameSeries": {
+              "a": true,
+              "h": "Game Series",
+              "n": "gameSeries",
+              "r": false,
+              "sh": "The game series the amiibo is from",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "head",
-              "req": false,
-              "short": "The head hex value of the amiibo",
-              "type": "`$STRING`"
+            "head": {
+              "a": true,
+              "h": "Head",
+              "n": "head",
+              "r": false,
+              "sh": "The head hex value of the amiibo",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "image",
-              "req": false,
-              "short": "URL to the amiibo image",
-              "type": "`$STRING`"
+            "image": {
+              "a": true,
+              "fo": "uri",
+              "h": "Image",
+              "n": "image",
+              "r": false,
+              "sh": "URL to the amiibo image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "The name of the amiibo",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The name of the amiibo",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "release",
-              "req": false,
-              "type": "`$OBJECT`"
+            "release": {
+              "a": true,
+              "h": "Release",
+              "n": "release",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "tail",
-              "req": false,
-              "short": "The tail hex value of the amiibo",
-              "type": "`$STRING`"
+            "tail": {
+              "a": true,
+              "h": "Tail",
+              "n": "tail",
+              "r": false,
+              "sh": "The tail hex value of the amiibo",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "The type of amiibo (e.g., Figure, Card)",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "The type of amiibo (e.g., Figure, Card)",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "amiibo",
           "op": {
             "list": {
@@ -102,90 +177,84 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /amiibo",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "amiibo_series",
-                        "orig": "amiibo_series",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "amiibo_series",
+                        "or": "amiibo_series",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "character",
-                        "orig": "character",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "character",
+                        "or": "character",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "game_series",
-                        "orig": "game_series",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "game_series",
+                        "or": "game_series",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "head",
-                        "orig": "head",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "head",
+                        "or": "head",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "name",
-                        "orig": "name",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "name",
+                        "or": "name",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "showusage",
-                        "orig": "showusage",
-                        "reqd": false,
-                        "type": "`$BOOLEAN`"
+                        "a": true,
+                        "k": "query",
+                        "n": "showusage",
+                        "or": "showusage",
+                        "r": false,
+                        "t": "`$BOOLEAN`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "tail",
-                        "orig": "tail",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "tail",
+                        "or": "tail",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /amiibo",
-                    "json": "{\"operationId\":\"getAmiibo\",\"parameters\":[{\"description\":\"Filter by amiibo name\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by amiibo head hex value\",\"in\":\"query\",\"name\":\"head\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by amiibo tail hex value\",\"in\":\"query\",\"name\":\"tail\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by amiibo type (e.g., Figure, Card, Yarn)\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by character name\",\"in\":\"query\",\"name\":\"character\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by game series\",\"in\":\"query\",\"name\":\"gameSeries\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by amiibo series\",\"in\":\"query\",\"name\":\"amiiboSeries\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Show game usage information\",\"in\":\"query\",\"name\":\"showusage\",\"required\":false,\"schema\":{\"type\":\"boolean\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"amiiboSeries\":{\"description\":\"The amiibo series the amiibo belongs to\",\"type\":\"string\"},\"character\":{\"description\":\"The character of the amiibo\",\"type\":\"string\"},\"gameSeries\":{\"description\":\"The game series the amiibo is from\",\"type\":\"string\"},\"head\":{\"description\":\"The head hex value of the amiibo\",\"type\":\"string\"},\"image\":{\"description\":\"URL to the amiibo image\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the amiibo\",\"type\":\"string\"},\"release\":{\"properties\":{\"au\":{\"description\":\"Release date in Australia\",\"format\":\"date\",\"type\":\"string\"},\"eu\":{\"description\":\"Release date in Europe\",\"format\":\"date\",\"type\":\"string\"},\"jp\":{\"description\":\"Release date in Japan\",\"format\":\"date\",\"type\":\"string\"},\"na\":{\"description\":\"Release date in North America\",\"format\":\"date\",\"type\":\"string\"}},\"type\":\"object\"},\"tail\":{\"description\":\"The tail hex value of the amiibo\",\"type\":\"string\"},\"type\":{\"description\":\"The type of amiibo (e.g., Figure, Card)\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"No amiibos found\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"No amiibos found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/amiibo",
-                  "segments": [
-                    {
-                      "lit": "amiibo"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/amiibo",
+                  "q": {
                     "exist": [
                       "amiibo_series",
                       "character",
@@ -197,7 +266,13 @@
                       "type"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "amiibo"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.amiibo`"
                   }
@@ -214,22 +289,24 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "key",
-              "req": false,
-              "short": "Unique key for the amiibo series",
-              "type": "`$STRING`"
+          "fields": {
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": false,
+              "sh": "Unique key for the amiibo series",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the amiibo series",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the amiibo series",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "amiiboseries",
           "op": {
             "list": {
@@ -237,24 +314,24 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /amiiboseries",
-                    "json": "{\"operationId\":\"getAmiiboSeries\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"key\":{\"description\":\"Unique key for the amiibo series\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the amiibo series\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/amiiboseries",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/amiiboseries",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "amiiboseries"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.amiibo`"
                   }
@@ -271,22 +348,24 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "key",
-              "req": false,
-              "short": "Unique key for the character",
-              "type": "`$STRING`"
+          "fields": {
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": false,
+              "sh": "Unique key for the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the character",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the character",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "character",
           "op": {
             "list": {
@@ -294,24 +373,24 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /character",
-                    "json": "{\"operationId\":\"getCharacters\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"key\":{\"description\":\"Unique key for the character\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/character",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/character",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "character"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.amiibo`"
                   }
@@ -328,22 +407,24 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "key",
-              "req": false,
-              "short": "Unique key for the game series",
-              "type": "`$STRING`"
+          "fields": {
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": false,
+              "sh": "Unique key for the game series",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the game series",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the game series",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "gameseries",
           "op": {
             "list": {
@@ -351,24 +432,24 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /gameseries",
-                    "json": "{\"operationId\":\"getGameSeries\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"key\":{\"description\":\"Unique key for the game series\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the game series\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/gameseries",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/gameseries",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "gameseries"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.amiibo`"
                   }
@@ -385,22 +466,24 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "key",
-              "req": false,
-              "short": "Unique key for the amiibo type",
-              "type": "`$STRING`"
+          "fields": {
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": false,
+              "sh": "Unique key for the amiibo type",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the amiibo type",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the amiibo type",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "type",
           "op": {
             "list": {
@@ -408,24 +491,24 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /type",
-                    "json": "{\"operationId\":\"getTypes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"amiibo\":{\"items\":{\"properties\":{\"key\":{\"description\":\"Unique key for the amiibo type\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the amiibo type\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/type",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/type",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "type"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.amiibo`"
                   }
@@ -854,13 +937,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -880,13 +963,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -906,13 +989,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -932,13 +1015,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -958,13 +1041,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

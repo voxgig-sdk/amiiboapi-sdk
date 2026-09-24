@@ -1,0 +1,53 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: {
+    key: {
+      h: "Key"
+      n: "key"
+      r: false
+      sh: "Unique key for the character"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the character"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /character"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/character"
+          s: [
+            {
+              lit: "character"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.amiibo`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
