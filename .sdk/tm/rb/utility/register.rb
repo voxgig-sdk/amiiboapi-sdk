@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 AmiiboapiUtility.registrar = ->(u) {
   u.clean = AmiiboapiUtilities::Clean
+  u.clean_add = AmiiboapiUtilities::CleanAdd
+  u.clean_explain = AmiiboapiUtilities::CleanExplain
   u.done = AmiiboapiUtilities::Done
   u.make_error = AmiiboapiUtilities::MakeError
   u.feature_add = AmiiboapiUtilities::FeatureAdd

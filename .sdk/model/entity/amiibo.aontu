@@ -86,7 +86,7 @@ main: kit: entity: amiibo: {
               {
                 k: "query"
                 n: "amiibo_series"
-                or: "amiibo_series"
+                or: "amiiboSeries"
                 r: false
                 t: "`$STRING`"
               }
@@ -100,7 +100,7 @@ main: kit: entity: amiibo: {
               {
                 k: "query"
                 n: "game_series"
-                or: "game_series"
+                or: "gameSeries"
                 r: false
                 t: "`$STRING`"
               }

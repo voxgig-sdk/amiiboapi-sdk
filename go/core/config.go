@@ -175,7 +175,7 @@ func MakeConfig() map[string]any {
 									"query": []any{
 										map[string]any{
 											"name": "amiibo_series",
-											"orig": "amiibo_series",
+											"orig": "amiiboSeries",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
@@ -187,7 +187,7 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "game_series",
-											"orig": "game_series",
+											"orig": "gameSeries",
 											"type": "`$STRING`",
 											"kind": "query",
 										},

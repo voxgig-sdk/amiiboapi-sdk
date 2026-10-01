@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 AmiiboapiUtility::setRegistrar(function (AmiiboapiUtility $u): void {
     $u->clean = [AmiiboapiClean::class, 'call'];
+    $u->clean_add = [AmiiboapiClean::class, 'add'];
+    $u->clean_explain = [AmiiboapiDone::class, 'clean_explain'];
     $u->done = [AmiiboapiDone::class, 'call'];
     $u->make_error = [AmiiboapiMakeError::class, 'call'];
     $u->feature_add = [AmiiboapiFeatureAdd::class, 'call'];

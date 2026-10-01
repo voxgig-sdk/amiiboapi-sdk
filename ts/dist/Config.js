@@ -191,7 +191,7 @@ class Config {
                                 "query": [
                                     {
                                         "name": "amiibo_series",
-                                        "orig": "amiibo_series",
+                                        "orig": "amiiboSeries",
                                         "type": "`$STRING`",
                                         "kind": "query"
                                     },
@@ -203,7 +203,7 @@ class Config {
                                     },
                                     {
                                         "name": "game_series",
-                                        "orig": "game_series",
+                                        "orig": "gameSeries",
                                         "type": "`$STRING`",
                                         "kind": "query"
                                     },

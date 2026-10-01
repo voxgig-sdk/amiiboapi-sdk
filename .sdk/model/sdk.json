@@ -189,7 +189,7 @@
                         "a": true,
                         "k": "query",
                         "n": "amiibo_series",
-                        "or": "amiibo_series",
+                        "or": "amiiboSeries",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -205,7 +205,7 @@
                         "a": true,
                         "k": "query",
                         "n": "game_series",
-                        "or": "game_series",
+                        "or": "gameSeries",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -1096,7 +1096,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {
