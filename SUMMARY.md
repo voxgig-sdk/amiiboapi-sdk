@@ -84,7 +84,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 ## Connect to the API
 
-- Production server: `https://www.amiiboapi.com/api`
+- Production server: `https://www.amiiboapi.org/api`
 
 Check authentication for the route you plan to call. A route that declares no authentication can be used without credentials; this does not change the requirements of other routes. Keep credentials in environment variables or a configured secret provider, and keep them out of source control and logs.
 

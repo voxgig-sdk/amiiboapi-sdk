@@ -12,7 +12,7 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/amiiboapi-sdk/releases)), or
+GitHub release tag (`rb/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/amiiboapi-sdk/tags)), or
 from a clone:
 
 ```bash
@@ -43,10 +43,11 @@ client = AmiiboapiSDK.new
 
 ```ruby
 begin
-  # list returns an Array of Amiibo records — iterate directly.
+  # list returns an Array of Amiibo entities, one per record; data_get reads the record.
   amiibos = client.Amiibo.list
   amiibos.each do |item|
-    puts "#{item["amiiboSeries"]}"
+    record = item.data_get
+    puts "#{record["amiiboSeries"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -128,10 +129,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = AmiiboapiSDK.test
 
-# Entity ops return the ENTITY (raises on error);
-# call data_get for the mock record.
-character = client.Character.list()
-puts character
+# list returns an Array of Character entities, one per mock record (raises on
+# error); data_get reads each record.
+characters = client.Character.list()
+characters.each { |item| puts item.data_get }
 ```
 
 ### Use a custom fetch function
@@ -219,7 +220,7 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all). Raises on error. |
+| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all), one per record. Raises on error. |
 | `data_get` | `() -> Hash` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> Hash` | Get entity match criteria. |
@@ -229,9 +230,10 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the result data directly. On failure they
-raise a `AmiiboapiError` (a `StandardError` subclass), so wrap
-calls in `begin`/`rescue` where you need to handle errors.
+Entity operations return the entity, and `list` an `Array` of entities, one
+per record; an entity's `data_get` reads its record. On failure they raise a
+`AmiiboapiError` (a `StandardError` subclass), so wrap calls in
+`begin`/`rescue` where you need to handle errors.
 
 The `direct` escape hatch is the exception: it never raises and instead
 returns a result `Hash` with these keys:
@@ -340,8 +342,9 @@ Create an instance: `amiibo = client.Amiibo`
 #### Example: List
 
 ```ruby
-# list returns an Array of Amiibo records (raises on error).
+# list returns an Array of Amiibo entities, one per record (raises on error).
 amiibos = client.Amiibo.list
+amiibos.each { |item| puts item.data_get }
 ```
 
 
@@ -365,8 +368,9 @@ Create an instance: `amiiboseries = client.Amiiboseries`
 #### Example: List
 
 ```ruby
-# list returns an Array of Amiiboseries records (raises on error).
+# list returns an Array of Amiiboseries entities, one per record (raises on error).
 amiiboseriess = client.Amiiboseries.list
+amiiboseriess.each { |item| puts item.data_get }
 ```
 
 
@@ -390,8 +394,9 @@ Create an instance: `character = client.Character`
 #### Example: List
 
 ```ruby
-# list returns an Array of Character records (raises on error).
+# list returns an Array of Character entities, one per record (raises on error).
 characters = client.Character.list
+characters.each { |item| puts item.data_get }
 ```
 
 
@@ -415,8 +420,9 @@ Create an instance: `gameseries = client.Gameseries`
 #### Example: List
 
 ```ruby
-# list returns an Array of Gameseries records (raises on error).
+# list returns an Array of Gameseries entities, one per record (raises on error).
 gameseriess = client.Gameseries.list
+gameseriess.each { |item| puts item.data_get }
 ```
 
 
@@ -440,8 +446,9 @@ Create an instance: `type = client.Type`
 #### Example: List
 
 ```ruby
-# list returns an Array of Type records (raises on error).
+# list returns an Array of Type entities, one per record (raises on error).
 types = client.Type.list
+types.each { |item| puts item.data_get }
 ```
 
 ## Features

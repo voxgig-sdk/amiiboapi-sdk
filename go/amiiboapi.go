@@ -13,7 +13,12 @@ type Context = core.Context
 type Utility = core.Utility
 type Feature = core.Feature
 type Entity = core.Entity
-type AmiiboapiEntity = core.AmiiboapiEntity
+type AmiiboapiEntityBase = core.AmiiboapiEntityBase
+
+// Deprecated: use AmiiboapiEntityBase.
+type AmiiboapiEntity = core.AmiiboapiEntityBase
+
+type StreamItem = core.StreamItem
 type FetcherFunc = core.FetcherFunc
 type Spec = core.Spec
 type Result = core.Result
@@ -41,19 +46,19 @@ func init() {
 	core.NewTimeoutFeatureFunc = func() core.Feature {
 		return feature.NewTimeoutFeature()
 	}
-	core.NewAmiiboEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntity {
+	core.NewAmiiboEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntityBase {
 		return entity.NewAmiiboEntity(client, entopts)
 	}
-	core.NewAmiiboseriesEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntity {
+	core.NewAmiiboseriesEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntityBase {
 		return entity.NewAmiiboseriesEntity(client, entopts)
 	}
-	core.NewCharacterEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntity {
+	core.NewCharacterEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntityBase {
 		return entity.NewCharacterEntity(client, entopts)
 	}
-	core.NewGameseriesEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntity {
+	core.NewGameseriesEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntityBase {
 		return entity.NewGameseriesEntity(client, entopts)
 	}
-	core.NewTypeEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntity {
+	core.NewTypeEntityFunc = func(client *core.AmiiboapiSDK, entopts map[string]any) core.AmiiboapiEntityBase {
 		return entity.NewTypeEntity(client, entopts)
 	}
 }

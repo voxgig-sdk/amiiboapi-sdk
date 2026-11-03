@@ -12,13 +12,13 @@ main: {
       servers: [
         {
           description: "Production server"
-          url: "https://www.amiiboapi.com/api"
+          url: "https://www.amiiboapi.org/api"
         }
       ]
       summary: "A RESTful API for Amiibo providing information on different amiibos, types, game series, characters, and more."
       title: "AmiiboAPI"
       version: "1.0.0"
-      website: "https://amiiboapi.com"
+      website: "https://amiiboapi.org"
     }
   }
 }

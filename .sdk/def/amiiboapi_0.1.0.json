@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "https://www.amiiboapi.com/api",
+      "url": "https://www.amiiboapi.org/api",
       "description": "Production server"
     }
   ],

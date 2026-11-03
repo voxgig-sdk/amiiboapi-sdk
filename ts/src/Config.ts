@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -112,7 +113,7 @@ class Config {
 
 
   options = {
-    base: "https://www.amiiboapi.com/api",
+    base: "https://www.amiiboapi.org/api",
 
     headers: {
       "content-type": "application/json"
@@ -232,7 +233,8 @@ class Config {
                     "name": "character",
                     "orig": "character",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "game_series",
@@ -244,13 +246,15 @@ class Config {
                     "name": "head",
                     "orig": "head",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "name",
                     "orig": "name",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "showusage",
@@ -262,27 +266,22 @@ class Config {
                     "name": "tail",
                     "orig": "tail",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "type",
                     "orig": "type",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "amiibo_series",
-                  "character",
-                  "game_series",
-                  "head",
-                  "name",
-                  "showusage",
-                  "tail",
-                  "type"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -331,7 +330,11 @@ class Config {
                 "res": "`body.amiibo`"
               },
               "args": {},
-              "select": {}
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              }
             }
           ]
         }
@@ -379,7 +382,11 @@ class Config {
                 "res": "`body.amiibo`"
               },
               "args": {},
-              "select": {}
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              }
             }
           ]
         }
@@ -427,7 +434,11 @@ class Config {
                 "res": "`body.amiibo`"
               },
               "args": {},
-              "select": {}
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              }
             }
           ]
         }
@@ -475,7 +486,11 @@ class Config {
                 "res": "`body.amiibo`"
               },
               "args": {},
-              "select": {}
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              }
             }
           ]
         }

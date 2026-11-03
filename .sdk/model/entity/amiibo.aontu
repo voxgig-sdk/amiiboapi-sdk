@@ -143,17 +143,9 @@ main: kit: entity: amiibo: {
           }
           m: "GET"
           o: "/amiibo"
-          q: {
-            exist: [
-              "amiibo_series"
-              "character"
-              "game_series"
-              "head"
-              "name"
-              "showusage"
-              "tail"
-              "type"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

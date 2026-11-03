@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { AmiiboapiSDK, BaseFeature, stdutil } from '../../..'
+import { AmiiboapiSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('AmiiboseriesEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('amiiboseries hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of AmiiboapiSDK.test(offline).Amiiboseries().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of AmiiboapiSDK.test(offline).Amiiboseries()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = AmiiboapiSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Amiiboseries().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of AmiiboapiSDK.test().Amiiboseries().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new AmiiboapiSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Amiiboseries().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Amiiboseries().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = AmiiboapiSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Amiiboseries().list({"key":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.AMIIBOAPI_TEST_LIVE
@@ -51,7 +109,7 @@ describe('AmiiboseriesEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"key":{"a":true,"h":"Key","n":"key","r":false,"sh":"Unique key for the amiibo series","t":"`$STRING`","key$":"key","index$":0},"name":{"a":true,"h":"Name","n":"name","r":false,"sh":"Name of the amiibo series","t":"`$STRING`","key$":"name","index$":1}},"name":"amiiboseries","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /amiiboseries","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/amiiboseries","q":{},"r":{},"s":[{"lit":"amiiboseries"}],"t":{"req":"`reqdata`","res":"`body.amiibo`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"amiiboseries","name__orig":"amiiboseries","Name":"Amiiboseries","name_":"amiiboseries","name-":"amiiboseries","NAME":"AMIIBOSERIES","index$":1}, {"active":true,"entity":"amiiboseries","key$":"BasicAmiiboseriesFlow","kind":"basic","name":"BasicAmiiboseriesFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"amiiboseries_ref01"}}],"index$":0}]}, 'Amiiboseries', {"GET /amiiboseries":{"protocol":"http","parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"key":{"a":true,"h":"Key","n":"key","r":false,"sh":"Unique key for the amiibo series","t":"`$STRING`","key$":"key","index$":0},"name":{"a":true,"h":"Name","n":"name","r":false,"sh":"Name of the amiibo series","t":"`$STRING`","key$":"name","index$":1}},"name":"amiiboseries","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /amiiboseries","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/amiiboseries","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"amiiboseries"}],"t":{"req":"`reqdata`","res":"`body.amiibo`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"amiiboseries","name__orig":"amiiboseries","Name":"Amiiboseries","name_":"amiiboseries","name-":"amiiboseries","NAME":"AMIIBOSERIES","index$":1}, {"active":true,"entity":"amiiboseries","key$":"BasicAmiiboseriesFlow","kind":"basic","name":"BasicAmiiboseriesFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"amiiboseries_ref01"}}],"index$":0}]}, 'Amiiboseries', {"GET /amiiboseries":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +130,12 @@ describe('AmiiboseriesEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

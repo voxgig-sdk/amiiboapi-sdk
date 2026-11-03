@@ -254,19 +254,12 @@
                   "k": "http",
                   "m": "GET",
                   "o": "/amiibo",
-                  "q": {
-                    "exist": [
-                      "amiibo_series",
-                      "character",
-                      "game_series",
-                      "head",
-                      "name",
-                      "showusage",
-                      "tail",
-                      "type"
-                    ]
-                  },
+                  "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "amiibo"
@@ -326,6 +319,10 @@
                   "o": "/amiiboseries",
                   "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "amiiboseries"
@@ -385,6 +382,10 @@
                   "o": "/character",
                   "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "character"
@@ -444,6 +445,10 @@
                   "o": "/gameseries",
                   "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "gameseries"
@@ -503,6 +508,10 @@
                   "o": "/type",
                   "q": {},
                   "r": {},
+                  "rs": {
+                    "kind": "json",
+                    "media": "application/json"
+                  },
                   "s": [
                     {
                       "lit": "type"
@@ -843,6 +852,7 @@
             },
             "optspec": {
               "clearTimer": "`$FUNCTION`",
+              "now": "`$FUNCTION`",
               "setTimer": "`$FUNCTION`"
             },
             "strict": false
@@ -1073,19 +1083,19 @@
         "servers": [
           {
             "description": "Production server",
-            "url": "https://www.amiiboapi.com/api"
+            "url": "https://www.amiiboapi.org/api"
           }
         ],
         "summary": "A RESTful API for Amiibo providing information on different amiibos, types, game series, characters, and more.",
         "title": "AmiiboAPI",
         "version": "1.0.0",
-        "website": "https://amiiboapi.com"
+        "website": "https://amiiboapi.org"
       },
       "option": {},
       "optspec": {
         "allow": {
           "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
-          "op": "create,update,load,list,remove,command,direct,graphql"
+          "op": "create,update,patch,load,list,remove,command,direct,graphql"
         },
         "apikey": "",
         "auth": {
@@ -1138,6 +1148,11 @@
         "top": {
           "active": true
         }
+      },
+      "publisher": {
+        "name": "",
+        "security": "",
+        "url": ""
       },
       "repo": {
         "host": "github.com",
@@ -1368,7 +1383,10 @@
             "version": "0.0.1"
           },
           "superseded": [],
-          "title": "Go MCP server"
+          "title": "Go MCP server",
+          "tool": {
+            "write": false
+          }
         },
         "lua": {
           "active": true,
@@ -1745,6 +1763,17 @@
           "base": "",
           "strict": true
         }
+      },
+      "text": {
+        "about_md": "",
+        "docs_url": "",
+        "entity_desc": {},
+        "homepage": "",
+        "meta_source": "",
+        "summary": "",
+        "tagline": "",
+        "title": "",
+        "website": ""
       }
     }
   },

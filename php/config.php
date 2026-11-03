@@ -93,6 +93,7 @@ class AmiiboapiConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -100,7 +101,7 @@ class AmiiboapiConfig
         ],
             ],
             "options" => [
-                "base" => "https://www.amiiboapi.com/api",
+                "base" => "https://www.amiiboapi.org/api",
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -206,6 +207,7 @@ class AmiiboapiConfig
                         'orig' => 'character',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'game_series',
@@ -218,12 +220,14 @@ class AmiiboapiConfig
                         'orig' => 'head',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'name',
                         'orig' => 'name',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'showusage',
@@ -236,26 +240,21 @@ class AmiiboapiConfig
                         'orig' => 'tail',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'type',
                         'orig' => 'type',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'amiibo_series',
-                      'character',
-                      'game_series',
-                      'head',
-                      'name',
-                      'showusage',
-                      'tail',
-                      'type',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -305,6 +304,10 @@ class AmiiboapiConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -353,6 +356,10 @@ class AmiiboapiConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -401,6 +408,10 @@ class AmiiboapiConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -449,6 +460,10 @@ class AmiiboapiConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],

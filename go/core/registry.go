@@ -12,13 +12,13 @@ var NewTestFeatureFunc func() Feature
 
 var NewTimeoutFeatureFunc func() Feature
 
-var NewAmiiboEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntity
+var NewAmiiboEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntityBase
 
-var NewAmiiboseriesEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntity
+var NewAmiiboseriesEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntityBase
 
-var NewCharacterEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntity
+var NewCharacterEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntityBase
 
-var NewGameseriesEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntity
+var NewGameseriesEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntityBase
 
-var NewTypeEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntity
+var NewTypeEntityFunc func(client *AmiiboapiSDK, entopts map[string]any) AmiiboapiEntityBase
 

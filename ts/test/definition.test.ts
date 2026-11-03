@@ -26,6 +26,10 @@ const PLAN: any[] = [
       "type": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "name",
       "head",
@@ -36,6 +40,40 @@ const PLAN: any[] = [
       "amiiboSeries",
       "showusage"
     ],
+    "queryArgs": [
+      {
+        "name": "amiibo_series",
+        "wire": "amiiboSeries"
+      },
+      {
+        "name": "character",
+        "wire": "character"
+      },
+      {
+        "name": "game_series",
+        "wire": "gameSeries"
+      },
+      {
+        "name": "head",
+        "wire": "head"
+      },
+      {
+        "name": "name",
+        "wire": "name"
+      },
+      {
+        "name": "showusage",
+        "wire": "showusage"
+      },
+      {
+        "name": "tail",
+        "wire": "tail"
+      },
+      {
+        "name": "type",
+        "wire": "type"
+      }
+    ],
     "auth": null,
     "status": 200,
     "sample": {
@@ -45,6 +83,7 @@ const PLAN: any[] = [
           "character": "x",
           "gameSeries": "x",
           "head": "x",
+          "tail": "x",
           "image": "x",
           "name": "x",
           "release": {
@@ -53,7 +92,6 @@ const PLAN: any[] = [
             "jp": "2026-01-01",
             "na": "2026-01-01"
           },
-          "tail": "x",
           "type": "x"
         }
       ]
@@ -69,7 +107,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -91,7 +134,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -113,7 +161,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -135,7 +188,12 @@ const PLAN: any[] = [
     "args": [],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {

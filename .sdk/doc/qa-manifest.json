@@ -3,5 +3,25 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "A RESTful API for Amiibo providing information on different amiibos, types, game series, characters, and more. It is primarily used for educational purposes and allows reading-only access with no authentication required.",
+      "Name of the amiibo series",
+      "Name of the amiibo type",
+      "Name of the character",
+      "Name of the game series",
+      "Production server",
+      "Successful response",
+      "The amiibo series the amiibo belongs to",
+      "The character of the amiibo",
+      "The game series the amiibo is from",
+      "The head hex value of the amiibo",
+      "URL to the amiibo image",
+      "Unique key for the amiibo series",
+      "Unique key for the amiibo type",
+      "Unique key for the character",
+      "Unique key for the game series"
+    ]
+  }
 }

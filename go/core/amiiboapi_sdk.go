@@ -146,6 +146,14 @@ func (sdk *AmiiboapiSDK) Prepare(fetchargs map[string]any) (map[string]any, erro
 	if method == "" {
 		method = "GET"
 	}
+	method = strings.ToUpper(method)
+
+	allowMethodVal := vs.GetPath(options, []any{"allow", "method"})
+	if !Allowed(allowMethodVal, method) {
+		allowMethod, _ := allowMethodVal.(string)
+		return nil, ctx.MakeError("spec_method_allow",
+			"Method \""+method+"\" not allowed by SDK option allow.method value: \""+allowMethod+"\"")
+	}
 
 	params := ToMapAny(vs.GetProp(fetchargs, "params"))
 	if params == nil {
@@ -205,8 +213,7 @@ func (sdk *AmiiboapiSDK) Direct(fetchargs map[string]any) (map[string]any, error
 
 // Is this raw-access op permitted by the SDK's allow.op option?
 func (sdk *AmiiboapiSDK) opAllowed(op string) bool {
-	allowOp, _ := vs.GetPath(sdk.options, []any{"allow", "op"}).(string)
-	return strings.Contains(allowOp, op)
+	return Allowed(vs.GetPath(sdk.options, []any{"allow", "op"}), op)
 }
 
 func (sdk *AmiiboapiSDK) opDenied(op string) map[string]any {
@@ -278,20 +285,34 @@ func (sdk *AmiiboapiSDK) rawRequest(fetchargs map[string]any) (map[string]any, e
 		noBody := status == 204 || status == 304 || contentLength == "0"
 
 		var jsonData any
+		var bodyErr error
 		if !noBody {
 			if jf := vs.GetProp(fm, "json"); jf != nil {
 				if f, ok := jf.(func() any); ok {
 					jsonData = f()
 				}
 			}
+			if unreadable, _ := vs.GetProp(fm, "unreadable").(bool); unreadable {
+				var failed error
+				if status < 200 || status >= 300 {
+					failed = ctx.MakeError("request_status",
+						fmt.Sprintf("request: %d: %v", status, vs.GetProp(fm, "statusText")))
+				}
+				bodyErr = UnreadableBody(ctx, status, headers, vs.GetProp(fm, "body"),
+					fetchdef["headers"], failed)
+			}
 		}
 
-		return map[string]any{
-			"ok":      status >= 200 && status < 300,
+		out := map[string]any{
+			"ok":      bodyErr == nil && status >= 200 && status < 300,
 			"status":  status,
 			"headers": headers,
 			"data":    jsonData,
-		}, nil
+		}
+		if bodyErr != nil {
+			out["err"] = sdk.cleanErr(ctx, bodyErr)
+		}
+		return out, nil
 	}
 
 	return map[string]any{"ok": false, "err": ctx.MakeError("direct_invalid", "invalid response type")}, nil
@@ -354,7 +375,7 @@ func (sdk *AmiiboapiSDK) Graphql(
 // Amiibo returns a Amiibo entity bound to this client.
 // Idiomatic usage: client.Amiibo(nil).List(nil, nil) or
 // client.Amiibo(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *AmiiboapiSDK) Amiibo(data map[string]any) AmiiboapiEntity {
+func (sdk *AmiiboapiSDK) Amiibo(data map[string]any) AmiiboapiEntityBase {
 	return NewAmiiboEntityFunc(sdk, data)
 }
 
@@ -362,7 +383,7 @@ func (sdk *AmiiboapiSDK) Amiibo(data map[string]any) AmiiboapiEntity {
 // Amiiboseries returns a Amiiboseries entity bound to this client.
 // Idiomatic usage: client.Amiiboseries(nil).List(nil, nil) or
 // client.Amiiboseries(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *AmiiboapiSDK) Amiiboseries(data map[string]any) AmiiboapiEntity {
+func (sdk *AmiiboapiSDK) Amiiboseries(data map[string]any) AmiiboapiEntityBase {
 	return NewAmiiboseriesEntityFunc(sdk, data)
 }
 
@@ -370,7 +391,7 @@ func (sdk *AmiiboapiSDK) Amiiboseries(data map[string]any) AmiiboapiEntity {
 // Character returns a Character entity bound to this client.
 // Idiomatic usage: client.Character(nil).List(nil, nil) or
 // client.Character(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *AmiiboapiSDK) Character(data map[string]any) AmiiboapiEntity {
+func (sdk *AmiiboapiSDK) Character(data map[string]any) AmiiboapiEntityBase {
 	return NewCharacterEntityFunc(sdk, data)
 }
 
@@ -378,7 +399,7 @@ func (sdk *AmiiboapiSDK) Character(data map[string]any) AmiiboapiEntity {
 // Gameseries returns a Gameseries entity bound to this client.
 // Idiomatic usage: client.Gameseries(nil).List(nil, nil) or
 // client.Gameseries(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *AmiiboapiSDK) Gameseries(data map[string]any) AmiiboapiEntity {
+func (sdk *AmiiboapiSDK) Gameseries(data map[string]any) AmiiboapiEntityBase {
 	return NewGameseriesEntityFunc(sdk, data)
 }
 
@@ -386,7 +407,7 @@ func (sdk *AmiiboapiSDK) Gameseries(data map[string]any) AmiiboapiEntity {
 // Type returns a Type entity bound to this client.
 // Idiomatic usage: client.Type(nil).List(nil, nil) or
 // client.Type(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *AmiiboapiSDK) Type(data map[string]any) AmiiboapiEntity {
+func (sdk *AmiiboapiSDK) Type(data map[string]any) AmiiboapiEntityBase {
 	return NewTypeEntityFunc(sdk, data)
 }
 
